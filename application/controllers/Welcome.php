@@ -23,17 +23,19 @@ class Welcome extends CI_Controller {
 	        parent::__construct();
 	        $this->load->helper('form');
     		$this->load->helper('url');
+    		$this->load->library('session');
 	}
 	public function index()
 	{
 		if (isset($_POST['password'])) {
-			$this->load->model('index_model');
-			if ($this->index_model->login($_POST['email'],md5($_POST['password']))) {
-				$this->index_model->get_roll($_POST['usuario']);
-				redirect('SistemaUDL');
+			$this->load->model('welcome_model');
+			if ($this->welcome_model->login(strtolower($_POST['email']),md5($_POST['password']))) {
+				#$this->welcome_model->get_roll($_POST['usuario']);
+				redirect('System_controller');
 			}
 			else{
-				redirect('Welcome');
+				$this->session->set_flashdata('error', 'Wrong user or password!');
+				redirect('welcome');
 			}
 		}
 		$this->load->view('welcome_message');

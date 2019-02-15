@@ -1,5 +1,5 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
-class Login_model extends CI_Model {
+class Welcome_model extends CI_Model {
 	public $variable;
 	public function __construct()
 	{
@@ -7,8 +7,8 @@ class Login_model extends CI_Model {
 		
 	}
 	public function login($usuario,$password){
-		$this->db->where('codigo_Usuario',$usuario);
-		$this->db->where('password_Usuario',$password);
+		$this->db->where('correo',$usuario);
+		$this->db->where('password',$password);
 		$query = $this->db->get('usuario');
 		if ($query->num_rows()>0) {
 			return true;
@@ -33,5 +33,5 @@ class Login_model extends CI_Model {
 		die();
 	}
 }
-/* End of file login_model.php */
-/* Location: ./application/models/login_model.php */
+/* End of file welcome_model.php */
+/* Location: ./application/models/welcome_model.php */
