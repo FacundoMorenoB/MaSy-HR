@@ -31,7 +31,7 @@ class Welcome extends CI_Controller {
 			$this->load->model('welcome_model');
 			if ($this->welcome_model->login(strtolower($_POST['email']),md5($_POST['password']))) {
 				#$this->welcome_model->get_roll($_POST['usuario']);
-				redirect('System_controller');
+				redirect('Home_controller');
 			}
 			else{
 				$this->session->set_flashdata('error', 'Wrong user or password!');

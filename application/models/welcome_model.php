@@ -7,10 +7,21 @@ class Welcome_model extends CI_Model {
 		
 	}
 	public function login($usuario,$password){
-		$this->db->where('correo',$usuario);
-		$this->db->where('password',$password);
-		$query = $this->db->get('usuario');
-		if ($query->num_rows()>0) {
+		$this->db->select('u.usuario,u.correo');
+		$this->db->from('usuario u');
+		$this->db->where('u.correo',$usuario);
+		$this->db->where('u.password',$password);
+		$query = $this->db->get();
+		echo $query;
+		if ($query->num_rows() == 1) {
+			$r = $query->row();
+
+			$s_datausuario = array(
+				's_usuario' => $r->usuario,
+				's_correo' => $r->correo
+
+			);
+			$this->session->set_userdata($s_datausuario);
 			return true;
 		}
 		else {
