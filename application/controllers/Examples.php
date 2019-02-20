@@ -1,7 +1,19 @@
 <?php
-defined('BASEPATH') OR exit('No direct script access allowed');
+defined('BASEPATH') or exit('No direct script access allowed');
 
-class Welcome extends MY_Controller
+/**
+ * Community Auth - Examples Controller
+ *
+ * Community Auth is an open source authentication application for CodeIgniter 3
+ *
+ * @package     Community Auth
+ * @author      Robert B Gottier
+ * @copyright   Copyright (c) 2011 - 2018, Robert B Gottier. (http://brianswebdesign.com/)
+ * @license     BSD - http://www.opensource.org/licenses/BSD-3-Clause
+ * @link        http://community-auth.com
+ */
+
+class Examples extends MY_Controller
 {
 	public function __construct()
 	{
@@ -28,7 +40,9 @@ class Welcome extends MY_Controller
 	{
 		if( $this->require_role('admin') )
 		{
-			echo $this->load->view('examples/page_header_home', '', TRUE);
+			echo $this->load->view('examples/page_header', '', TRUE);
+
+			echo '<p>You are logged in!</p>';
 
 			echo $this->load->view('examples/page_footer', '', TRUE);
 		}
@@ -655,3 +669,5 @@ class Welcome extends MY_Controller
 	// -----------------------------------------------------------------------
 }
 
+/* End of file Examples.php */
+/* Location: /community_auth/controllers/Examples.php */
