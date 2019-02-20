@@ -9,7 +9,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Community Auth</title>
 	<style>
 		body{background:#fee;}
 		#menu{float:left;width:100%;background:pink;}

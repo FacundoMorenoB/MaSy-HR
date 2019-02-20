@@ -56,7 +56,7 @@ if( ! isset( $optional_login ) )
 	if( isset( $login_error_mesg ) )
 	{
 		echo '
-			<div style="border:1px solid red;">
+			<div>
 				<p>
 					Login Error #' . $this->authentication->login_errors_count . '/' . config_item('max_allowed_attempts') . ': Invalid Username, Email Address, or Password.
 				</p>
@@ -70,7 +70,7 @@ if( ! isset( $optional_login ) )
 	if( $this->input->get(AUTH_LOGOUT_PARAM) )
 	{
 		echo '
-			<div style="border:1px solid green">
+			<div>
 				<p>
 					You have successfully logged out.
 				</p>
@@ -83,7 +83,7 @@ if( ! isset( $optional_login ) )
 	{
 		// EXCESSIVE LOGIN ATTEMPTS ERROR MESSAGE
 		echo '
-			<div style="border:1px solid red;">
+			<div>
 				<p>
 					Excessive Login Attempts
 				</p>

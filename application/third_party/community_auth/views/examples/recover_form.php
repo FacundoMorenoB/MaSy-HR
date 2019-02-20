@@ -13,14 +13,15 @@ defined('BASEPATH') OR exit('No direct script access allowed');
  * @link        http://community-auth.com
  */
 ?>
-
-<h1>Account Recovery</h1>
+<div class="card text-white text-center bg-success w-75" style="max-width: 50rem; margin: auto; margin-top: 10px;">
+<div class="card-header">Account Recovery</div>
+<div class="card-body">
 
 <?php
 if( isset( $disabled ) )
 {
 	echo '
-		<div style="border:1px solid red;">
+		<div>
 			<p>
 				Account Recovery is Disabled.
 			</p>
@@ -37,7 +38,7 @@ if( isset( $disabled ) )
 else if( isset( $banned ) )
 {
 	echo '
-		<div style="border:1px solid red;">
+		<div>
 			<p>
 				Account Locked.
 			</p>
@@ -54,7 +55,7 @@ else if( isset( $banned ) )
 else if( isset( $confirmation ) )
 {
 	echo '
-		<div style="border:1px solid green;">
+		<div>
 			<p>
 				Congratulations, you have created an account recovery link.
 			</p>
@@ -80,7 +81,7 @@ else if( isset( $confirmation ) )
 else if( isset( $no_match ) )
 {
 	echo '
-		<div  style="border:1px solid red;">
+		<div>
 			<p class="feedback_header">
 				Supplied email did not match any record.
 			</p>
@@ -92,34 +93,39 @@ else if( isset( $no_match ) )
 else
 {
 	echo '
+	<div>
 		<p>
 			If you\'ve forgotten your password and/or username, 
 			enter the email address used for your account, 
 			and we will send you an e-mail 
 			with instructions on how to access your account.
 		</p>
+	</div>
+		
+	</div>
 	';
 
 	$show_form = 1;
 }
 if( isset( $show_form ) )
 {
+	echo '<div class="login-clean" style="background-color: rgb(255,255,255);">';
 	?>
 
 		 <?php echo form_open(); ?>
 			<div>
+				<div class="illustration"><i class="icon ion-lock-combination" style="color: rgb(241,175,6);"></i></div>
 				<fieldset>
 					<legend>Enter your account's email address:</legend>
-					<div>
+					<div class="form-group">
 
 						<?php
 							// EMAIL ADDRESS *************************************************
-							echo form_label('Email Address','email', ['class'=>'form_label'] );
-
 							$input_data = [
 								'name'		=> 'email',
 								'id'		=> 'email',
-								'class'		=> 'form_input',
+								'class'		=> 'form_input form-control',
+								'placeholder'=>"Email",
 								'maxlength' => 255
 							];
 							echo form_input($input_data);
@@ -135,7 +141,8 @@ if( isset( $show_form ) )
 							$input_data = [
 								'name'  => 'submit',
 								'id'    => 'submit_button',
-								'value' => 'Send Email'
+								'value' => 'Send Email',
+								'class'		=> 'btn btn-primary btn-block'
 							];
 							echo form_submit($input_data);
 						?>
@@ -144,7 +151,10 @@ if( isset( $show_form ) )
 				</div>
 			</div>
 		</form>
-
+	</div>
+</div>
+</div>
+</div>
 	<?php
 }
 /* End of file recover_form.php */
