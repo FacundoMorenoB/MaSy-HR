@@ -47,20 +47,22 @@
 	<div>
         <nav class="navbar navbar-light navbar-expand-md navigation-clean-button">
             <div class="container">
-
-            	<a class="navbar-brand" href="#"><strong>MaSy-HR</strong><br></a>
+					<?php
+						$link_protocol = USE_SSL ? 'https' : NULL;
+					?>
+            	<a class="navbar-brand" href="<?php echo site_url('welcome/index', $link_protocol); ?>"><strong>MaSy-HR</strong><br></a>
             	<button class="navbar-toggler" data-toggle="collapse" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
                 <div
                     class="collapse navbar-collapse" id="navcol-1">
                     <ul class="nav navbar-nav mr-auto">
-                        <li class="nav-item" role="presentation"><a class="nav-link" href="#">Personal data</a></li>
+                        <li class="nav-item" role="presentation"><a class="nav-link" href="<?php echo site_url('welcome/personaldata', $link_protocol); ?>">Personal data</a></li>
                     </ul>
                     <span class="navbar-text actions">
                     	<div class="btn btn-light action-button">
                     	<?php
 							echo isset( $auth_user_id )
-								? logout_anchor('examples/logout', 'Logout')
-								: login_anchor('examples', 'Login', 'id="login-link"' );
+								? logout_anchor('welcome/logout', 'Logout')
+								: login_anchor('welcome', 'Login', 'id="login-link"' );
 						?>
 						</div>
 					</span>
@@ -72,4 +74,4 @@
 <?php
 
 /* End of file page_header.php */
-/* Location: /community_auth/views/examples/page_header.php */
+/* Location: /community_auth/views/welcome/page_header.php */

@@ -54,17 +54,33 @@ class Welcome extends MY_Controller
 	// -----------------------------------------------------------------------
 
 	/**
-	 * A basic page that shows verification that the user is logged in or not.
-	 * If the user is logged in, a link to "Logout" will be in the menu.
-	 * If they are not logged in, a link to "Login" will be in the menu.
+	 * A page to add, delete and modify employees
 	 */
-	public function home()
+	public function employee()
 	{
 		if ($this->is_logged_in()) {
-			echo $this->load->view('examples/page_header', '', TRUE);
+			echo $this->load->view('examples/page_header_home_recruitment', '', TRUE);				
+			echo $this->load->view('examples/page_footer', '', TRUE);
+		}else {
+			$redirect_protocol = USE_SSL ? 'https' : NULL;
 
-			echo '<p>Welcome Home</p>';
+			redirect( site_url( LOGIN_PAGE) );
+		}
+		
 
+	}
+
+	/**
+	 * A page to add, delete and modify employees
+	 */
+	public function personaldata()
+	{
+		if ($this->is_logged_in()) {
+			if ($this->auth_role == 'admin' ) {
+			echo $this->load->view('examples/page_header_home_recruitment', '', TRUE);				
+			}else{
+				echo $this->load->view('examples/page_header_home_customer', '', TRUE);
+			}
 			echo $this->load->view('examples/page_footer', '', TRUE);
 		}else {
 			$redirect_protocol = USE_SSL ? 'https' : NULL;
@@ -460,17 +476,6 @@ class Welcome extends MY_Controller
 	}
 	
 	// -----------------------------------------------------------------------
-	public function employee()
-	{
-		if ($this->is_logged_in() and $this->require_role('admin')) {
-			echo $this->load->view('examples/page_header_home_recruitment', '', TRUE);				
-			echo $this->load->view('examples/page_footer', '', TRUE);
-		}else {
-			$redirect_protocol = USE_SSL ? 'https' : NULL;
-
-			redirect( site_url( LOGIN_PAGE) );
-		}
-	}
 }
 /* End of file welcome.php */
 /* Location: /community_auth/controllers/welcome.php */

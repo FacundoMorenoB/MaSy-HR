@@ -40,7 +40,7 @@ if( ! isset( $optional_login ) )
 			<?php
 				$link_protocol = USE_SSL ? 'https' : NULL;
 			?>
-			<a href="<?php echo site_url('examples/recover', $link_protocol); ?>" class="forgot">
+			<a href="<?php echo site_url('welcome/recover', $link_protocol); ?>" class="forgot">
 				Can't access your account?
 			</a>
 		</p>
@@ -95,7 +95,7 @@ if( ! isset( $optional_login ) )
 					Your access to login and account recovery has been blocked for ' . ( (int) config_item('seconds_on_hold') / 60 ) . ' minutes.
 				</p>
 				<p>
-					Please use the <a href="/examples/recover">Account Recovery</a> after ' . ( (int) config_item('seconds_on_hold') / 60 ) . ' minutes has passed,<br />
+					Please use the <a href="/welcome/recover">Account Recovery</a> after ' . ( (int) config_item('seconds_on_hold') / 60 ) . ' minutes has passed,<br />
 					or contact us if you require assistance gaining access to your account.
 				</p>
 			</div>
@@ -106,4 +106,4 @@ if( ! isset( $optional_login ) )
 </div>
 <?php
 /*End of file login_form.php */
-/*Location: /community_auth/views/examples/login_form.php */ 
+/*Location: /community_auth/views/welcome/login_form.php */ 
