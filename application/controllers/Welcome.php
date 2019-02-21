@@ -1,5 +1,17 @@
 <?php
-defined('BASEPATH') OR exit('No direct script access allowed');
+defined('BASEPATH') or exit('No direct script access allowed');
+
+/**
+ * Community Auth - Examples Controller
+ *
+ * Community Auth is an open source authentication application for CodeIgniter 3
+ *
+ * @package     Community Auth
+ * @author      Robert B Gottier
+ * @copyright   Copyright (c) 2011 - 2018, Robert B Gottier. (http://brianswebdesign.com/)
+ * @license     BSD - http://www.opensource.org/licenses/BSD-3-Clause
+ * @link        http://community-auth.com
+ */
 
 class Welcome extends MY_Controller
 {
@@ -26,11 +38,16 @@ class Welcome extends MY_Controller
 	 */
 	public function index()
 	{
-		if( $this->require_role('admin') )
-		{
-			echo $this->load->view('examples/page_header_home', '', TRUE);
+		if( $this->require_role('admin,customer')){
 
+			if ($this->auth_role == 'admin' ) {
+			echo $this->load->view('examples/page_header_home_recruitment', '', TRUE);				
+			}else{
+				echo $this->load->view('examples/page_header_home_customer', '', TRUE);
+			}
+			echo $this->load->view('examples/page_body_teambox', '', TRUE);
 			echo $this->load->view('examples/page_footer', '', TRUE);
+
 		}
 	}
 	
@@ -69,65 +86,58 @@ class Welcome extends MY_Controller
 	 */
 	public function simple_verification()
 	{
-		if ( $this->is_logged_in() and $this->require_role('admin') ) {
-			$this->is_logged_in();
+		$this->is_logged_in();
 
-			echo $this->load->view('examples/page_header', '', TRUE);
+		echo $this->load->view('examples/page_header', '', TRUE);
 
-			echo '<p>';
-			if( ! empty( $this->auth_role ) )
+		echo '<p>';
+		if( ! empty( $this->auth_role ) )
+		{
+			echo $this->auth_role . ' logged in!<br />
+				User ID is ' . $this->auth_user_id . '<br />
+				Auth level is ' . $this->auth_level . '<br />
+				Username is ' . $this->auth_username;
+
+			if( $http_user_cookie_contents = $this->input->cookie( config_item('http_user_cookie_name') ) )
 			{
-				echo $this->auth_role . ' logged in!<br />
-					User ID is ' . $this->auth_user_id . '<br />
-					Auth level is ' . $this->auth_level . '<br />
-					Username is ' . $this->auth_username;
+				$http_user_cookie_contents = unserialize( $http_user_cookie_contents );
+				
+				echo '<br />
+					<pre>';
 
-				if( $http_user_cookie_contents = $this->input->cookie( config_item('http_user_cookie_name') ) )
-				{
-					$http_user_cookie_contents = unserialize( $http_user_cookie_contents );
-					
-					echo '<br />
-						<pre>';
+				print_r( $http_user_cookie_contents );
 
-					print_r( $http_user_cookie_contents );
-
-					echo '</pre>';
-				}
-
-				if( config_item('add_acl_query_to_auth_functions') && $this->acl )
-				{
-					echo '<br />
-						<pre>';
-
-					print_r( $this->acl );
-
-					echo '</pre>';
-				}
-
-				/**
-				 * ACL usage doesn't require ACL be added to auth vars.
-				 * If query not performed during authentication, 
-				 * the acl_permits function will query the DB.
-				 */
-				if( $this->acl_permits('general.secret_action') )
-				{
-					echo '<p>ACL permission grants action!</p>';
-				}
-			}
-			else
-			{
-				echo 'Nobody logged in.';
+				echo '</pre>';
 			}
 
-			echo '</p>';
+			if( config_item('add_acl_query_to_auth_functions') && $this->acl )
+			{
+				echo '<br />
+					<pre>';
 
-			echo $this->load->view('examples/page_footer', '', TRUE);
-		}else {
-			$redirect_protocol = USE_SSL ? 'https' : NULL;
+				print_r( $this->acl );
 
-			redirect( site_url( LOGIN_PAGE) );
+				echo '</pre>';
+			}
+
+			/**
+			 * ACL usage doesn't require ACL be added to auth vars.
+			 * If query not performed during authentication, 
+			 * the acl_permits function will query the DB.
+			 */
+			if( $this->acl_permits('general.secret_action') )
+			{
+				echo '<p>ACL permission grants action!</p>';
+			}
 		}
-		
+		else
+		{
+			echo 'Nobody logged in.';
+		}
+
+		echo '</p>';
+
+		echo $this->load->view('examples/page_footer', '', TRUE);
 	}
 	
 	// -----------------------------------------------------------------------
@@ -149,99 +159,91 @@ class Welcome extends MY_Controller
 	 */
 	public function create_user()
 	{
-		if ($this->is_logged_in() and $this->require_role('admin')) {
-			// Customize this array for your user
-			$user_data = [
-				'username'   => 'user',
-				'passwd'     => 'MSCA3034famb',
-				'email'      => 'user@masy.hr.com',
-				'auth_level' => '1', // 9 if you want to login @ examples/index.
-			];
+		// Customize this array for your user
+		$user_data = [
+			'username'   => 'admin',
+			'passwd'     => 'MSCA3034famb',
+			'email'      => 'admin@masy.hr.com',
+			'auth_level' => '9', // 9 if you want to login @ examples/index.
+		];
 
-			$this->is_logged_in();
+		$this->is_logged_in();
 
-			echo $this->load->view('examples/page_header', '', TRUE);
+		echo $this->load->view('examples/page_header', '', TRUE);
 
-			// Load resources
-			$this->load->helper('auth');
-			$this->load->model('examples/examples_model');
-			$this->load->model('examples/validation_callables');
-			$this->load->library('form_validation');
+		// Load resources
+		$this->load->helper('auth');
+		$this->load->model('examples/examples_model');
+		$this->load->model('examples/validation_callables');
+		$this->load->library('form_validation');
 
-			$this->form_validation->set_data( $user_data );
+		$this->form_validation->set_data( $user_data );
 
-			$validation_rules = [
-				[
-					'field' => 'username',
-					'label' => 'username',
-					'rules' => 'max_length[12]|is_unique[' . db_table('user_table') . '.username]',
-					'errors' => [
-						'is_unique' => 'Username already in use.'
-					]
-				],
-				[
-					'field' => 'passwd',
-					'label' => 'passwd',
-					'rules' => [
-						'trim',
-						'required',
-						[ 
-							'_check_password_strength', 
-							[ $this->validation_callables, '_check_password_strength' ] 
-						]
-					],
-					'errors' => [
-						'required' => 'The password field is required.'
-					]
-				],
-				[
-					'field'  => 'email',
-					'label'  => 'email',
-					'rules'  => 'trim|required|valid_email|is_unique[' . db_table('user_table') . '.email]',
-					'errors' => [
-						'is_unique' => 'Email address already in use.'
-					]
-				],
-				[
-					'field' => 'auth_level',
-					'label' => 'auth_level',
-					'rules' => 'required|integer|in_list[1,6,9]'
+		$validation_rules = [
+			[
+				'field' => 'username',
+				'label' => 'username',
+				'rules' => 'max_length[12]|is_unique[' . db_table('user_table') . '.username]',
+				'errors' => [
+					'is_unique' => 'Username already in use.'
 				]
-			];
+			],
+			[
+				'field' => 'passwd',
+				'label' => 'passwd',
+				'rules' => [
+					'trim',
+					'required',
+					[ 
+						'_check_password_strength', 
+						[ $this->validation_callables, '_check_password_strength' ] 
+					]
+				],
+				'errors' => [
+					'required' => 'The password field is required.'
+				]
+			],
+			[
+				'field'  => 'email',
+				'label'  => 'email',
+				'rules'  => 'trim|required|valid_email|is_unique[' . db_table('user_table') . '.email]',
+				'errors' => [
+					'is_unique' => 'Email address already in use.'
+				]
+			],
+			[
+				'field' => 'auth_level',
+				'label' => 'auth_level',
+				'rules' => 'required|integer|in_list[1,6,9]'
+			]
+		];
 
-			$this->form_validation->set_rules( $validation_rules );
+		$this->form_validation->set_rules( $validation_rules );
 
-			if( $this->form_validation->run() )
+		if( $this->form_validation->run() )
+		{
+			$user_data['passwd']     = $this->authentication->hash_passwd($user_data['passwd']);
+			$user_data['user_id']    = $this->examples_model->get_unused_id();
+			$user_data['created_at'] = date('Y-m-d H:i:s');
+
+			// If username is not used, it must be entered into the record as NULL
+			if( empty( $user_data['username'] ) )
 			{
-				$user_data['passwd']     = $this->authentication->hash_passwd($user_data['passwd']);
-				$user_data['user_id']    = $this->examples_model->get_unused_id();
-				$user_data['created_at'] = date('Y-m-d H:i:s');
-
-				// If username is not used, it must be entered into the record as NULL
-				if( empty( $user_data['username'] ) )
-				{
-					$user_data['username'] = NULL;
-				}
-
-				$this->db->set($user_data)
-					->insert(db_table('user_table'));
-
-				if( $this->db->affected_rows() == 1 )
-					echo '<h1>Congratulations</h1>' . '<p>User ' . $user_data['username'] . ' was created.</p>';
-			}
-			else
-			{
-				echo '<h1>User Creation Error(s)</h1>' . validation_errors();
+				$user_data['username'] = NULL;
 			}
 
-			echo $this->load->view('examples/page_footer', '', TRUE);
-		}else {
-			$redirect_protocol = USE_SSL ? 'https' : NULL;
+			$this->db->set($user_data)
+				->insert(db_table('user_table'));
 
-			redirect( site_url( LOGIN_PAGE) );
+			if( $this->db->affected_rows() == 1 )
+				echo '<h1>Congratulations</h1>' . '<p>User ' . $user_data['username'] . ' was created.</p>';
+		}
+		else
+		{
+			echo '<h1>User Creation Error(s)</h1>' . validation_errors();
 		}
 
-		
+		echo $this->load->view('examples/page_footer', '', TRUE);
 	}
 	
 	// -----------------------------------------------------------------------
@@ -458,5 +460,17 @@ class Welcome extends MY_Controller
 	}
 	
 	// -----------------------------------------------------------------------
-}
+	public function employee()
+	{
+		if ($this->is_logged_in() and $this->require_role('admin')) {
+			echo $this->load->view('examples/page_header_home_recruitment', '', TRUE);				
+			echo $this->load->view('examples/page_footer', '', TRUE);
+		}else {
+			$redirect_protocol = USE_SSL ? 'https' : NULL;
 
+			redirect( site_url( LOGIN_PAGE) );
+		}
+	}
+}
+/* End of file welcome.php */
+/* Location: /community_auth/controllers/welcome.php */
