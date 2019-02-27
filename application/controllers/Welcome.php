@@ -177,10 +177,10 @@ class Welcome extends MY_Controller
 	{
 		// Customize this array for your user
 		$user_data = [
-			'username'   => 'admin',
+			'username'   => 'user',
 			'passwd'     => 'MSCA3034famb',
-			'email'      => 'admin@masy.hr.com',
-			'auth_level' => '9', // 9 if you want to login @ examples/index.
+			'email'      => 'user@masy.hr.com',
+			'auth_level' => '1', // 9 if you want to login @ examples/index.
 		];
 
 		$this->is_logged_in();
