@@ -40,6 +40,7 @@
     <link rel="stylesheet" href="<?=base_url()?>css/Navigation-with-Button.css">
     <link rel="stylesheet" href="<?=base_url()?>css/Registration-Form-with-Photo.css">
     <link rel="stylesheet" href="<?=base_url()?>css/Team-Boxed.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/css/bootstrap-datepicker3.css"/>
 </head>
 <body>
     <script src="<?=base_url()?>js/jquery.min.js"></script>
