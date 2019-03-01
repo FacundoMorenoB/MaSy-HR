@@ -22,7 +22,7 @@ if( ! isset( $optional_login ) )
 ?>
 
 		<h2 class="sr-only">Login Form</h2>
-		<div class="illustration"><i class="icon ion-lock-combination" style="color: rgb(241,175,6);"></i></div>
+		<div class="illustration"><img src="<?=base_url()?>/img/masyhr_Logo.png" alt=""></div>
 		
 		<div class="form-group">
 		<input type="text" name="login_string" id="login_string" class="form_input form-control" autocomplete="off" maxlength="255" placeholder="Usuario o Email" />
