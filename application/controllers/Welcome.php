@@ -60,6 +60,7 @@ class Welcome extends MY_Controller
 	{
 		if ($this->is_logged_in()) {
 			echo $this->load->view('examples/page_header_home_recruitment', '', TRUE);				
+			echo $this->load->view('examples/page_body_employee', '', TRUE);	
 			echo $this->load->view('examples/page_footer', '', TRUE);
 		}else {
 			$redirect_protocol = USE_SSL ? 'https' : NULL;

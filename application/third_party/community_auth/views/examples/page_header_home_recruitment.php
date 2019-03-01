@@ -50,7 +50,7 @@
                     <?php
 						$link_protocol = USE_SSL ? 'https' : NULL;
 					?>
-            	<a class="navbar-brand" href="<?php echo site_url('welcome/index', $link_protocol); ?>"><strong><img src="<?=base_url()?>/img/masyhr_Logo.png" alt=""></strong><br></a>
+            	<a class="navbar-brand" href="<?php echo site_url('welcome/index', $link_protocol); ?>"><strong><img src="<?=base_url()?>/img/masyhr_Logo.png" class="img-circle" alt="Cinque Terre" width="60" height="60"></strong><br></a>
             	<button class="navbar-toggler" data-toggle="collapse" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
                 <div
                     class="collapse navbar-collapse" id="navcol-1">
