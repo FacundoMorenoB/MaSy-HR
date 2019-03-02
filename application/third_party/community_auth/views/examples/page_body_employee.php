@@ -1,72 +1,315 @@
-<script type="text/javascript" src="<?=base_url()?>js/bootstrap-datepicker.min.js"></script>
+<!-- Isolated Version of Bootstrap, not needed if your site already uses Bootstrap -->
+<link rel="stylesheet" href="https://formden.com/static/cdn/bootstrap-iso.css" />
+
+<!-- Include jQuery -->
+<script type="text/javascript" src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+
+<!-- Include Date Range Picker -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/js/bootstrap-datepicker.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/css/bootstrap-datepicker3.css"/>
+
 <script>
     $(document).ready(function(){
-      var date_input=$('input[name="date"]'); //our date input has the name "date"
-      var container=$('.bootstrap-iso form').length>0 ? $('.bootstrap-iso form').parent() : "body";
-      var options={
+        var date_input=$('input[name="fechaNacimento"]'); //our date input has the name "date"
+        var date2_input=$('input[name="fechaIngreso"]'); //our date input has the name "date"
+        var container=$('.bootstrap-iso form').length>0 ? $('.bootstrap-iso form').parent() : "body";
+        var options={
         format: 'mm/dd/yyyy',
         container: container,
         todayHighlight: true,
         autoclose: true,
       };
       date_input.datepicker(options);
+      date2_input.datepicker(options);
     })
 </script>
-<!-- Include Date Range Picker -->
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/js/bootstrap-datepicker.min.js"></script>
 
-<div class="team-boxed">
-<div class="container"> 
- <div class="row register-form">
-    <div class="col-md-8 offset-md-2">
-        <form class="custom-form">
-            <h1>Register Form</h1>
-            <div class="form-row form-group">
-                <div class="col-sm-4 label-column"><label class="col-form-label" for="name-input-field">Name </label></div>
-                <div class="col-sm-6 input-column"><input class="form-control" type="text" /></div>
-            </div>
-            <div class="form-row form-group">
-                <div class="col-sm-4 label-column"><label class="col-form-label" for="email-input-field">Email </label></div>
-                <div class="col-sm-6 input-column"><input class="form-control" type="email" /></div>
-            </div>
-            <div class="form-row form-group">
-                <div class="col-sm-4 label-column"><label class="col-form-label" for="pawssword-input-field">Password </label></div>
-                <div class="col-sm-6 input-column"><input class="form-control" type="password" /></div>
-            </div>
-            <div class="form-row form-group">
-                <div class="col-sm-4 label-column"><label class="col-form-label" for="repeat-pawssword-input-field">Repeat Password </label></div>
-                <div class="col-sm-6 input-column"><input class="form-control" type="password" /></div>
-            </div>
-            <div class="bootstrap-iso">
-             <div class="container-fluid">
-              <div class="row">
-               <div class="col-md-6 col-sm-6 col-xs-12">
+<div class="container">
+    <ul class="nav nav-tabs" id="myTab" role="tablist">
+      <li class="nav-item">
+        <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Alta</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Consultar</a>
+      </li>
+    </ul>
 
-                <!-- Form code begins -->
-                <form method="post">
-                  <div class="form-group"> <!-- Date input -->
-                    <label class="control-label" for="date">Date</label>
-                    <input class="form-control" id="date" name="date" placeholder="MM/DD/YYY" type="text"/>
-                  </div>
-                 </form>
-                 <!-- Form code ends --> 
+    <div class="tab-content">
+      <div class="tab-pane active" id="home" role="tabpanel" aria-labelledby="home-tab">
+            <form  role="form" action="<?php echo site_url('employees/guardar');?>" method="POST">
+            <div class="row">
+                <div class="col col-lg-6">
+                    <div class="bootstrap-iso">
+                        <div class="form-group form-group-lg">
+                        <label class="control-label requiredField" for="nombre">
+                        Nombre(s)
+                        <span class="asteriskField">
+                        *
+                        </span>
+                        </label>
+                        <input class="form-control" id="nombre" name="nombre" type="text"/>
+                        </div>
+                        <div class="form-group form-group-lg">
+                        <label class="control-label requiredField" for="aPaterno">
+                        Primer apellido
+                        <span class="asteriskField">
+                        *
+                        </span>
+                        </label>
+                        <input class="form-control" id="aPaterno" name="aPaterno" type="text"/>
+                        </div>
+                        <div class="form-group form-group-lg">
+                        <label class="control-label requiredField" for="aMaterno">
+                        Segundo apellido
+                        <span class="asteriskField">
+                        *
+                        </span>
+                        </label>
+                        <input class="form-control" id="aMaterno" name="aMaterno" type="text"/>
+                        </div>
+                        <div class="form-group form-group-lg">
+                        <label class="control-label requiredField" for="fechaNacimento">
+                        Fecha de nacimiento
+                        <span class="asteriskField">
+                        *
+                        </span>
+                        </label>
+                        <div class="input-group">
+                        <div class="input-group-addon">
+                        <i class="fa fa-calendar">
+                        </i>
+                        </div>
+                        <input class="form-control" id="fechaNacimento" name="fechaNacimento" placeholder="MM/DD/YYYY" type="text" readonly="readonly"/>
+                        </div>
+                        </div>
+                        <div class="form-group form-group-lg">
+                        <label class="control-label requiredField" for="estado">
+                        Estado
+                        <span class="asteriskField">
+                        *
+                        </span>
+                        </label>
+                        <input class="form-control" id="estado" name="estado" type="text"/>
+                        </div>
+                        <div class="form-group form-group-lg">
+                        <label class="control-label requiredField" for="colonia">
+                        Colonia
+                        <span class="asteriskField">
+                        *
+                        </span>
+                        </label>
+                        <input class="form-control" id="colonia" name="colonia" type="text"/>
+                        </div>
+                        <div class="form-group form-group-lg">
+                        <label class="control-label requiredField" for="codigoPostal">
+                        Codigo postal
+                        <span class="asteriskField">
+                        *
+                        </span>
+                        </label>
+                        <input class="form-control" id="codigoPostal" name="codigoPostal" type="text"/>
+                        </div>
+                        <div class="form-group form-group-lg">
+                        <label class="control-label requiredField" for="calle">
+                        Direccion
+                        <span class="asteriskField">
+                        *
+                        </span>
+                        </label>
+                        <input class="form-control" id="calle" name="calle" type="text" placeholder="Calle No. Ext. No. Int" />
+                        </div>
+                        <div class="form-group form-group-lg">
+                        <label class="control-label requiredField" for="correoCorporativo">
+                        Correo corporativo
+                        <span class="asteriskField">
+                        *
+                        </span>
+                        </label>
+                        <div class="input-group">
+                        <div class="input-group-addon">
+                        <i class="fa fa-medium">
+                        </i>
+                        </div>
+                        <input class="form-control" id="correoCorporativo" name="correoCorporativo" type="text"/>
+                        </div>
+                        </div>
 
-                </div>
-              </div>    
-             </div>
-            <div class="form-row form-group">
-                <div class="col-sm-4 label-column"><label class="col-form-label" for="dropdown-input-field">Dropdown </label></div>
-                <div class="col-sm-4 input-column">
-                    <div class="dropdown"><button class="btn btn-light dropdown-toggle" data-toggle="dropdown" aria-expanded="false" type="button">Dropdown </button>
-                        <div class="dropdown-menu" role="menu"><a class="dropdown-item" role="presentation" href="#">First Item</a><a class="dropdown-item" role="presentation" href="#">Second Item</a><a class="dropdown-item" role="presentation" href="#">Third Item</a></div>
                     </div>
                 </div>
+                <div class="col-lg-auto">
+                        <div class="form-group form-group-lg">
+                        <label class="control-label requiredField" for="sexo">
+                        Sexo
+                        <span class="asteriskField">
+                        *
+                        </span>
+                        </label>
+                        <select class="select form-control" id="sexo" name="sexo">
+                        <option value="Hombre">
+                        Hombre
+                        </option>
+                        <option value="Mujer">
+                        Mujer
+                        </option>
+                        </select>
+                        </div>
+                        <div class="form-group form-group-lg">
+                        <label class="control-label requiredField" for="imss">
+                        Numero de IMSS
+                        <span class="asteriskField">
+                        *
+                        </span>
+                        </label>
+                        <input class="form-control" id="imss" name="imss" type="text"/>
+                        </div>
+                        <div class="form-group form-group-lg">
+                        <label class="control-label requiredField" for="ine">
+                        INE
+                        <span class="asteriskField">
+                        *
+                        </span>
+                        </label>
+                        <input class="form-control" id="ine" name="ine" type="text"/>
+                        </div>
+                        <div class="form-group form-group-lg">
+                        <label class="control-label requiredField" for="curp">
+                        CURP
+                        <span class="asteriskField">
+                        *
+                        </span>
+                        </label>
+                        <input class="form-control" id="curp" name="curp" type="text"/>
+                        </div>
+                        <div class="form-group form-group-lg">
+                        <label class="control-label requiredField" for="telefono">
+                        Telefono
+                        <span class="asteriskField">
+                        *
+                        </span>
+                        </label>
+                        <div class="input-group">
+                        <div class="input-group-addon">
+                        <i class="fa fa-phone">
+                        </i>
+                        </div>
+                        <input class="form-control" id="telefono" name="telefono" type="text"/>
+                        </div>
+                        </div>
+                        <div class="form-group form-group-lg">
+                        <label class="control-label requiredField" for="fechaIngreso">
+                        Fecha de ingreso
+                        <span class="asteriskField">
+                        *
+                        </span>
+                        </label>
+                        <div class="input-group">
+                        <div class="input-group-addon">
+                        <i class="fa fa-calendar">
+                        </i>
+                        </div>
+                        <input class="form-control" id="fechaIngreso" name="fechaIngreso" placeholder="MM/DD/YYYY" type="text" readonly="readonly"/>
+                        </div>
+                        </div>
+                        <div class="form-group form-group-lg">
+                        <label class="control-label " for="correo">
+                        Correo alternativo
+                        </label>
+                        <div class="input-group">
+                        <div class="input-group-addon">
+                        <i class="fa fa-medium">
+                        </i>
+                        </div>
+                        <input class="form-control" id="correo" name="correo" type="text"/>
+                        </div>
+                        </div>
+                        <div class="form-group form-group-lg">
+                        <label class="control-label requiredField" for="tipoempleado">
+                        Tipo de empleado
+                        <span class="asteriskField">
+                        *
+                        </span>
+                        </label>
+                        <select class="select form-control" id="tipoempleado" name="tipoempleado">
+                        <option value="user">
+                        Usuario
+                        </option>
+                        <option value="recluitmen">
+                        Reclutador
+                        </option>
+                        <option value="admin">
+                        Administrador
+                        </option>
+                        </select>
+                        </div>
+                        <div class="form-group btn-group" role="group" aria-label="Basic example">
+                        <button type="submit" class="btn btn-success active" id="agregar">Agregar</button>
+                        </div>
+                    </div>
+                </div>
+                </form>
             </div>
-            <div class="form-check"><input class="form-check-input" type="checkbox" id="formCheck-1" /><label class="form-check-label" for="formCheck-1">I&#39;ve read and accept the terms and conditions</label></div><button class="btn btn-light submit-button" type="button">Submit Form</button></form>
+
+
+        <div class="tab-pane" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+            <div class="row">
+                            <br>
+                            <div class="col-lg-7"></div>
+                            <div class="col-lg-3">
+                                <input type="text" class="form-control" id="buscar" placeholder="Buscar">
+                            </div>
+                            <div class="col-lg-2">
+                                <input type="button" class="btn btn-primary btn-block" id="btnbuscar" value="Mostrar Todo" data-toggle='modal' data-target='#basicModal'>
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="row">
+                            <div id="listaEmpleados" class="col-lg-8">
+                                
+                            </div>
+                            <div class="col-lg-4">
+                                <div class="panel panel-default">
+                                    <div class="panel-heading">Editar Empleado</div>
+                                    <div class="panel-body">
+                                        <form id="form-actualizar" class="form-horizontal" action="<?php echo base_url();?>employees/actualizar" method="post" role="form" style="padding:0 10px;">
+                                            <div class="form-group">
+                                                <label>Nombres:</label>
+                                                <input type="hidden" id="idsele" name="idsele" value="">
+                                                <input type="text" name="nombressele" id="nombressele" class="form-control">
+                                            </div>
+                                            <div class="form-group">
+                                                <label>Apellidos:</label>
+                                                <input type="text" name="apellidossele" id="apellidossele" class="form-control">
+                                            </div>
+                                            <div class="form-group">
+                                                <label>DNI:</label>
+                                                <input type="text" name="dnisele" id="dnisele" class="form-control">
+                                            </div>
+                                            <div class="form-group">
+                                                <label>Telefono:</label>
+                                                <input type="text" name="telefonosele" id="telefonosele" class="form-control">
+                                            </div>
+                                            <div class="form-group">
+                                                <label>Email:</label>
+                                                <input type="email" name="emailsele" id="emailsele" class="form-control">
+                                            </div>
+                                            <div class="form-group">
+                                                <button type="button" id="btnactualizar" class="btn btn-success btn-block">Guardar</button>
+
+                                            </div>
+                                        </form>
+                                    
+                                    </div>
+                                </div>
+                                
+                            </div>
+
+                        </div>
+        </div>
     </div>
 </div>
-</div>
-</div>
+
+<script src="<?php echo base_url();?>js/bootstrap.min.js"></script>
+<script src="<?php echo base_url();?>js/employees.js"></script>
 <?php
 
 /* End of file page_header_home_recruitment.php */
