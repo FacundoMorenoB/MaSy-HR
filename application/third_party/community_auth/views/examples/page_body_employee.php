@@ -14,14 +14,14 @@
         var date2_input=$('input[name="fechaIngreso"]'); //our date input has the name "date"
         var container=$('.bootstrap-iso form').length>0 ? $('.bootstrap-iso form').parent() : "body";
         var options={
-        format: 'mm/dd/yyyy',
+        format: 'yyyy-mm-dd',
         container: container,
         todayHighlight: true,
         autoclose: true,
       };
       date_input.datepicker(options);
       date2_input.datepicker(options);
-    })
+    });
 </script>
 
 <div class="container">
@@ -36,7 +36,7 @@
 
     <div class="tab-content">
       <div class="tab-pane active" id="home" role="tabpanel" aria-labelledby="home-tab">
-            <form  role="form" action="<?php echo site_url('employees/guardar');?>" method="POST">
+            <form  role="form" action="<?php echo site_url('employees/guardar');?>" method="POST" id="form_agregar">
             <div class="row">
                 <div class="col col-lg-6">
                     <div class="bootstrap-iso">
@@ -79,7 +79,7 @@
                         <i class="fa fa-calendar">
                         </i>
                         </div>
-                        <input class="form-control" id="fechaNacimento" name="fechaNacimento" placeholder="MM/DD/YYYY" type="text" readonly="readonly"/>
+                        <input class="form-control" id="fechaNacimiento" name="fechaNacimento" placeholder="MM/DD/YYYY" type="text" readonly="readonly"/>
                         </div>
                         </div>
                         <div class="form-group form-group-lg">
@@ -272,25 +272,13 @@
                                     <div class="panel-body">
                                         <form id="form-actualizar" class="form-horizontal" action="<?php echo base_url();?>employees/actualizar" method="post" role="form" style="padding:0 10px;">
                                             <div class="form-group">
-                                                <label>Nombres:</label>
-                                                <input type="hidden" id="idsele" name="idsele" value="">
-                                                <input type="text" name="nombressele" id="nombressele" class="form-control">
+                                                <label>Nombre:</label>
+                                                <input type="hidden" id="curpsele" name="curpsele" value="">
+                                                <input type="text" name="nombresele" id="nombresele" class="form-control">
                                             </div>
                                             <div class="form-group">
-                                                <label>Apellidos:</label>
-                                                <input type="text" name="apellidossele" id="apellidossele" class="form-control">
-                                            </div>
-                                            <div class="form-group">
-                                                <label>DNI:</label>
-                                                <input type="text" name="dnisele" id="dnisele" class="form-control">
-                                            </div>
-                                            <div class="form-group">
-                                                <label>Telefono:</label>
-                                                <input type="text" name="telefonosele" id="telefonosele" class="form-control">
-                                            </div>
-                                            <div class="form-group">
-                                                <label>Email:</label>
-                                                <input type="email" name="emailsele" id="emailsele" class="form-control">
+                                                <label>Apellido:</label>
+                                                <input type="text" name="apaternosele" id="apaternosele" class="form-control">
                                             </div>
                                             <div class="form-group">
                                                 <button type="button" id="btnactualizar" class="btn btn-success btn-block">Guardar</button>

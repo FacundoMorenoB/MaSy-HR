@@ -19,8 +19,8 @@ class Employees_model extends CI_Model {
 		return $consulta->result();
 	}
 
-	function actualizar($id,$data){
-		$this->db->where('curp', $id);
+	function actualizar($curp,$data){
+		$this->db->where('curp', $curp);
 		$this->db->update('employees', $data); 
 		if ($this->db->affected_rows() > 0) {
 			return true;
@@ -30,8 +30,8 @@ class Employees_model extends CI_Model {
 		}
 	}
 
-	function eliminar($id){
-		$this->db->where('curp', $id);
+	function eliminar($curp){
+		$this->db->where('curp', $curp);
 		$this->db->delete('employees'); 
 		if ($this->db->affected_rows() > 0) {
 			return true;

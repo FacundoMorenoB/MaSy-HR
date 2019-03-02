@@ -7,24 +7,27 @@ class Employees extends CI_Controller {
 	{
 	    parent::__construct();
 	    $this->load->model("employees_model");
+	    $this->load->helper('url');
+		$this->load->helper('form');
+		$this->load->helper('date');
+		$this->load->library('form_validation');
 	}
 
 	function guardar(){
 		//El metodo is_ajax_request() de la libreria input permite verificar
 		//si se esta accediendo mediante el metodo AJAX 
-		if ($this->input->is_ajax_request()) {
+		if (!$this->input->is_ajax_request()) {
 			$nombre = $this->input->post("nombre");
 			$apaterno = $this->input->post("aPaterno");
 			$amaterno = $this->input->post("aMaterno");
-			$fechanacimento = $this->input->post("fechaNacimento");
+			$fechanacimiento = $this->input->post("fechaNacimiento");
 			$estado = $this->input->post("estado");
 
 			$datos = array(
 				"nombre" => $nombre,
 				"apaterno" => $apaterno,
-				"dni_empleado" => $dni,
 				"amaterno" => $amaterno,
-				"fechanacimento" => $fechanacimento,
+				"fechanacimiento" => $fechanacimiento,
 				"estado" => $estado
 				);
 			if($this->employees_model->guardar($datos)==true)
@@ -34,7 +37,7 @@ class Employees extends CI_Controller {
 		}
 		else
 		{
-			echo "Error AJAX";
+			echo $this->input->is_ajax_request();
 			show_404();
 		}
 
@@ -42,7 +45,7 @@ class Employees extends CI_Controller {
 	}
 
 	function mostrar(){
-		if ($this->input->is_ajax_request()) {
+		if (!$this->input->is_ajax_request()) {
 			$buscar = $this->input->post("buscar");
 			$datos = $this->employees_model->mostrar($buscar);
 			echo json_encode($datos);
@@ -55,21 +58,15 @@ class Employees extends CI_Controller {
 	}
 
 	function actualizar(){
-		if ($this->input->is_ajax_request()) {
-			$idsele = $this->input->post("idsele");
-			$nombres = $this->input->post("nombressele");
-			$apellidos = $this->input->post("apellidossele");
-			$dni = $this->input->post("dnisele");
-			$telefono = $this->input->post("telefonosele");
-			$email = $this->input->post("emailsele");
+		if (!$this->input->is_ajax_request()) {
+			$curp = $this->input->post("curpsele");
+			$nombre = $this->input->post("nombresele");
+			$apaterno = $this->input->post("apaternosele");
 			$datos = array(
-				"nombres_empleado" => $nombres,
-				"apellidos_empleado" => $apellidos,
-				"dni_empleado" => $dni,
-				"telefono_empleado" => $telefono,
-				"email_empleado" => $email
+				"nombre" => $nombre,
+				"apaterno" => $apaterno,
 				);
-			if($this->employees_model->actualizar($idsele,$datos) == true)
+			if($this->employees_model->actualizar($curp,$datos) == true)
 				echo "Registro Actualizado";
 			else
 				echo "No se pudo actualizar los datos";
@@ -82,9 +79,9 @@ class Employees extends CI_Controller {
 	}
 
 	function eliminar(){
-		if ($this->input->is_ajax_request()) {
-			$idsele = $this->input->post("id");
-			if($this->employees_model->eliminar($idsele) == true)
+		if (!$this->input->is_ajax_request()) {
+			$curp = $this->input->post("curpsele");
+			if($this->employees_model->eliminar($curp) == true)
 				echo "Registro Eliminado";
 			else
 				echo "No se pudo eliminar los datos";
