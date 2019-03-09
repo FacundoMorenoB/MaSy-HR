@@ -54,7 +54,7 @@
             *
             </span>
             </label>
-            <input class="form-control" id="nombre" name="nombre" type="text"/>
+            <input required class="form-control" id="nombre" name="nombre" type="text"/>
             </div>
             <div class="form-group form-group-lg">
             <label class="control-label requiredField" for="aPaterno">
@@ -63,7 +63,7 @@
             *
             </span>
             </label>
-            <input class="form-control" id="aPaterno" name="aPaterno" type="text"/>
+            <input required class="form-control" id="aPaterno" name="aPaterno" type="text"/>
             </div>
             <div class="form-group form-group-lg">
             <label class="control-label requiredField" for="aMaterno">
@@ -72,7 +72,7 @@
             *
             </span>
             </label>
-            <input class="form-control" id="aMaterno" name="aMaterno" type="text"/>
+            <input required class="form-control" id="aMaterno" name="aMaterno" type="text"/>
             </div>
             <div class="form-group form-group-lg">
             <label class="control-label requiredField" for="fechaNacimento">
@@ -86,7 +86,7 @@
             <i class="fa fa-calendar">
             </i>
             </div>
-            <input class="form-control" id="fechaNacimiento" name="fechaNacimento" placeholder="MM/DD/YYYY" type="text" readonly="readonly"/>
+            <input required class="form-control" id="fechaNacimiento" name="fechaNacimento" placeholder="MM/DD/YYYY" type="text" readonly="readonly"/>
             </div>
             </div>
             <div class="form-group form-group-lg">
@@ -96,7 +96,7 @@
             *
             </span>
             </label>
-            <input class="form-control" id="estado" name="estado" type="text"/>
+            <input required class="form-control" id="estado" name="estado" type="text"/>
             </div>
             <div class="form-group form-group-lg">
             <label class="control-label requiredField" for="colonia">
@@ -105,7 +105,7 @@
             *
             </span>
             </label>
-            <input class="form-control" id="colonia" name="colonia" type="text"/>
+            <input required class="form-control" id="colonia" name="colonia" type="text"/>
             </div>
             <div class="form-group form-group-lg">
             <label class="control-label requiredField" for="codigoPostal">
@@ -114,7 +114,7 @@
             *
             </span>
             </label>
-            <input class="form-control" id="codigoPostal" name="codigoPostal" type="text"/>
+            <input required class="form-control" id="codigoPostal" required pattern="[0-9]{5}" name="codigoPostal" type="text" />
             </div>
             <div class="form-group form-group-lg">
             <label class="control-label requiredField" for="calle">
@@ -123,7 +123,7 @@
             *
             </span>
             </label>
-            <input class="form-control" id="calle" name="calle" type="text" placeholder="Calle No. Ext. No. Int" />
+            <input required class="form-control" id="calle" name="calle" type="text" placeholder="Calle No. Ext. No. Int" />
             </div>
             <div class="form-group form-group-lg">
             <label class="control-label requiredField" for="correoCorporativo">
@@ -137,7 +137,7 @@
             <i class="fa fa-medium">
             </i>
             </div>
-            <input class="form-control" id="correoCorporativo" name="correoCorporativo" type="text"/>
+            <input required class="form-control" id="correoCorporativo" name="correoCorporativo" type="email"/>
             </div>
             </div>
 
@@ -167,7 +167,7 @@
             *
             </span>
             </label>
-            <input class="form-control" id="imss" name="imss" type="text"/>
+            <input required class="form-control" id="imss" pattern="[0-9]{10}" name="imss" type="text"/>
             </div>
             <div class="form-group form-group-lg">
             <label class="control-label requiredField" for="ine">
@@ -176,7 +176,7 @@
             *
             </span>
             </label>
-            <input class="form-control" id="ine" name="ine" type="text"/>
+            <input required class="form-control" id="ine" pattern="[A-Z0-9]{18,20}" name="ine" type="text"/>
             </div>
             <div class="form-group form-group-lg">
             <label class="control-label requiredField" for="curp">
@@ -185,7 +185,7 @@
             *
             </span>
             </label>
-            <input class="form-control" id="curp" name="curp" type="text"/>
+            <input required class="form-control" id="curp" pattern="[A-Z0-9]{18,20}" name="curp" type="text"/>
             </div>
             <div class="form-group form-group-lg">
             <label class="control-label requiredField" for="telefono">
@@ -199,7 +199,7 @@
             <i class="fa fa-phone">
             </i>
             </div>
-            <input class="form-control" id="telefono" name="telefono" type="text"/>
+            <input required class="form-control" id="telefono" pattern="[0-9|\-0-9|\-0-9]{10}" name="telefono" type="text"/>
             </div>
             </div>
             <div class="form-group form-group-lg">
@@ -214,7 +214,7 @@
             <i class="fa fa-calendar">
             </i>
             </div>
-            <input class="form-control" id="fechaIngreso" name="fechaIngreso" placeholder="MM/DD/YYYY" type="text" readonly="readonly"/>
+            <input required class="form-control" id="fechaIngreso" name="fechaIngreso" placeholder="MM/DD/YYYY" type="text" readonly="readonly"/>
             </div>
             </div>
             <div class="form-group form-group-lg">
@@ -226,7 +226,7 @@
             <i class="fa fa-medium">
             </i>
             </div>
-            <input class="form-control" id="correo" name="correo" type="text"/>
+            <input required class="form-control" id="correo" name="correo" type="text"/>
             </div>
             </div>
             <div class="form-group form-group-lg">
@@ -264,10 +264,10 @@
             <br>
             <div class="col-lg-6"></div>
             <div class="col-lg-3">
-            <input type="text" class="form-control" id="buscar" placeholder="Buscar">
+            <input required type="text" class="form-control" id="buscar" placeholder="Buscar">
             </div>
             <div class="col-lg-3">
-            <input type="button" class="btn btn-primary btn-block" id="btnbuscar" value="Mostrar Todo" data-toggle='modal' data-target='#basicModal'>
+            <input required type="button" class="btn btn-primary btn-block" id="btnbuscar" value="Mostrar Todo" data-toggle='modal' data-target='#basicModal'>
             </div>
             </div>
             <hr>
@@ -282,12 +282,12 @@
             <form id="form-actualizar" class="form-horizontal" action="<?php echo base_url();?>employees/actualizar" method="post" role="form" style="padding:0 10px;">
             <div class="form-group">
             <label>Nombre:</label>
-            <input type="hidden" id="curpsele" name="curpsele" value="">
-            <input type="text" name="nombresele" id="nombresele" class="form-control">
+            <input required type="hidden" id="curpsele" name="curpsele" value="">
+            <input required type="text" name="nombresele" id="nombresele" class="form-control">
             </div>
             <div class="form-group">
             <label>Apellido:</label>
-            <input type="text" name="apaternosele" id="apaternosele" class="form-control">
+            <input required type="text" name="apaternosele" id="apaternosele" class="form-control">
             </div>
             <div class="form-group">
             <button type="button" id="btnactualizar" class="btn btn-success btn-block">Guardar</button>
@@ -318,7 +318,7 @@
             *
             </span>
             </label>
-            <input class="form-control" id="nombre" name="nombre" type="text"/>
+            <input required class="form-control" id="nombre" name="nombre" type="text"/>
             </div>
             <div class="form-group form-group-lg">
             <label class="control-label requiredField" for="aPaterno">
@@ -327,7 +327,7 @@
             *
             </span>
             </label>
-            <input class="form-control" id="aPaterno" name="aPaterno" type="text"/>
+            <input required class="form-control" id="aPaterno" name="aPaterno" type="text"/>
             </div>
             <div class="form-group form-group-lg">
             <label class="control-label requiredField" for="aMaterno">
@@ -336,7 +336,7 @@
             *
             </span>
             </label>
-            <input class="form-control" id="aMaterno" name="aMaterno" type="text"/>
+            <input required class="form-control" id="aMaterno" name="aMaterno" type="text"/>
             </div>
             <div class="form-group form-group-lg">
             <label class="control-label requiredField" for="fechaNacimento">
@@ -350,7 +350,7 @@
             <i class="fa fa-calendar">
             </i>
             </div>
-            <input class="form-control" id="fechaNacimiento" name="fechaNacimento" placeholder="MM/DD/YYYY" type="text" readonly="readonly"/>
+            <input required class="form-control" id="fechaNacimiento" name="fechaNacimento" placeholder="MM/DD/YYYY" type="text" readonly="readonly"/>
             </div>
             </div>
             <div class="form-group form-group-lg">
@@ -360,7 +360,7 @@
             *
             </span>
             </label>
-            <input class="form-control" id="estado" name="estado" type="text"/>
+            <input required class="form-control" id="estado" name="estado" type="text"/>
             </div>
             <div class="form-group form-group-lg">
             <label class="control-label requiredField" for="colonia">
@@ -369,7 +369,7 @@
             *
             </span>
             </label>
-            <input class="form-control" id="colonia" name="colonia" type="text"/>
+            <input required class="form-control" id="colonia" name="colonia" type="text"/>
             </div>
             <div class="form-group form-group-lg">
             <label class="control-label requiredField" for="codigoPostal">
@@ -378,7 +378,7 @@
             *
             </span>
             </label>
-            <input class="form-control" id="codigoPostal" name="codigoPostal" type="text"/>
+            <input required class="form-control" id="codigoPostal" required pattern="[0-9]{5}" name="codigoPostal" type="text"/>
             </div>
             <div class="form-group form-group-lg">
             <label class="control-label requiredField" for="calle">
@@ -387,7 +387,7 @@
             *
             </span>
             </label>
-            <input class="form-control" id="calle" name="calle" type="text" placeholder="Calle No. Ext. No. Int" />
+            <input required class="form-control" id="calle" name="calle" type="text" placeholder="Calle No. Ext. No. Int" />
             </div>
             <div class="form-group form-group-lg">
             <label class="control-label requiredField" for="correoCorporativo">
@@ -401,7 +401,7 @@
             <i class="fa fa-medium">
             </i>
             </div>
-            <input class="form-control" id="correoCorporativo" name="correoCorporativo" type="text"/>
+            <input required class="form-control" id="correoCorporativo" name="correoCorporativo" type="email"/>
             </div>
             </div>
 
@@ -431,7 +431,7 @@
             *
             </span>
             </label>
-            <input class="form-control" id="imss" name="imss" type="text"/>
+            <input required class="form-control" id="imss" pattern="[0-9]{10}" name="imss" type="text"/>
             </div>
             <div class="form-group form-group-lg">
             <label class="control-label requiredField" for="ine">
@@ -440,7 +440,7 @@
             *
             </span>
             </label>
-            <input class="form-control" id="ine" name="ine" type="text"/>
+            <input required class="form-control" id="ine" pattern="[A-Z0-9]{18,20}" name="ine" type="text"/>
             </div>
             <div class="form-group form-group-lg">
             <label class="control-label requiredField" for="curp">
@@ -449,7 +449,7 @@
             *
             </span>
             </label>
-            <input class="form-control" id="curp" name="curp" type="text"/>
+            <input required class="form-control" id="curp" pattern="[A-Z0-9]{18,20}" name="curp" type="text"/>
             </div>
             <div class="form-group form-group-lg">
             <label class="control-label requiredField" for="telefono">
@@ -463,7 +463,7 @@
             <i class="fa fa-phone">
             </i>
             </div>
-            <input class="form-control" id="telefono" name="telefono" type="text"/>
+            <input required class="form-control" id="telefono" pattern="[0-9|\-0-9|\-0-9]{10}" name="telefono" type="text"/>
             </div>
             </div>
             <div class="form-group form-group-lg">
@@ -478,7 +478,7 @@
             <i class="fa fa-calendar">
             </i>
             </div>
-            <input class="form-control" id="fechaIngreso" name="fechaIngreso" placeholder="MM/DD/YYYY" type="text" readonly="readonly"/>
+            <input required class="form-control" id="fechaIngreso" name="fechaIngreso" placeholder="MM/DD/YYYY" type="text" readonly="readonly"/>
             </div>
             </div>
             <div class="form-group form-group-lg">
@@ -490,7 +490,7 @@
             <i class="fa fa-medium">
             </i>
             </div>
-            <input class="form-control" id="correo" name="correo" type="text"/>
+            <input required class="form-control" id="correo" name="correo" type="text"/>
             </div>
             </div>
             <div class="form-group form-group-lg">
@@ -528,10 +528,10 @@
             <br>
             <div class="col-lg-6"></div>
             <div class="col-lg-3">
-            <input type="text" class="form-control" id="buscar" placeholder="Buscar">
+            <input required type="text" class="form-control" id="buscar" placeholder="Buscar">
             </div>
             <div class="col-lg-3">
-            <input type="button" class="btn btn-primary btn-block" id="btnbuscar" value="Mostrar Todo" data-toggle='modal' data-target='#basicModal'>
+            <input required type="button" class="btn btn-primary btn-block" id="btnbuscar" value="Mostrar Todo" data-toggle='modal' data-target='#basicModal'>
             </div>
             </div>
             <hr>
@@ -546,12 +546,12 @@
             <form id="form-actualizar" class="form-horizontal" action="<?php echo base_url();?>employees/actualizar" method="post" role="form" style="padding:0 10px;">
             <div class="form-group">
             <label>Nombre:</label>
-            <input type="hidden" id="curpsele" name="curpsele" value="">
-            <input type="text" name="nombresele" id="nombresele" class="form-control">
+            <input required type="hidden" id="curpsele" name="curpsele" value="">
+            <input required type="text" name="nombresele" id="nombresele" class="form-control">
             </div>
             <div class="form-group">
             <label>Apellido:</label>
-            <input type="text" name="apaternosele" id="apaternosele" class="form-control">
+            <input required type="text" name="apaternosele" id="apaternosele" class="form-control">
             </div>
             <div class="form-group">
             <button type="button" id="btnactualizar" class="btn btn-success btn-block">Guardar</button>
@@ -582,7 +582,7 @@
             *
             </span>
             </label>
-            <input class="form-control" id="nombre" name="nombre" type="text"/>
+            <input required class="form-control" id="nombre" name="nombre" type="text"/>
             </div>
             <div class="form-group form-group-lg">
             <label class="control-label requiredField" for="aPaterno">
@@ -591,7 +591,7 @@
             *
             </span>
             </label>
-            <input class="form-control" id="aPaterno" name="aPaterno" type="text"/>
+            <input required class="form-control" id="aPaterno" name="aPaterno" type="text"/>
             </div>
             <div class="form-group form-group-lg">
             <label class="control-label requiredField" for="aMaterno">
@@ -600,7 +600,7 @@
             *
             </span>
             </label>
-            <input class="form-control" id="aMaterno" name="aMaterno" type="text"/>
+            <input required class="form-control" id="aMaterno" name="aMaterno" type="text"/>
             </div>
             <div class="form-group form-group-lg">
             <label class="control-label requiredField" for="fechaNacimento">
@@ -614,7 +614,7 @@
             <i class="fa fa-calendar">
             </i>
             </div>
-            <input class="form-control" id="fechaNacimiento" name="fechaNacimento" placeholder="MM/DD/YYYY" type="text" readonly="readonly"/>
+            <input required class="form-control" id="fechaNacimiento" name="fechaNacimento" placeholder="MM/DD/YYYY" type="text" readonly="readonly"/>
             </div>
             </div>
             <div class="form-group form-group-lg">
@@ -624,7 +624,7 @@
             *
             </span>
             </label>
-            <input class="form-control" id="estado" name="estado" type="text"/>
+            <input required class="form-control" id="estado" name="estado" type="text"/>
             </div>
             <div class="form-group form-group-lg">
             <label class="control-label requiredField" for="colonia">
@@ -633,7 +633,7 @@
             *
             </span>
             </label>
-            <input class="form-control" id="colonia" name="colonia" type="text"/>
+            <input required class="form-control" id="colonia" name="colonia" type="text"/>
             </div>
             <div class="form-group form-group-lg">
             <label class="control-label requiredField" for="codigoPostal">
@@ -642,7 +642,7 @@
             *
             </span>
             </label>
-            <input class="form-control" id="codigoPostal" name="codigoPostal" type="text"/>
+            <input required class="form-control" id="codigoPostal" required pattern="[0-9]{5}" name="codigoPostal" type="text"/>
             </div>
             <div class="form-group form-group-lg">
             <label class="control-label requiredField" for="calle">
@@ -651,7 +651,7 @@
             *
             </span>
             </label>
-            <input class="form-control" id="calle" name="calle" type="text" placeholder="Calle No. Ext. No. Int" />
+            <input required class="form-control" id="calle" name="calle" type="text" placeholder="Calle No. Ext. No. Int" />
             </div>
             <div class="form-group form-group-lg">
             <label class="control-label requiredField" for="correoCorporativo">
@@ -665,7 +665,7 @@
             <i class="fa fa-medium">
             </i>
             </div>
-            <input class="form-control" id="correoCorporativo" name="correoCorporativo" type="text"/>
+            <input required class="form-control" id="correoCorporativo" name="correoCorporativo" type="email"/>
             </div>
             </div>
 
@@ -695,7 +695,7 @@
             *
             </span>
             </label>
-            <input class="form-control" id="imss" name="imss" type="text"/>
+            <input required class="form-control" id="imss" pattern="[0-9]{10}" name="imss" type="text"/>
             </div>
             <div class="form-group form-group-lg">
             <label class="control-label requiredField" for="ine">
@@ -704,7 +704,7 @@
             *
             </span>
             </label>
-            <input class="form-control" id="ine" name="ine" type="text"/>
+            <input required class="form-control" id="ine" pattern="[A-Z0-9]{18,20}" name="ine" type="text"/>
             </div>
             <div class="form-group form-group-lg">
             <label class="control-label requiredField" for="curp">
@@ -713,7 +713,7 @@
             *
             </span>
             </label>
-            <input class="form-control" id="curp" name="curp" type="text"/>
+            <input required class="form-control" id="curp" pattern="[A-Z0-9]{18,20}" name="curp" type="text"/>
             </div>
             <div class="form-group form-group-lg">
             <label class="control-label requiredField" for="telefono">
@@ -727,7 +727,7 @@
             <i class="fa fa-phone">
             </i>
             </div>
-            <input class="form-control" id="telefono" name="telefono" type="text"/>
+            <input required class="form-control" id="telefono" pattern="[0-9|\-0-9|\-0-9]{10}" name="telefono" type="text"/>
             </div>
             </div>
             <div class="form-group form-group-lg">
@@ -742,7 +742,7 @@
             <i class="fa fa-calendar">
             </i>
             </div>
-            <input class="form-control" id="fechaIngreso" name="fechaIngreso" placeholder="MM/DD/YYYY" type="text" readonly="readonly"/>
+            <input required class="form-control" id="fechaIngreso" name="fechaIngreso" placeholder="MM/DD/YYYY" type="text" readonly="readonly"/>
             </div>
             </div>
             <div class="form-group form-group-lg">
@@ -754,7 +754,7 @@
             <i class="fa fa-medium">
             </i>
             </div>
-            <input class="form-control" id="correo" name="correo" type="text"/>
+            <input required class="form-control" id="correo" name="correo" type="text"/>
             </div>
             </div>
             <div class="form-group form-group-lg">
@@ -792,10 +792,10 @@
             <br>
             <div class="col-lg-6"></div>
             <div class="col-lg-3">
-            <input type="text" class="form-control" id="buscar" placeholder="Buscar">
+            <input required type="text" class="form-control" id="buscar" placeholder="Buscar">
             </div>
             <div class="col-lg-3">
-            <input type="button" class="btn btn-primary btn-block" id="btnbuscar" value="Mostrar Todo" data-toggle='modal' data-target='#basicModal'>
+            <input required type="button" class="btn btn-primary btn-block" id="btnbuscar" value="Mostrar Todo" data-toggle='modal' data-target='#basicModal'>
             </div>
             </div>
             <hr>
@@ -810,12 +810,12 @@
             <form id="form-actualizar" class="form-horizontal" action="<?php echo base_url();?>employees/actualizar" method="post" role="form" style="padding:0 10px;">
             <div class="form-group">
             <label>Nombre:</label>
-            <input type="hidden" id="curpsele" name="curpsele" value="">
-            <input type="text" name="nombresele" id="nombresele" class="form-control">
+            <input required type="hidden" id="curpsele" name="curpsele" value="">
+            <input required type="text" name="nombresele" id="nombresele" class="form-control">
             </div>
             <div class="form-group">
             <label>Apellido:</label>
-            <input type="text" name="apaternosele" id="apaternosele" class="form-control">
+            <input required type="text" name="apaternosele" id="apaternosele" class="form-control">
             </div>
             <div class="form-group">
             <button type="button" id="btnactualizar" class="btn btn-success btn-block">Guardar</button>
