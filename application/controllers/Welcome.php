@@ -41,12 +41,12 @@ class Welcome extends MY_Controller
 		if( $this->require_role('admin,customer')){
 
 			if ($this->auth_role == 'admin' ) {
-			echo $this->load->view('examples/page_header_home_recruitment', '', TRUE);				
+			echo $this->load->view('header_reclutador', '', TRUE);				
 			}else{
 				echo $this->load->view('examples/page_header_home_customer', '', TRUE);
 			}
-			echo $this->load->view('examples/page_body_teambox', '', TRUE);
-			echo $this->load->view('examples/page_footer', '', TRUE);
+			echo $this->load->view('body_home', '', TRUE);
+			echo $this->load->view('footer', '', TRUE);
 
 		}
 	}
@@ -59,9 +59,9 @@ class Welcome extends MY_Controller
 	public function employee()
 	{
 		if ($this->is_logged_in()) {
-			echo $this->load->view('examples/page_header_home_recruitment', '', TRUE);				
-			echo $this->load->view('examples/page_body_employee', '', TRUE);	
-			echo $this->load->view('examples/page_footer', '', TRUE);
+			echo $this->load->view('header_reclutador', '', TRUE);				
+			echo $this->load->view('body_reclutador', '', TRUE);	
+			echo $this->load->view('footer', '', TRUE);
 		}else {
 			$redirect_protocol = USE_SSL ? 'https' : NULL;
 
@@ -78,11 +78,11 @@ class Welcome extends MY_Controller
 	{
 		if ($this->is_logged_in()) {
 			if ($this->auth_role == 'admin' ) {
-			echo $this->load->view('examples/page_header_home_recruitment', '', TRUE);				
+			echo $this->load->view('header_reclutador', '', TRUE);				
 			}else{
 				echo $this->load->view('examples/page_header_home_customer', '', TRUE);
 			}
-			echo $this->load->view('examples/page_footer', '', TRUE);
+			echo $this->load->view('footer', '', TRUE);
 		}else {
 			$redirect_protocol = USE_SSL ? 'https' : NULL;
 
@@ -154,7 +154,7 @@ class Welcome extends MY_Controller
 
 		echo '</p>';
 
-		echo $this->load->view('examples/page_footer', '', TRUE);
+		echo $this->load->view('footer', '', TRUE);
 	}
 	
 	// -----------------------------------------------------------------------
@@ -260,7 +260,7 @@ class Welcome extends MY_Controller
 			echo '<h1>User Creation Error(s)</h1>' . validation_errors();
 		}
 
-		echo $this->load->view('examples/page_footer', '', TRUE);
+		echo $this->load->view('footer', '', TRUE);
 	}
 	
 	// -----------------------------------------------------------------------
@@ -284,7 +284,7 @@ class Welcome extends MY_Controller
 
 		$html = $this->load->view('examples/page_header', '', TRUE);
 		$html .= $this->load->view('examples/login_form', '', TRUE);
-		$html .= $this->load->view('examples/page_footer', '', TRUE);
+		$html .= $this->load->view('footer', '', TRUE);
 
 		echo $html;
 	}
@@ -388,7 +388,7 @@ class Welcome extends MY_Controller
 
 			echo $this->load->view('examples/recover_form', ( isset( $view_data ) ) ? $view_data : '', TRUE );
 
-			echo $this->load->view('examples/page_footer', '', TRUE);
+			echo $this->load->view('footer', '', TRUE);
 		
 	}
 
@@ -473,7 +473,7 @@ class Welcome extends MY_Controller
 
 			echo $this->load->view( 'examples/choose_password_form', $view_data, TRUE );
 
-			echo $this->load->view('examples/page_footer', '', TRUE);
+			echo $this->load->view('footer', '', TRUE);
 	}
 	
 	// -----------------------------------------------------------------------
