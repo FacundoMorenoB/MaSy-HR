@@ -10,11 +10,29 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     <title>MaSy-HR Login</title>
     <link rel="stylesheet" href="<?=base_url()?>css/bootstrap.min.css">
     <link rel="stylesheet" href="<?=base_url()?>css/Login-Form-Dark.css">
+    <?php
+        // Add any javascripts
+        if( isset( $javascripts ) )
+        {
+            foreach( $javascripts as $js )
+            {
+                echo '<script src="' . $js . '"></script>' . "\n";
+            }
+        }
+
+        if( isset( $final_head ) )
+        {
+            echo $final_head;
+        }
+    ?>
 </head>
 <body>
     <div class="login-dark">
-        <form method="post">
-            <h2 class="sr-only">Login Form</h2>
+        
+        <?php
+        echo form_open( $login_url); 
+        ?>
+            <h2 class="sr-only">MaSy-HR</h2>
             <div class="illustration"><img src="<?=base_url()?>img/masyhr_Logo.png"></div>
             <div class="form-group"><input class="form-control" type="text" name="login_string" id="login_string" placeholder="Usuario o Correo" maxlength="255"></div>
             <div class="form-group"><input class="form-control" type="password" name="login_pass" id="login_pass" placeholder="Password" <?php 

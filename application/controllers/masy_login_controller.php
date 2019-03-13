@@ -85,7 +85,7 @@ class Masy_login_controller extends MY_Controller
 
 		$this->setup_login_form();
 
-		$html = $this->load->view('masy_login_view.php', '', TRUE);
+		$html = $this->load->view('masy_login_view', '', TRUE);
 
 		echo $html;
 	}
