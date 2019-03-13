@@ -40,11 +40,11 @@ class Masy_login_controller extends MY_Controller
 	{
 		if( $this->require_role('admin') )
 		{
-			echo $this->load->view('examples/page_header', '', TRUE);
+			echo $this->load->view('masy_headerreclutador_view', '', TRUE);
 
-			echo '<p>You are logged in!</p>';
+			echo $this->load->view('masy_bodyhome_view', '', TRUE);
 
-			echo $this->load->view('examples/page_footer', '', TRUE);
+			echo $this->load->view('masy_footer_view', '', TRUE);
 		}
 	}
 	
