@@ -28,7 +28,7 @@
             <div class="tab-content">
                 <div class="tab-pane" id="publicarvac" role="tabpanel" aria-labelledby="publicarvac-tab">
                     <div class="container">
-                        <form action="<?=base_url()?>masy_reclutador_controller/actualizar" method="post" role="form" id="formagregarvac" name="formagregarvac" style="margin-top: 30px">
+                        <form action="<?=base_url()?>masy_reclutador_controller/alta_vac" method="post" role="form" id="formagregarvac" name="formagregarvac" style="margin-top: 30px">
                             <div class="form-group row">
                                 <div class="col">
                                   <div class="form-group ">
@@ -277,7 +277,7 @@
                             </section>
                         </div>
                     </div>
-                    <form action="<?=base_url()?>masy_reclutador_controller/actualizar" method="post" role="form" id="formactualizarvac" name="formactualizarvac">
+                    <form action="<?=base_url()?>masy_reclutador_controller/actualizar_vac" method="post" role="form" id="formactualizarvac" name="formactualizarvac">
                         <div class="form-group row">
                             <div class="col">
                               <div class="form-group ">
