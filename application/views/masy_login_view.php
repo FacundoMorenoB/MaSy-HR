@@ -32,7 +32,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         <?php
         echo form_open( $login_url); 
         ?>
-            <h2 class="sr-only">MaSy-HR</h2>
             <div class="illustration"><img src="<?=base_url()?>img/masyhr_Logo.png"></div>
             <div class="form-group"><input class="form-control" type="text" name="login_string" id="login_string" placeholder="Usuario o Correo" maxlength="255"></div>
             <div class="form-group"><input class="form-control" type="password" name="login_pass" id="login_pass" placeholder="Password" <?php 

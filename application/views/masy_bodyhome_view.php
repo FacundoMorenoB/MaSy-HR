@@ -41,5 +41,5 @@
 
 <?php
 
-/* End of file page_header_home_recruitment.php */
-/* Location: /community_auth/views/examples/page_header_home_recruitment.php */
+/* End of file masy_bodyhome_view.php */
+/* Location: /views/masy_bodyhome_view.php */

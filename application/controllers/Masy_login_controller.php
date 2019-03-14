@@ -38,7 +38,7 @@ class Masy_login_controller extends MY_Controller
 	 */
 	public function index()
 	{
-		if( $this->require_role('admin') )
+		if( $this->require_role('admin','recruiter') )
 		{
 			echo $this->load->view('masy_headerreclutador_view', '', TRUE);
 
@@ -55,15 +55,16 @@ class Masy_login_controller extends MY_Controller
 	 * If the user is logged in, a link to "Logout" will be in the menu.
 	 * If they are not logged in, a link to "Login" will be in the menu.
 	 */
-	public function home()
+	public function recruiter()
 	{
-		$this->is_logged_in();
-		
-		echo $this->load->view('examples/page_header', '', TRUE);
+		if( $this->require_role('admin','recruiter') )
+		{
+			echo $this->load->view('masy_headerreclutador_view', '', TRUE);
 
-		echo '<p>Welcome Home</p>';
+			echo $this->load->view('masy_bodyreclutador_view', '', TRUE);
 
-		echo $this->load->view('examples/page_footer', '', TRUE);
+			echo $this->load->view('masy_footer_view', '', TRUE);
+		}
 	}
 	
 	// -----------------------------------------------------------------------

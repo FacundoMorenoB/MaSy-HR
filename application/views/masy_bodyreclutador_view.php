@@ -1,846 +1,456 @@
-<!-- Isolated Version of Bootstrap, not needed if your site already uses Bootstrap -->
-<link rel="stylesheet" href="https://formden.com/static/cdn/bootstrap-iso.css" />
-
-<!-- Include jQuery -->
-<script type="text/javascript" src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
-
-<!-- Include Date Range Picker -->
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/js/bootstrap-datepicker.min.js"></script>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/css/bootstrap-datepicker3.css"/>
-
-<script>
-    $(document).ready(function(){
-        var date_input=$('input[name="fechaNacimento"]'); //our date input has the name "date"
-        var date2_input=$('input[name="fechaIngreso"]'); //our date input has the name "date"
-        var container=$('.bootstrap-iso form').length>0 ? $('.bootstrap-iso form').parent() : "body";
-        var options={
-        format: 'yyyy-mm-dd',
-        container: container,
-        todayHighlight: true,
-        autoclose: true,
-      };
-      date_input.datepicker(options);
-      date2_input.datepicker(options);
-    });
-</script>
-
 <main class="page lanidng-page">
     <section class="portfolio-block block-intro">
         <div class="container">
             <ul class="nav nav-tabs">
-                <li class="nav-item dropdown active"><a data-toggle="dropdown" aria-expanded="false" href="#" class="dropdown-toggle nav-link active">Perfiles</a>
-                    <div role="menu" class="dropdown-menu"><a role="presentation" href="#home" class="dropdown-item" id="home-tab" data-toggle="tab">Alta perfiles</a><a role="presentation" href="#profile" class="dropdown-item" id="profile-tab" data-toggle="tab">Consulta perfiles</a></div>
-                </li>
-                <li class="nav-item dropdown"><a data-toggle="dropdown" aria-expanded="false" href="#" class="dropdown-toggle nav-link">Candidatos</a>
-                    <div role="menu" class="dropdown-menu"><a role="presentation" href="#home2" class="dropdown-item" id="home2-tab" data-toggle="tab">Alta candidatos</a><a role="presentation" href="#profile2" class="dropdown-item" id="profile2-tab" data-toggle="tab">Consulta candidatos</a></div>
+                <li class="nav-item dropdown active">
+                    <a data-toggle="dropdown" aria-expanded="false" href="#" class="dropdown-toggle nav-link active">Reclutamiento</a>
+                    <div role="menu" class="dropdown-menu">
+                        <a role="presentation" href="#publicarvac" id="publicarvac-tab" class="dropdown-item" data-toggle="tab">Publicar Vacante</a>
+                        <a role="presentation" href="#listarvac" id="listarvac-tab" class="dropdown-item" data-toggle="tab">Lista de Vacantes</a>
+                        <a role="presentation" href="#registrarcand" id="registrarcand-tab" class="dropdown-item" data-toggle="tab">Registrar Candidato</a>
+                        <a role="presentation" href="#listarcand" id="listarcand-tab" class="dropdown-item" data-toggle="tab">Lista de Candidatos</a>
+                        <a role="presentation" href="#agendarent" id="agendarent-tab" class="dropdown-item" data-toggle="tab">Agendar entrevista</a>
+                    </div>
                 </li>
                 <li class="nav-item dropdown"><a data-toggle="dropdown" aria-expanded="false" href="#" class="dropdown-toggle nav-link">Empleados</a>
-                    <div role="menu" class="dropdown-menu"><a role="presentation" href="#home3" class="dropdown-item" id="home3-tab" data-toggle="tab">Alta empleados</a><a role="presentation" href="#profile3" class="dropdown-item" id="profile3-tab" data-toggle="tab">Consulta Empleados</a></div>
+                    <div role="menu" class="dropdown-menu">
+                        <a role="presentation" href="#" class="dropdown-item">Alta de Empleado</a>
+                        <a role="presentation" href="#" class="dropdown-item">Administrar Empleados</a>
+                    </div>
+                </li>
+                <li class="nav-item dropdown"><a data-toggle="dropdown" aria-expanded="false" href="#" class="dropdown-toggle nav-link">Capacitacion</a>
+                    <div role="menu" class="dropdown-menu">
+                        <a role="presentation" href="#" class="dropdown-item">Alta de Cursos</a>
+                        <a role="presentation" href="#" class="dropdown-item">Administracion de Cursos</a>
+                    </div>
                 </li>
             </ul>
-        </div>
-
-    <div class="tab-content">
-        <div class="tab-pane active" id="home" role="tabpanel" aria-labelledby="home-tab">
-        <div class="container">
-            <form  role="form" action="<?php echo site_url('employees/guardar');?>" method="POST" id="form_agregar">
-            <div class="row">
-            <div class="col col-lg-6">
-            <div class="bootstrap-iso">
-            <div class="form-group form-group-lg">
-            <label class="control-label requiredField" for="nombre">
-            Nombre(s)
-            <span class="asteriskField">
-            *
-            </span>
-            </label>
-            <input required class="form-control" id="nombre" name="nombre" type="text"/>
-            </div>
-            <div class="form-group form-group-lg">
-            <label class="control-label requiredField" for="aPaterno">
-            Primer apellido
-            <span class="asteriskField">
-            *
-            </span>
-            </label>
-            <input required class="form-control" id="aPaterno" name="aPaterno" type="text"/>
-            </div>
-            <div class="form-group form-group-lg">
-            <label class="control-label requiredField" for="aMaterno">
-            Segundo apellido
-            <span class="asteriskField">
-            *
-            </span>
-            </label>
-            <input required class="form-control" id="aMaterno" name="aMaterno" type="text"/>
-            </div>
-            <div class="form-group form-group-lg">
-            <label class="control-label requiredField" for="fechaNacimento">
-            Fecha de nacimiento
-            <span class="asteriskField">
-            *
-            </span>
-            </label>
-            <div class="input-group">
-            <div class="input-group-addon">
-            <i class="fa fa-calendar">
-            </i>
-            </div>
-            <input required class="form-control" id="fechaNacimiento" name="fechaNacimento" placeholder="MM/DD/YYYY" type="text" readonly="readonly"/>
-            </div>
-            </div>
-            <div class="form-group form-group-lg">
-            <label class="control-label requiredField" for="estado">
-            Estado
-            <span class="asteriskField">
-            *
-            </span>
-            </label>
-            <input required class="form-control" id="estado" name="estado" type="text"/>
-            </div>
-            <div class="form-group form-group-lg">
-            <label class="control-label requiredField" for="colonia">
-            Colonia
-            <span class="asteriskField">
-            *
-            </span>
-            </label>
-            <input required class="form-control" id="colonia" name="colonia" type="text"/>
-            </div>
-            <div class="form-group form-group-lg">
-            <label class="control-label requiredField" for="codigoPostal">
-            Codigo postal
-            <span class="asteriskField">
-            *
-            </span>
-            </label>
-            <input required class="form-control" id="codigoPostal" required pattern="[0-9]{5}" name="codigoPostal" type="text" />
-            </div>
-            <div class="form-group form-group-lg">
-            <label class="control-label requiredField" for="calle">
-            Direccion
-            <span class="asteriskField">
-            *
-            </span>
-            </label>
-            <input required class="form-control" id="calle" name="calle" type="text" placeholder="Calle No. Ext. No. Int" />
-            </div>
-            <div class="form-group form-group-lg">
-            <label class="control-label requiredField" for="correoCorporativo">
-            Correo corporativo
-            <span class="asteriskField">
-            *
-            </span>
-            </label>
-            <div class="input-group">
-            <div class="input-group-addon">
-            <i class="fa fa-medium">
-            </i>
-            </div>
-            <input required class="form-control" id="correoCorporativo" name="correoCorporativo" type="email"/>
-            </div>
-            </div>
-
-            </div>
-            </div>
-            <div class="col-lg-auto">
-            <div class="form-group form-group-lg">
-            <label class="control-label requiredField" for="sexo">
-            Sexo
-            <span class="asteriskField">
-            *
-            </span>
-            </label>
-            <select class="select form-control" id="sexo" name="sexo">
-            <option value="Hombre">
-            Hombre
-            </option>
-            <option value="Mujer">
-            Mujer
-            </option>
-            </select>
-            </div>
-            <div class="form-group form-group-lg">
-            <label class="control-label requiredField" for="imss">
-            Numero de IMSS
-            <span class="asteriskField">
-            *
-            </span>
-            </label>
-            <input required class="form-control" id="imss" pattern="[0-9]{10}" name="imss" type="text"/>
-            </div>
-            <div class="form-group form-group-lg">
-            <label class="control-label requiredField" for="ine">
-            INE
-            <span class="asteriskField">
-            *
-            </span>
-            </label>
-            <input required class="form-control" id="ine" pattern="[A-Z0-9]{18,20}" name="ine" type="text"/>
-            </div>
-            <div class="form-group form-group-lg">
-            <label class="control-label requiredField" for="curp">
-            CURP
-            <span class="asteriskField">
-            *
-            </span>
-            </label>
-            <input required class="form-control" id="curp" pattern="[A-Z0-9]{18,20}" name="curp" type="text"/>
-            </div>
-            <div class="form-group form-group-lg">
-            <label class="control-label requiredField" for="telefono">
-            Telefono
-            <span class="asteriskField">
-            *
-            </span>
-            </label>
-            <div class="input-group">
-            <div class="input-group-addon">
-            <i class="fa fa-phone">
-            </i>
-            </div>
-            <input required class="form-control" id="telefono" pattern="[0-9|\-0-9|\-0-9]{10}" name="telefono" type="text"/>
-            </div>
-            </div>
-            <div class="form-group form-group-lg">
-            <label class="control-label requiredField" for="fechaIngreso">
-            Fecha de ingreso
-            <span class="asteriskField">
-            *
-            </span>
-            </label>
-            <div class="input-group">
-            <div class="input-group-addon">
-            <i class="fa fa-calendar">
-            </i>
-            </div>
-            <input required class="form-control" id="fechaIngreso" name="fechaIngreso" placeholder="MM/DD/YYYY" type="text" readonly="readonly"/>
-            </div>
-            </div>
-            <div class="form-group form-group-lg">
-            <label class="control-label " for="correo">
-            Correo alternativo
-            </label>
-            <div class="input-group">
-            <div class="input-group-addon">
-            <i class="fa fa-medium">
-            </i>
-            </div>
-            <input required class="form-control" id="correo" name="correo" type="text"/>
-            </div>
-            </div>
-            <div class="form-group form-group-lg">
-            <label class="control-label requiredField" for="tipoempleado">
-            Tipo de empleado
-            <span class="asteriskField">
-            *
-            </span>
-            </label>
-            <select class="select form-control" id="tipoempleado" name="tipoempleado">
-            <option value="user">
-            Usuario
-            </option>
-            <option value="recluitmen">
-            Reclutador
-            </option>
-            <option value="admin">
-            Administrador
-            </option>
-            </select>
-            </div>
-            <div class="form-group btn-group" role="group" aria-label="Basic example">
-            <button type="submit" class="btn btn-success active" id="agregar">Agregar</button>
-            </div>
-            </div>
-            </div>
-            </form>
-        </div>
-        </div>
-
-
-        <div class="tab-pane" id="profile" role="tabpanel" aria-labelledby="profile-tab">
-            <div class="container">
-            <div class="row">
-            <br>
-            <div class="col-lg-6"></div>
-            <div class="col-lg-3">
-            <input required type="text" class="form-control" id="buscar" placeholder="Buscar">
-            </div>
-            <div class="col-lg-3">
-            <input required type="button" class="btn btn-primary btn-block" id="btnbuscar" value="Mostrar Todo" data-toggle='modal' data-target='#basicModal'>
-            </div>
-            </div>
-            <hr>
-            <div class="row">
-            <div id="listaEmpleados" class="col-lg-8">
-
-            </div>
-            <div class="col-lg-4">
-            <div class="panel panel-default">
-            <div class="panel-heading">Editar Empleado</div>
-            <div class="panel-body">
-            <form id="form-actualizar" class="form-horizontal" action="<?php echo base_url();?>employees/actualizar" method="post" role="form" style="padding:0 10px;">
-            <div class="form-group">
-            <label>Nombre:</label>
-            <input required type="hidden" id="curpsele" name="curpsele" value="">
-            <input required type="text" name="nombresele" id="nombresele" class="form-control">
-            </div>
-            <div class="form-group">
-            <label>Apellido:</label>
-            <input required type="text" name="apaternosele" id="apaternosele" class="form-control">
-            </div>
-            <div class="form-group">
-            <button type="button" id="btnactualizar" class="btn btn-success btn-block">Guardar</button>
-
-            </div>
-            </form>
-
-            </div>
-            </div>
-
-            </div>
-
-            </div>
-            </div>
-        </div>
-
-
-        <div class="tab-pane" id="home2" role="tabpanel" aria-labelledby="home2-tab">
-        <div class="container">
-            <form  role="form" action="<?php echo site_url('employees/guardar');?>" method="POST" id="form_agregar">
-            <div class="row">
-            <div class="col col-lg-6">
-            <div class="bootstrap-iso">
-            <div class="form-group form-group-lg">
-            <label class="control-label requiredField" for="nombre">
-            Nombre(s)
-            <span class="asteriskField">
-            *
-            </span>
-            </label>
-            <input required class="form-control" id="nombre" name="nombre" type="text"/>
-            </div>
-            <div class="form-group form-group-lg">
-            <label class="control-label requiredField" for="aPaterno">
-            Primer apellido
-            <span class="asteriskField">
-            *
-            </span>
-            </label>
-            <input required class="form-control" id="aPaterno" name="aPaterno" type="text"/>
-            </div>
-            <div class="form-group form-group-lg">
-            <label class="control-label requiredField" for="aMaterno">
-            Segundo apellido
-            <span class="asteriskField">
-            *
-            </span>
-            </label>
-            <input required class="form-control" id="aMaterno" name="aMaterno" type="text"/>
-            </div>
-            <div class="form-group form-group-lg">
-            <label class="control-label requiredField" for="fechaNacimento">
-            Fecha de nacimiento
-            <span class="asteriskField">
-            *
-            </span>
-            </label>
-            <div class="input-group">
-            <div class="input-group-addon">
-            <i class="fa fa-calendar">
-            </i>
-            </div>
-            <input required class="form-control" id="fechaNacimiento" name="fechaNacimento" placeholder="MM/DD/YYYY" type="text" readonly="readonly"/>
-            </div>
-            </div>
-            <div class="form-group form-group-lg">
-            <label class="control-label requiredField" for="estado">
-            Estado
-            <span class="asteriskField">
-            *
-            </span>
-            </label>
-            <input required class="form-control" id="estado" name="estado" type="text"/>
-            </div>
-            <div class="form-group form-group-lg">
-            <label class="control-label requiredField" for="colonia">
-            Colonia
-            <span class="asteriskField">
-            *
-            </span>
-            </label>
-            <input required class="form-control" id="colonia" name="colonia" type="text"/>
-            </div>
-            <div class="form-group form-group-lg">
-            <label class="control-label requiredField" for="codigoPostal">
-            Codigo postal
-            <span class="asteriskField">
-            *
-            </span>
-            </label>
-            <input required class="form-control" id="codigoPostal" required pattern="[0-9]{5}" name="codigoPostal" type="text"/>
-            </div>
-            <div class="form-group form-group-lg">
-            <label class="control-label requiredField" for="calle">
-            Direccion
-            <span class="asteriskField">
-            *
-            </span>
-            </label>
-            <input required class="form-control" id="calle" name="calle" type="text" placeholder="Calle No. Ext. No. Int" />
-            </div>
-            <div class="form-group form-group-lg">
-            <label class="control-label requiredField" for="correoCorporativo">
-            Correo corporativo
-            <span class="asteriskField">
-            *
-            </span>
-            </label>
-            <div class="input-group">
-            <div class="input-group-addon">
-            <i class="fa fa-medium">
-            </i>
-            </div>
-            <input required class="form-control" id="correoCorporativo" name="correoCorporativo" type="email"/>
-            </div>
-            </div>
-
-            </div>
-            </div>
-            <div class="col-lg-auto">
-            <div class="form-group form-group-lg">
-            <label class="control-label requiredField" for="sexo">
-            Sexo
-            <span class="asteriskField">
-            *
-            </span>
-            </label>
-            <select class="select form-control" id="sexo" name="sexo">
-            <option value="Hombre">
-            Hombre
-            </option>
-            <option value="Mujer">
-            Mujer
-            </option>
-            </select>
-            </div>
-            <div class="form-group form-group-lg">
-            <label class="control-label requiredField" for="imss">
-            Numero de IMSS
-            <span class="asteriskField">
-            *
-            </span>
-            </label>
-            <input required class="form-control" id="imss" pattern="[0-9]{10}" name="imss" type="text"/>
-            </div>
-            <div class="form-group form-group-lg">
-            <label class="control-label requiredField" for="ine">
-            INE
-            <span class="asteriskField">
-            *
-            </span>
-            </label>
-            <input required class="form-control" id="ine" pattern="[A-Z0-9]{18,20}" name="ine" type="text"/>
-            </div>
-            <div class="form-group form-group-lg">
-            <label class="control-label requiredField" for="curp">
-            CURP
-            <span class="asteriskField">
-            *
-            </span>
-            </label>
-            <input required class="form-control" id="curp" pattern="[A-Z0-9]{18,20}" name="curp" type="text"/>
-            </div>
-            <div class="form-group form-group-lg">
-            <label class="control-label requiredField" for="telefono">
-            Telefono
-            <span class="asteriskField">
-            *
-            </span>
-            </label>
-            <div class="input-group">
-            <div class="input-group-addon">
-            <i class="fa fa-phone">
-            </i>
-            </div>
-            <input required class="form-control" id="telefono" pattern="[0-9|\-0-9|\-0-9]{10}" name="telefono" type="text"/>
-            </div>
-            </div>
-            <div class="form-group form-group-lg">
-            <label class="control-label requiredField" for="fechaIngreso">
-            Fecha de ingreso
-            <span class="asteriskField">
-            *
-            </span>
-            </label>
-            <div class="input-group">
-            <div class="input-group-addon">
-            <i class="fa fa-calendar">
-            </i>
-            </div>
-            <input required class="form-control" id="fechaIngreso" name="fechaIngreso" placeholder="MM/DD/YYYY" type="text" readonly="readonly"/>
-            </div>
-            </div>
-            <div class="form-group form-group-lg">
-            <label class="control-label " for="correo">
-            Correo alternativo
-            </label>
-            <div class="input-group">
-            <div class="input-group-addon">
-            <i class="fa fa-medium">
-            </i>
-            </div>
-            <input required class="form-control" id="correo" name="correo" type="text"/>
-            </div>
-            </div>
-            <div class="form-group form-group-lg">
-            <label class="control-label requiredField" for="tipoempleado">
-            Tipo de empleado
-            <span class="asteriskField">
-            *
-            </span>
-            </label>
-            <select class="select form-control" id="tipoempleado" name="tipoempleado">
-            <option value="user">
-            Usuario
-            </option>
-            <option value="recluitmen">
-            Reclutador
-            </option>
-            <option value="admin">
-            Administrador
-            </option>
-            </select>
-            </div>
-            <div class="form-group btn-group" role="group" aria-label="Basic example">
-            <button type="submit" class="btn btn-success active" id="agregar">Agregar</button>
-            </div>
-            </div>
-            </div>
-            </form>
-        </div>
-        </div>
-
-
-        <div class="tab-pane" id="profile2" role="tabpanel" aria-labelledby="profile2-tab">
-            <div class="container">
-            <div class="row">
-            <br>
-            <div class="col-lg-6"></div>
-            <div class="col-lg-3">
-            <input required type="text" class="form-control" id="buscar" placeholder="Buscar">
-            </div>
-            <div class="col-lg-3">
-            <input required type="button" class="btn btn-primary btn-block" id="btnbuscar" value="Mostrar Todo" data-toggle='modal' data-target='#basicModal'>
-            </div>
-            </div>
-            <hr>
-            <div class="row">
-            <div id="listaEmpleados" class="col-lg-8">
-
-            </div>
-            <div class="col-lg-4">
-            <div class="panel panel-default">
-            <div class="panel-heading">Editar Empleado</div>
-            <div class="panel-body">
-            <form id="form-actualizar" class="form-horizontal" action="<?php echo base_url();?>employees/actualizar" method="post" role="form" style="padding:0 10px;">
-            <div class="form-group">
-            <label>Nombre:</label>
-            <input required type="hidden" id="curpsele" name="curpsele" value="">
-            <input required type="text" name="nombresele" id="nombresele" class="form-control">
-            </div>
-            <div class="form-group">
-            <label>Apellido:</label>
-            <input required type="text" name="apaternosele" id="apaternosele" class="form-control">
-            </div>
-            <div class="form-group">
-            <button type="button" id="btnactualizar" class="btn btn-success btn-block">Guardar</button>
-
-            </div>
-            </form>
-
-            </div>
-            </div>
-
-            </div>
-
-            </div>
+            <div class="tab-content">
+                <div class="tab-pane" id="publicarvac" role="tabpanel" aria-labelledby="publicarvac-tab">
+                    <div class="container">
+                        <form action="<?=base_url()?>masy_reclutador_controller/actualizar" method="post" role="form" id="formactualizarvac" name="formactualizarvac">
+                            <div class="form-group row">
+                                <div class="col">
+                                  <div class="form-group ">
+                                  <label class="control-label requiredField" for="txtnomperfilvac">
+                                   Nombre del perfil
+                                   <span class="asteriskField">
+                                    *
+                                   </span>
+                                  </label>
+                                  <input required class="form-control" id="txtnomperfilvac" name="txtnomperfilvac" type="text"/>
+                                 </div>
+                                 <div class="form-group ">
+                                  <label class="control-label requiredField" for="txtnivimpactovac">
+                                   Nivel de impacto
+                                   <span class="asteriskField">
+                                    *
+                                   </span>
+                                  </label>
+                                  <input required class="form-control" id="txtnivimpactovac" name="txtnivimpactovac" type="text"/>
+                                 </div>
+                                 <div class="form-group ">
+                                  <label class="control-label requiredField" for="txtnivvaluacionvac">
+                                   Nivel de valuaci&oacute;n
+                                   <span class="asteriskField">
+                                    *
+                                   </span>
+                                  </label>
+                                  <input required class="form-control" id="txtnivvaluacionvac" name="txtnivvaluacionvac" type="text"/>
+                                 </div>
+                                 <div class="form-group ">
+                                  <label class="control-label requiredField" for="txtsldrangovac">
+                                   Rango de sueldo
+                                   <span class="asteriskField">
+                                    *
+                                   </span>
+                                  </label>
+                                  <input required class="form-control" id="txtsldrangovac" name="txtsldrangovac" placeholder="$######.## - $$######.##" type="text"/>
+                                 </div>
+                                 <div class="form-group ">
+                                  <label class="control-label requiredField" for="txtsldofrecidovac">
+                                   Sueldo ofrecido
+                                   <span class="asteriskField">
+                                    *
+                                   </span>
+                                  </label>
+                                  <input required class="form-control" id="txtsldofrecidovac" name="txtsldofrecidovac" placeholder="$######.##" type="text"/>
+                                 </div>
+                                 <div class="form-group ">
+                                  <label class="control-label requiredField" for="txtaremsnpuestovac">
+                                   Misi&oacute;n del puesto
+                                   <span class="asteriskField">
+                                    *
+                                   </span>
+                                  </label>
+                                  <textarea required class="form-control" cols="40" id="txtaremsnpuestovac" name="txtaremsnpuestovac" rows="5"></textarea>
+                                 </div>
+                                 <div class="form-group ">
+                                  <label class="control-label requiredField" for="txtedadvac">
+                                   Rango de edad
+                                   <span class="asteriskField">
+                                    *
+                                   </span>
+                                  </label>
+                                  <input required class="form-control" id="txtedadvac" name="txtedadvac" placeholder="## - ##" type="text"/>
+                                 </div>
+                                 <div class="form-group ">
+                                  <label class="control-label requiredField" for="selsexovac">
+                                   Sexo
+                                   <span class="asteriskField">
+                                    *
+                                   </span>
+                                  </label>
+                                  <select class="select form-control" id="selsexovac" name="selsexovac">
+                                   <option value="Hombre">
+                                    Hombre
+                                   </option>
+                                   <option value="Mujer">
+                                    Mujer
+                                   </option>
+                                   <option value="Indistinto">
+                                    Indistinto
+                                   </option>
+                                  </select>
+                                 </div>
+                                 <div class="form-group ">
+                                  <label class="control-label requiredField" for="textareconpuestovac">
+                                   Conocimientos t&eacute;cnicos
+                                   <span class="asteriskField">
+                                    *
+                                   </span>
+                                  </label>
+                                  <textarea required class="form-control" cols="40" id="textareconpuestovac" name="textareconpuestovac" rows="5"></textarea>
+                                 </div>
+                                </div>
+                                <div class="col-md-auto"></div>
+                                <div class="col col-lg-6">
+                                 <div class="form-group ">
+                                  <label class="control-label requiredField" for="txtidiomavac">
+                                   Idioma(s)
+                                   <span class="asteriskField">
+                                    *
+                                   </span>
+                                  </label>
+                                  <input required class="form-control" id="txtidiomavac" name="txtidiomavac" placeholder="Ingles, Franc&eacute;s, Chino" type="text"/>
+                                 </div>
+                                 <div class="form-group ">
+                                  <label class="control-label " for="txtproginformavac">
+                                   Programas inform&aacute;ticos
+                                  </label>
+                                  <input required class="form-control" id="txtproginformavac" name="txtproginformavac" placeholder="Excel, Visual Studio, etc." type="text"/>
+                                 </div>
+                                 <div class="form-group ">
+                                  <label class="control-label requiredField" for="textarehabilivac">
+                                   Habilidades
+                                   <span class="asteriskField">
+                                    *
+                                   </span>
+                                  </label>
+                                  <textarea required class="form-control" cols="40" id="textarehabilivac" name="textarehabilivac" rows="5"></textarea>
+                                 </div>
+                                 <div class="form-group ">
+                                  <label class="control-label " for="seldireccionvac">
+                                   Direcci&oacute;n que reporta
+                                  </label>
+                                  <select class="select form-control" id="seldireccionvac" name="seldireccionvac">
+                                   <option value="Direcci&oacute;n General">
+                                    Direcci&oacute;n General
+                                   </option>
+                                   <option value="Direcci&oacute;n de TI">
+                                    Direcci&oacute;n de TI
+                                   </option>
+                                   <option value="Direcci&oacute;n de RH">
+                                    Direcci&oacute;n de RH
+                                   </option>
+                                  </select>
+                                 </div>
+                                 <div class="form-group ">
+                                  <label class="control-label " for="seldirectorvac">
+                                   Director que reporta
+                                  </label>
+                                  <select class="select form-control" id="seldirectorvac" name="seldirectorvac">
+                                   <option value="Director general">
+                                    Director general
+                                   </option>
+                                   <option value="Directos de capacitaci&oacute;n">
+                                    Directos de capacitaci&oacute;n
+                                   </option>
+                                   <option value="Director de percepciones">
+                                    Director de percepciones
+                                   </option>
+                                   <option value="Director de sistemas holding">
+                                    Director de sistemas holding
+                                   </option>
+                                  </select>
+                                 </div>
+                                 <div class="form-group ">
+                                  <label class="control-label " for="textarefuncionesvac">
+                                   Funciones del puesto
+                                  </label>
+                                  <textarea required class="form-control" cols="40" id="textarefuncionesvac" name="textarefuncionesvac" rows="5"></textarea>
+                                 </div>
+                                 <div class="form-group">
+                                  <div>
+                                   <button class="btn btn-primary " name="submit" type="submit">
+                                    Submit
+                                   </button>
+                                  </div>
+                                 </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <div class="tab-pane active" id="listarvac" role="tabpanel" aria-labelledby="listarvac-tab">
+                    <div class="row justify-content-start" style="margin-top: 10px">
+                        <div class="col-4"><input class="form-control" type="text" name="txtbuscarvac" id="txtbuscarvac" placeholder="Buscar vacantes"></div>
+                        <div class="col-3"><input type="button" name="btnbuscarvac" id="btnbuscarvac" class="btn btn-info" value="Mostrar todo" data-toggle='modal' data-target='#basicModal'></div>
+                    </div>
+                    <div class="row justify-content-center" style="margin-top: 10px">
+                        <div class="col-12" id="tblactualizarvac">
+                            <table class="table">
+                              <thead class="thead-dark">
+                                <tr>
+                                  <th scope="col">#</th>
+                                  <th scope="col">First</th>
+                                  <th scope="col">Last</th>
+                                  <th scope="col">Handle</th>
+                                </tr>
+                              </thead>
+                              <tbody>
+                                <tr>
+                                  <th scope="row">1</th>
+                                  <td>Mark</td>
+                                  <td>Otto</td>
+                                  <td>@mdo</td>
+                                </tr>
+                                <tr>
+                                  <th scope="row">2</th>
+                                  <td>Jacob</td>
+                                  <td>Thornton</td>
+                                  <td>@fat</td>
+                                </tr>
+                                <tr>
+                                  <th scope="row">3</th>
+                                  <td>Larry</td>
+                                  <td>the Bird</td>
+                                  <td>@twitter</td>
+                                </tr>
+                              </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <form action="<?=base_url()?>masy_reclutador_controller/actualizar" method="post" role="form" id="formactualizarvac" name="formactualizarvac">
+                        <div class="form-group row">
+                            <div class="col">
+                              <div class="form-group ">
+                              <label class="control-label requiredField" for="txtnomperfilvac">
+                               Nombre del perfil
+                               <span class="asteriskField">
+                                *
+                               </span>
+                              </label>
+                              <input required class="form-control" id="txtnomperfilvac" name="txtnomperfilvac" type="text"/>
+                             </div>
+                             <div class="form-group ">
+                              <label class="control-label requiredField" for="txtnivimpactovac">
+                               Nivel de impacto
+                               <span class="asteriskField">
+                                *
+                               </span>
+                              </label>
+                              <input required class="form-control" id="txtnivimpactovac" name="txtnivimpactovac" type="text"/>
+                             </div>
+                             <div class="form-group ">
+                              <label class="control-label requiredField" for="txtnivvaluacionvac">
+                               Nivel de valuaci&oacute;n
+                               <span class="asteriskField">
+                                *
+                               </span>
+                              </label>
+                              <input required class="form-control" id="txtnivvaluacionvac" name="txtnivvaluacionvac" type="text"/>
+                             </div>
+                             <div class="form-group ">
+                              <label class="control-label requiredField" for="txtsldrangovac">
+                               Rango de sueldo
+                               <span class="asteriskField">
+                                *
+                               </span>
+                              </label>
+                              <input required class="form-control" id="txtsldrangovac" name="txtsldrangovac" placeholder="$######.## - $$######.##" type="text"/>
+                             </div>
+                             <div class="form-group ">
+                              <label class="control-label requiredField" for="txtsldofrecidovac">
+                               Sueldo ofrecido
+                               <span class="asteriskField">
+                                *
+                               </span>
+                              </label>
+                              <input required class="form-control" id="txtsldofrecidovac" name="txtsldofrecidovac" placeholder="$######.##" type="text"/>
+                             </div>
+                             <div class="form-group ">
+                              <label class="control-label requiredField" for="txtaremsnpuestovac">
+                               Misi&oacute;n del puesto
+                               <span class="asteriskField">
+                                *
+                               </span>
+                              </label>
+                              <textarea required class="form-control" cols="40" id="txtaremsnpuestovac" name="txtaremsnpuestovac" rows="5"></textarea>
+                             </div>
+                             <div class="form-group ">
+                              <label class="control-label requiredField" for="txtedadvac">
+                               Rango de edad
+                               <span class="asteriskField">
+                                *
+                               </span>
+                              </label>
+                              <input required class="form-control" id="txtedadvac" name="txtedadvac" placeholder="## - ##" type="text"/>
+                             </div>
+                             <div class="form-group ">
+                              <label class="control-label requiredField" for="selsexovac">
+                               Sexo
+                               <span class="asteriskField">
+                                *
+                               </span>
+                              </label>
+                              <select class="select form-control" id="selsexovac" name="selsexovac">
+                               <option value="Hombre">
+                                Hombre
+                               </option>
+                               <option value="Mujer">
+                                Mujer
+                               </option>
+                               <option value="Indistinto">
+                                Indistinto
+                               </option>
+                              </select>
+                             </div>
+                             <div class="form-group ">
+                              <label class="control-label requiredField" for="textareconpuestovac">
+                               Conocimientos t&eacute;cnicos
+                               <span class="asteriskField">
+                                *
+                               </span>
+                              </label>
+                              <textarea required class="form-control" cols="40" id="textareconpuestovac" name="textareconpuestovac" rows="5"></textarea>
+                             </div>
+                            </div>
+                            <div class="col-md-auto"></div>
+                            <div class="col col-lg-6">
+                             <div class="form-group ">
+                              <label class="control-label requiredField" for="txtidiomavac">
+                               Idioma(s)
+                               <span class="asteriskField">
+                                *
+                               </span>
+                              </label>
+                              <input required class="form-control" id="txtidiomavac" name="txtidiomavac" placeholder="Ingles, Franc&eacute;s, Chino" type="text"/>
+                             </div>
+                             <div class="form-group ">
+                              <label class="control-label " for="txtproginformavac">
+                               Programas inform&aacute;ticos
+                              </label>
+                              <input required class="form-control" id="txtproginformavac" name="txtproginformavac" placeholder="Excel, Visual Studio, etc." type="text"/>
+                             </div>
+                             <div class="form-group ">
+                              <label class="control-label requiredField" for="textarehabilivac">
+                               Habilidades
+                               <span class="asteriskField">
+                                *
+                               </span>
+                              </label>
+                              <textarea required class="form-control" cols="40" id="textarehabilivac" name="textarehabilivac" rows="5"></textarea>
+                             </div>
+                             <div class="form-group ">
+                              <label class="control-label " for="seldireccionvac">
+                               Direcci&oacute;n que reporta
+                              </label>
+                              <select class="select form-control" id="seldireccionvac" name="seldireccionvac">
+                               <option value="Direcci&oacute;n General">
+                                Direcci&oacute;n General
+                               </option>
+                               <option value="Direcci&oacute;n de TI">
+                                Direcci&oacute;n de TI
+                               </option>
+                               <option value="Direcci&oacute;n de RH">
+                                Direcci&oacute;n de RH
+                               </option>
+                              </select>
+                             </div>
+                             <div class="form-group ">
+                              <label class="control-label " for="seldirectorvac">
+                               Director que reporta
+                              </label>
+                              <select class="select form-control" id="seldirectorvac" name="seldirectorvac">
+                               <option value="Director general">
+                                Director general
+                               </option>
+                               <option value="Directos de capacitaci&oacute;n">
+                                Directos de capacitaci&oacute;n
+                               </option>
+                               <option value="Director de percepciones">
+                                Director de percepciones
+                               </option>
+                               <option value="Director de sistemas holding">
+                                Director de sistemas holding
+                               </option>
+                              </select>
+                             </div>
+                             <div class="form-group ">
+                              <label class="control-label " for="textarefuncionesvac">
+                               Funciones del puesto
+                              </label>
+                              <textarea required class="form-control" cols="40" id="textarefuncionesvac" name="textarefuncionesvac" rows="5"></textarea>
+                             </div>
+                             <div class="form-group ">
+                              <label class="control-label requiredField" for="dateregistrovac">
+                               Fecha de registro
+                               <span class="asteriskField">
+                                *
+                               </span>
+                              </label>
+                              <input required class="form-control" id="dateregistrovac" name="dateregistrovac" placeholder="DD/MM/YYYY HH:MM AM/PM" type="text" readonly/> 
+                             </div>
+                             <div class="form-group">
+                              <div>
+                               <button class="btn btn-primary " name="submit" type="submit">
+                                Submit
+                               </button>
+                              </div>
+                             </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="tab-pane" id="registrarcand" role="tabpanel" aria-labelledby="registrarcand-tab">
+                    <h1>HOLA3</h1>
+                </div>
+                <div class="tab-pane" id="listarcand" role="tabpanel" aria-labelledby="listarcand-tab">
+                    <h1>HOLA4</h1>
+                </div>
+                <div class="tab-pane" id="agendarent" role="tabpanel" aria-labelledby="agendarent-tab">
+                    <h1>HOLA5</h1>
+                </div>
             </div>
         </div>
-
-
-        <div class="tab-pane" id="home3" role="tabpanel" aria-labelledby="home3-tab">
-        <div class="container">
-            <form  role="form" action="<?php echo site_url('employees/guardar');?>" method="POST" id="form_agregar">
-            <div class="row">
-            <div class="col col-lg-6">
-            <div class="bootstrap-iso">
-            <div class="form-group form-group-lg">
-            <label class="control-label requiredField" for="nombre">
-            Nombre(s)
-            <span class="asteriskField">
-            *
-            </span>
-            </label>
-            <input required class="form-control" id="nombre" name="nombre" type="text"/>
-            </div>
-            <div class="form-group form-group-lg">
-            <label class="control-label requiredField" for="aPaterno">
-            Primer apellido
-            <span class="asteriskField">
-            *
-            </span>
-            </label>
-            <input required class="form-control" id="aPaterno" name="aPaterno" type="text"/>
-            </div>
-            <div class="form-group form-group-lg">
-            <label class="control-label requiredField" for="aMaterno">
-            Segundo apellido
-            <span class="asteriskField">
-            *
-            </span>
-            </label>
-            <input required class="form-control" id="aMaterno" name="aMaterno" type="text"/>
-            </div>
-            <div class="form-group form-group-lg">
-            <label class="control-label requiredField" for="fechaNacimento">
-            Fecha de nacimiento
-            <span class="asteriskField">
-            *
-            </span>
-            </label>
-            <div class="input-group">
-            <div class="input-group-addon">
-            <i class="fa fa-calendar">
-            </i>
-            </div>
-            <input required class="form-control" id="fechaNacimiento" name="fechaNacimento" placeholder="MM/DD/YYYY" type="text" readonly="readonly"/>
-            </div>
-            </div>
-            <div class="form-group form-group-lg">
-            <label class="control-label requiredField" for="estado">
-            Estado
-            <span class="asteriskField">
-            *
-            </span>
-            </label>
-            <input required class="form-control" id="estado" name="estado" type="text"/>
-            </div>
-            <div class="form-group form-group-lg">
-            <label class="control-label requiredField" for="colonia">
-            Colonia
-            <span class="asteriskField">
-            *
-            </span>
-            </label>
-            <input required class="form-control" id="colonia" name="colonia" type="text"/>
-            </div>
-            <div class="form-group form-group-lg">
-            <label class="control-label requiredField" for="codigoPostal">
-            Codigo postal
-            <span class="asteriskField">
-            *
-            </span>
-            </label>
-            <input required class="form-control" id="codigoPostal" required pattern="[0-9]{5}" name="codigoPostal" type="text"/>
-            </div>
-            <div class="form-group form-group-lg">
-            <label class="control-label requiredField" for="calle">
-            Direccion
-            <span class="asteriskField">
-            *
-            </span>
-            </label>
-            <input required class="form-control" id="calle" name="calle" type="text" placeholder="Calle No. Ext. No. Int" />
-            </div>
-            <div class="form-group form-group-lg">
-            <label class="control-label requiredField" for="correoCorporativo">
-            Correo corporativo
-            <span class="asteriskField">
-            *
-            </span>
-            </label>
-            <div class="input-group">
-            <div class="input-group-addon">
-            <i class="fa fa-medium">
-            </i>
-            </div>
-            <input required class="form-control" id="correoCorporativo" name="correoCorporativo" type="email"/>
-            </div>
-            </div>
-
-            </div>
-            </div>
-            <div class="col-lg-auto">
-            <div class="form-group form-group-lg">
-            <label class="control-label requiredField" for="sexo">
-            Sexo
-            <span class="asteriskField">
-            *
-            </span>
-            </label>
-            <select class="select form-control" id="sexo" name="sexo">
-            <option value="Hombre">
-            Hombre
-            </option>
-            <option value="Mujer">
-            Mujer
-            </option>
-            </select>
-            </div>
-            <div class="form-group form-group-lg">
-            <label class="control-label requiredField" for="imss">
-            Numero de IMSS
-            <span class="asteriskField">
-            *
-            </span>
-            </label>
-            <input required class="form-control" id="imss" pattern="[0-9]{10}" name="imss" type="text"/>
-            </div>
-            <div class="form-group form-group-lg">
-            <label class="control-label requiredField" for="ine">
-            INE
-            <span class="asteriskField">
-            *
-            </span>
-            </label>
-            <input required class="form-control" id="ine" pattern="[A-Z0-9]{18,20}" name="ine" type="text"/>
-            </div>
-            <div class="form-group form-group-lg">
-            <label class="control-label requiredField" for="curp">
-            CURP
-            <span class="asteriskField">
-            *
-            </span>
-            </label>
-            <input required class="form-control" id="curp" pattern="[A-Z0-9]{18,20}" name="curp" type="text"/>
-            </div>
-            <div class="form-group form-group-lg">
-            <label class="control-label requiredField" for="telefono">
-            Telefono
-            <span class="asteriskField">
-            *
-            </span>
-            </label>
-            <div class="input-group">
-            <div class="input-group-addon">
-            <i class="fa fa-phone">
-            </i>
-            </div>
-            <input required class="form-control" id="telefono" pattern="[0-9|\-0-9|\-0-9]{10}" name="telefono" type="text"/>
-            </div>
-            </div>
-            <div class="form-group form-group-lg">
-            <label class="control-label requiredField" for="fechaIngreso">
-            Fecha de ingreso
-            <span class="asteriskField">
-            *
-            </span>
-            </label>
-            <div class="input-group">
-            <div class="input-group-addon">
-            <i class="fa fa-calendar">
-            </i>
-            </div>
-            <input required class="form-control" id="fechaIngreso" name="fechaIngreso" placeholder="MM/DD/YYYY" type="text" readonly="readonly"/>
-            </div>
-            </div>
-            <div class="form-group form-group-lg">
-            <label class="control-label " for="correo">
-            Correo alternativo
-            </label>
-            <div class="input-group">
-            <div class="input-group-addon">
-            <i class="fa fa-medium">
-            </i>
-            </div>
-            <input required class="form-control" id="correo" name="correo" type="text"/>
-            </div>
-            </div>
-            <div class="form-group form-group-lg">
-            <label class="control-label requiredField" for="tipoempleado">
-            Tipo de empleado
-            <span class="asteriskField">
-            *
-            </span>
-            </label>
-            <select class="select form-control" id="tipoempleado" name="tipoempleado">
-            <option value="user">
-            Usuario
-            </option>
-            <option value="recluitmen">
-            Reclutador
-            </option>
-            <option value="admin">
-            Administrador
-            </option>
-            </select>
-            </div>
-            <div class="form-group btn-group" role="group" aria-label="Basic example">
-            <button type="submit" class="btn btn-success active" id="agregar">Agregar</button>
-            </div>
-            </div>
-            </div>
-            </form>
-        </div>
-        </div>
-
-
-        <div class="tab-pane" id="profile3" role="tabpanel" aria-labelledby="profile3-tab">
-            <div class="container">
-            <div class="row">
-            <br>
-            <div class="col-lg-6"></div>
-            <div class="col-lg-3">
-            <input required type="text" class="form-control" id="buscar" placeholder="Buscar">
-            </div>
-            <div class="col-lg-3">
-            <input required type="button" class="btn btn-primary btn-block" id="btnbuscar" value="Mostrar Todo" data-toggle='modal' data-target='#basicModal'>
-            </div>
-            </div>
-            <hr>
-            <div class="row">
-            <div id="listaEmpleados" class="col-lg-8">
-
-            </div>
-            <div class="col-lg-4">
-            <div class="panel panel-default">
-            <div class="panel-heading">Editar Empleado</div>
-            <div class="panel-body">
-            <form id="form-actualizar" class="form-horizontal" action="<?php echo base_url();?>employees/actualizar" method="post" role="form" style="padding:0 10px;">
-            <div class="form-group">
-            <label>Nombre:</label>
-            <input required type="hidden" id="curpsele" name="curpsele" value="">
-            <input required type="text" name="nombresele" id="nombresele" class="form-control">
-            </div>
-            <div class="form-group">
-            <label>Apellido:</label>
-            <input required type="text" name="apaternosele" id="apaternosele" class="form-control">
-            </div>
-            <div class="form-group">
-            <button type="button" id="btnactualizar" class="btn btn-success btn-block">Guardar</button>
-
-            </div>
-            </form>
-
-            </div>
-            </div>
-
-            </div>
-
-            </div>
-            </div>
-        </div>
-    </div>
     </section>
 </main>
 
-            
+<script src="<?=base_url()?>js/jquery.min.js"></script>
+<script src="<?=base_url()?>js/bootstrap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pikaday/1.6.1/pikaday.min.js"></script>
+<script src="<?=base_url()?>js/theme.js"></script>
 
+<script type="text/javascript" src="<?=base_url()?>js/jquery-1.8.3.min.js" charset="UTF-8"></script>
+<script type="text/javascript" src="<?=base_url()?>js/bootstrap-datetimepicker.js" charset="UTF-8"></script>
+<script type="text/javascript" src="<?=base_url()?>js/locales/bootstrap-datetimepicker.mS.js" charset="UTF-8"></script>
 
-<script src="<?php echo base_url();?>js/bootstrap.min.js"></script>
-<script src="<?php echo base_url();?>js/employees.js"></script>
+<script type="text/javascript">
+    $(".form_datetime").datetimepicker({format: 'yyyy-mm-dd hh:ii'});
+</script> 
+
 <?php
 
-/* End of file page_header_home_recruitment.php */
-/* Location: /community_auth/views/examples/page_header_home_recruitment.php */
+/* End of file masy_bodyreclutador_view.php */
+/* Location: /views/masy_bodyreclutador_view.php */
