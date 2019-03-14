@@ -17,6 +17,7 @@
     <link rel="stylesheet"href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
     <link rel="stylesheet" href="<?=base_url()?>gradient-navbar-1.css">
     <link rel="stylesheet" href="<?=base_url()?>css/bootstrap-datetimepicker.css" rel="stylesheet" media="screen">
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 </head>
 
 <body>
