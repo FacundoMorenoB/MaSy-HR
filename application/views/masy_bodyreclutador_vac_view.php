@@ -38,7 +38,7 @@
                                     *
                                    </span>
                                   </label>
-                                  <input required class="form-control" id="txtnomperfilvac" name="txtnomperfilvac" type="text"/>
+                                  <input required class="form-control" id="txtnomperfilvac" name="txtnomperfilvac" type="text" pattern="[A-Za-z]+" maxlength="250" />
                                  </div>
                                  <div class="form-group ">
                                   <label class="control-label requiredField" for="txtnivimpactovac">
@@ -47,7 +47,7 @@
                                     *
                                    </span>
                                   </label>
-                                  <input required class="form-control" id="txtnivimpactovac" name="txtnivimpactovac" type="text"/>
+                                  <input required class="form-control" id="txtnivimpactovac" name="txtnivimpactovac" type="text" pattern="[1-9]+"/>
                                  </div>
                                  <div class="form-group ">
                                   <label class="control-label requiredField" for="txtnivvaluacionvac">
@@ -56,7 +56,7 @@
                                     *
                                    </span>
                                   </label>
-                                  <input required class="form-control" id="txtnivvaluacionvac" name="txtnivvaluacionvac" type="text"/>
+                                  <input required class="form-control" id="txtnivvaluacionvac" name="txtnivvaluacionvac" type="text" pattern="[A-Za-z]+" maxlength="250"/>
                                  </div>
                                  <div class="form-group ">
                                   <label class="control-label requiredField" for="txtsldrangovac">
@@ -65,7 +65,7 @@
                                     *
                                    </span>
                                   </label>
-                                  <input required class="form-control" id="txtsldrangovac" name="txtsldrangovac" placeholder="$######.## - $$######.##" type="text"/>
+                                  <input required class="form-control" id="txtsldrangovac" name="txtsldrangovac" placeholder="$######.## - $$######.##" type="text" pattern="[0-9$-\.,]+" maxlength="250"/>
                                  </div>
                                  <div class="form-group ">
                                   <label class="control-label requiredField" for="txtsldofrecidovac">
@@ -287,7 +287,7 @@
                                 *
                                </span>
                               </label>
-                              <input required class="form-control" id="txtnomperfilvac1" name="txtnomperfilvac1" type="text"/>
+                              <input required class="form-control" id="txtnomperfilvac1" name="txtnomperfilvac1" type="text" pattern="[A-Za-z\s]+" maxlength="250"/>
                              </div>
                              <div class="form-group ">
                               <label class="control-label requiredField" for="txtnivimpactovac1">
@@ -296,7 +296,7 @@
                                 *
                                </span>
                               </label>
-                              <input required class="form-control" id="txtnivimpactovac1" name="txtnivimpactovac1" type="text"/>
+                              <input required class="form-control" id="txtnivimpactovac1" name="txtnivimpactovac1" type="text" pattern="[0-9]+"/>
                              </div>
                              <div class="form-group ">
                               <label class="control-label requiredField" for="txtnivvaluacionvac1">
@@ -305,7 +305,7 @@
                                 *
                                </span>
                               </label>
-                              <input required class="form-control" id="txtnivvaluacionvac1" name="txtnivvaluacionvac1" type="text"/>
+                              <input required class="form-control" id="txtnivvaluacionvac1" name="txtnivvaluacionvac1" type="text" pattern="[A-Za-z\s]+" maxlength="250"/>
                              </div>
                              <div class="form-group ">
                               <label class="control-label requiredField" for="txtsldrangovac1">
@@ -314,7 +314,7 @@
                                 *
                                </span>
                               </label>
-                              <input required class="form-control" id="txtsldrangovac1" name="txtsldrangovac1" placeholder="$######.## - $$######.##" type="text"/>
+                              <input required class="form-control" id="txtsldrangovac1" name="txtsldrangovac1" placeholder="$######.## - $$######.##" type="text" pattern="[0-9$-\.,\s]+" maxlength="250/>
                              </div>
                              <div class="form-group ">
                               <label class="control-label requiredField" for="txtsldofrecidovac1">
