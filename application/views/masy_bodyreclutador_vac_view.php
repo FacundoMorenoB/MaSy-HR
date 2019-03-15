@@ -87,7 +87,10 @@
                             </section>
                         </div>
                     </div>
-                    <form action="<?=base_url()?>masy_reclutador_controller/guardar_actualizar_vac" method="post" role="form" id="formactualizarvac" name="formactualizarvac">
+                    <div class="heading">
+                      <h2>AGREGAR Y MODIFICAR VACANTES.</h2>
+                    </div>
+                    <form action="<?php echo site_url('masy_reclutador_controller/guardar_actualizar_vac');?>" method="post" role="form" id="formactualizarvac" name="formactualizarvac">
                         <div class="form-group row">
                             <div class="col">
                               <input class="form-control" id="txtidvac1" name="txtidvac1" type="text" pattern="[A-Za-z\s]+" maxlength="250" style="display: none" />
@@ -134,7 +137,7 @@
                                 *
                                </span>
                               </label>
-                              <input required class="form-control" id="txtsldofrecidovac1" name="txtsldofrecidovac1" placeholder="$######.##" type="text" pattern="[0-9$\.,]+" maxlength="250"/>
+                              <input required class="form-control" id="txtsldofrecidovac1" name="txtsldofrecidovac1" placeholder="$######.##" type="text" pattern="[0-9\.]+" maxlength="250"/>
                              </div>
                              <div class="form-group ">
                               <label class="control-label requiredField" for="txtaremsnpuestovac1">

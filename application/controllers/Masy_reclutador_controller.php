@@ -30,25 +30,43 @@ class Masy_reclutador_controller extends CI_Controller {
 			$idioma = $this->input->post("txtidiomavac1");
 			$proginforma = $this->input->post("txtproginformavac1");
 			$habili = $this->input->post("textarehabilivac1");
-			$fireccion = $this->input->post("seldireccionvac1");
+			$direccion = $this->input->post("seldireccionvac1");
 			$director = $this->input->post("seldirectorvac1");
 			$funciones = $this->input->post("textarefuncionesvac1");
 			
-			if ($id == "") {
-				
-			}
-
 			$datos = array(
-				"nombre" => $nombre,
-				"apaterno" => $apaterno,
-				"amaterno" => $amaterno,
-				"fechanacimiento" => $fechanacimiento,
-				"estado" => $estado
-				);
-			if($this->employees_model->guardar($datos)==true)
-				echo "Registro Guardado";
-			else
-				echo "No se pudo guardar los datos";
+				"ANOMBREPERFILPUESTO" => $nomprefil,
+				"ANIVELIMPACTO" => $invimpacto,
+				"ANIVELEVALUACION" => $nivvaluacion,
+				"ARANGOSUELDO" => $sldrango,
+				"NSUELDO" => $sldofrecido,
+				"AMISION" => $msnpuesto,
+				"NRANGOEDAD" => $edad,
+				"AGENERO" => $sexo,
+				"ACONOCIMIENTOSTEC" => $conpuesto,
+				"AIDIOMAS" => $idioma,
+				"APROGRAMASINFO" => $proginforma,
+				"AHABILIDADESPRF" => $habili,
+				"AGERENCIAPERT" => $direccion,
+				"APUESTOREPORTA" => $director,
+				"AFUNESPECIFICAS" => $funciones
+			);
+
+			if ($id == '') {
+				if($this->masy_reclutador_model->guardar($datos)==true){
+					return JavaScript(alert("Perfil agregado"));
+					redirect("masy_login_controller/recruiter");
+				}
+				else{
+					return JavaScript(alert("No se pudo guardar el perfil"));
+				}
+			}
+			else{
+				if($this->masy_reclutador_model->actualizar($id,$datos)==true)
+					return JavaScript(alert("Perfil actualizado"));
+				else
+					return JavaScript(alert("No se pudo actualizar el perfil"));
+				}
 		}
 		else
 		{
@@ -62,7 +80,7 @@ class Masy_reclutador_controller extends CI_Controller {
 	function mostrar(){
 		if (!$this->input->is_ajax_request()) {
 			$buscar = $this->input->post("buscar");
-			$datos = $this->employees_model->mostrar($buscar);
+			$datos = $this->masy_reclutador_model->mostrar($buscar);
 			echo json_encode($datos);
 			
 		}
@@ -81,7 +99,7 @@ class Masy_reclutador_controller extends CI_Controller {
 				"nombre" => $nombre,
 				"apaterno" => $apaterno,
 				);
-			if($this->employees_model->actualizar($curp,$datos) == true)
+			if($this->masy_reclutador_model->actualizar($curp,$datos) == true)
 				echo "Registro Actualizado";
 			else
 				echo "No se pudo actualizar los datos";
@@ -96,7 +114,7 @@ class Masy_reclutador_controller extends CI_Controller {
 	function eliminar(){
 		if (!$this->input->is_ajax_request()) {
 			$curp = $this->input->post("curpsele");
-			if($this->employees_model->eliminar($curp) == true)
+			if($this->masy_reclutador_model->eliminar($curp) == true)
 				echo "Registro Eliminado";
 			else
 				echo "No se pudo eliminar los datos";
