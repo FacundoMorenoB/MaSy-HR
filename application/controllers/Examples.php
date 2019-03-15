@@ -195,7 +195,7 @@ class Examples extends MY_Controller
 			'username'   => 'admin',
 			'passwd'     => 'Administrat0r',
 			'email'      => 'admin@masy.hr.com',
-			'auth_level' => '1', // 9 if you want to login @ examples/index.
+			'auth_level' => '9', // 9 if you want to login @ examples/index.
 		];
 
 		$this->is_logged_in();
