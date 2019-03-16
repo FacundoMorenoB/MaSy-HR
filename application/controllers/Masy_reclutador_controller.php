@@ -115,18 +115,7 @@ class Masy_reclutador_controller extends CI_Controller {
 
 	public function pdf_vac(){
 		$mpdf = new \Mpdf\Mpdf();
-        $html = $html = 
-        "<style>@page {
-			    margin-top: 0.5cm;
-			    margin-bottom: 0.5cm;
-			    margin-left: 0.5cm;
-			    margin-right: 0.5cm;
-			}
-			</style>".
-        "<body>
-        	<div style='color:#006699;'><b>Prueba de concepto<b></div>
-
-        </body>";
+        $html = $this->load->view('masy_bodyreclutador_vac_view',[],true);
         $mpdf->WriteHTML($html);
         $mpdf->Output(); // opens in browser
         //$mpdf->Output('arjun.pdf','D'); // it downloads the file into the user system, with give name
