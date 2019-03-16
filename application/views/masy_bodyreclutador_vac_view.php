@@ -46,7 +46,6 @@
                     <form action="<?php echo site_url('masy_reclutador_controller/guardar_actualizar_vac');?>" method="post" role="form" id="formactualizarvac" name="formactualizarvac">
                         <div class="form-group row">
                             <div class="col">
-                              <input class="form-control" id="txtidvac1" name="txtidvac1" type="text" pattern="[A-Za-z\s]+" maxlength="250" style="display: none" />
                               <div class="form-group ">
                               <label class="control-label requiredField" for="txtnomperfilvac1">
                                Nombre del perfil
@@ -54,6 +53,7 @@
                                 *
                                </span>
                               </label>
+                              <input class="form-control" id="txtidvac1" name="txtidvac1" type="hidden" value=""/>
                               <input required class="form-control" id="txtnomperfilvac1" name="txtnomperfilvac1" type="text" pattern="[A-Za-z\s]+" maxlength="250"/>
                              </div>
                              <div class="form-group ">

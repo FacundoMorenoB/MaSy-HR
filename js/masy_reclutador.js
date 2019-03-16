@@ -8,11 +8,56 @@ $( document ).ready(function() {
   	$("#btnbuscarvac").click(function(){
 		mostrarDatos("");
 	});
+	$("#btnactualizar").click(actualizar);
+	$("#formactualizarvac").submit(function (){
+		$.ajax({
+			url:$("#formactualizarvac").attr("action"),
+			type:$("#formactualizarvac").attr("method"),
+			data:$("#formactualizarvac").serialize(),
+			success:function(respuesta){
+				alert(respuesta);
+			}
+		});
+	});
+	$("body").on("click","#blklistavac a",function(event){
+		event.preventDefault();
+		valor = $(this).attr("href");
+		$("#txtidvac1").val(valor);
+		$.ajax({
+			url:"http://localhost/MaSy-HR/index.php/masy_reclutador_controller/buscar_vac",
+			type:"POST",
+			data:{txtidvac1:valor},
+			success:function(respuesta){
+				//alert(respuesta);
+				var registros = eval(respuesta);
+				$("#txtnomperfilvac1").val(registros[0]["ANOMBREPERFILPUESTO"]);
+				$("#txtnivimpactovac1").val(registros[0]["ANIVELIMPACTO"]);
+				$("#txtnivvaluacionvac1").val(registros[0]["ANIVELEVALUACION"]);
+				$("#txtsldrangovac1").val(registros[0]["ARANGOSUELDO"]);
+				$("#txtsldofrecidovac1").val(registros[0]["NSUELDO"]);
+				$("#txtaremsnpuestovac1").val(registros[0]["AMISION"]);
+				$("#txtedadvac1").val(registros[0]["NRANGOEDAD"]);
+				$("#selsexovac1").val(registros[0]["AGENERO"]);
+				$("#textareconpuestovac1").val(registros[0]["ACONOCIMIENTOSTEC"]);
+				$("#txtidiomavac1").val(registros[0]["AIDIOMAS"]);
+				$("#txtproginformavac1").val(registros[0]["APROGRAMASINFO"]);
+				$("#textarehabilivac1").val(registros[0]["AHABILIDADESPRF"]);
+				$("#seldireccionvac1").val(registros[0]["AGERENCIAPERT"]);
+				$("#seldirectorvac1").val(registros[0]["APUESTOREPORTA"]);
+				$("#textarefuncionesvac1").val(registros[0]["AFUNESPECIFICAS"]);
+			}
+		});
+
+	});
+	$("body").on("click","#blklistavac button",function(event){
+		id = $(this).attr("value");
+		eliminar(id);
+	});
 });
 
 function mostrarDatos(valor){
 	$.ajax({
-		url:"http://localhost/MaSy-HR/index.php/masy_reclutador_controller/mostrar",
+		url:"http://localhost/MaSy-HR/index.php/masy_reclutador_controller/mostrar_vac",
 		type:"POST",
 		data:{buscar:valor},
 		success:function(respuesta){
@@ -28,11 +73,35 @@ function mostrarDatos(valor){
                 html +="<div class=\"card-body\">";
 				html +="<h6>"+registros[i]["ANOMBREPERFILPUESTO"]+"</h6>";
 				html +="<p class=\"text-muted card-text\">"+registros[i]["AFUNESPECIFICAS"]+"</p>";
-				html +="<a href='"+registros[i]["IDPERFILDEPUESTO"]+"' class='btn btn-warning' data-toggle='modal' data-target='#myModal'>E</a> <button class='btn btn-danger' type='button' value='"+registros[i]["IDPERFILDEPUESTO"]+"'>X</button>";
+				html +="<a href='"+registros[i]["IDPERFILDEPUESTO"]+"' class='btn btn-secondary' data-toggle='modal' data-target='#myModal'>PDF</a> <a href='"+registros[i]["IDPERFILDEPUESTO"]+"' class='btn btn-warning' data-toggle='modal' data-target='#myModal'>Editar</a> <button class='btn btn-danger' type='button' value='"+registros[i]["IDPERFILDEPUESTO"]+"'>Eliminar</button>";
 				html +="</div></div></div>";
 			};
 			//alert(html);
 			$("#blklistavac").html(html);
+		}
+	});
+}
+
+function actualizar(){
+	$.ajax({
+		url:"http://localhost/MaSy-HR/index.php/masy_reclutador_controller/guardar_actualizar_vac",
+		type:"POST",
+		data:$("#form-actualizar").serialize(),
+		success:function(respuesta){
+			alert(respuesta);
+			mostrarDatos("");
+		}
+	});
+}
+
+function eliminar(valor){
+	$.ajax({
+		url:"http://localhost/MaSy-HR/index.php/masy_reclutador_controller/eliminar_vac",
+		type:"POST",
+		data:{txtidvac1:valor},
+		success:function(respuesta){
+			//alert(respuesta);
+			mostrarDatos("");
 		}
 	});
 }

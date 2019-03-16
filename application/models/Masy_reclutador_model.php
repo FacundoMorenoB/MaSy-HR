@@ -14,7 +14,7 @@ class Masy_reclutador_model extends CI_Model {
 		}
 	}
 	function mostrar($valor){
-		$this->db->like("IDPERFILDEPUESTO",$valor);
+		$this->db->like("ANOMBREPERFILPUESTO",$valor);
 		$consulta = $this->db->get("GSPERFILESPUESTOS");
 		return $consulta->result();
 	}
@@ -39,6 +39,12 @@ class Masy_reclutador_model extends CI_Model {
 		else{
 			return false;
 		}
+	}
+
+	function buscar($id){
+		$this->db->where("IDPERFILDEPUESTO",$id);
+		$consulta = $this->db->get("GSPERFILESPUESTOS");
+		return $consulta->result();
 	}
 
 }

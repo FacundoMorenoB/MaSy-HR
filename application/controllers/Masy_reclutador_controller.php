@@ -70,7 +70,7 @@ class Masy_reclutador_controller extends CI_Controller {
 
 	}
 
-	function mostrar(){
+	function mostrar_vac(){
 		if ($this->input->is_ajax_request()) {
 			$buscar = $this->input->post("txtbuscarvac");
 			$datos = $this->masy_reclutador_model->mostrar($buscar);
@@ -83,48 +83,16 @@ class Masy_reclutador_controller extends CI_Controller {
 		}
 	}
 
-	function actualizar(){
-		if (!$this->input->is_ajax_request()) {
+	function eliminar_vac(){
+		if ($this->input->is_ajax_request()) {
 			$id = $this->input->post("txtidvac1");
-			$nomprefil = $this->input->post("txtnomperfilvac1");
-			$invimpacto = $this->input->post("txtnivimpactovac1");
-			$nivvaluacion = $this->input->post("txtnivvaluacionvac1");
-			$sldrango = $this->input->post("txtsldrangovac1");
-			$sldofrecido = $this->input->post("txtsldofrecidovac1");
-			$msnpuesto = $this->input->post("txtaremsnpuestovac1");
-			$edad = $this->input->post("txtedadvac1");
-			$sexo = $this->input->post("selsexovac1");
-			$conpuesto = $this->input->post("textareconpuestovac1");
-			$idioma = $this->input->post("txtidiomavac1");
-			$proginforma = $this->input->post("txtproginformavac1");
-			$habili = $this->input->post("textarehabilivac1");
-			$direccion = $this->input->post("seldireccionvac1");
-			$director = $this->input->post("seldirectorvac1");
-			$funciones = $this->input->post("textarefuncionesvac1");
-
-			$datos = array(
-				"ANOMBREPERFILPUESTO" => $nomprefil,
-				"ANIVELIMPACTO" => $invimpacto,
-				"ANIVELEVALUACION" => $nivvaluacion,
-				"ARANGOSUELDO" => $sldrango,
-				"NSUELDO" => $sldofrecido,
-				"AMISION" => $msnpuesto,
-				"NRANGOEDAD" => $edad,
-				"AGENERO" => $sexo,
-				"ACONOCIMIENTOSTEC" => $conpuesto,
-				"AIDIOMAS" => $idioma,
-				"APROGRAMASINFO" => $proginforma,
-				"AHABILIDADESPRF" => $habili,
-				"AGERENCIAPERT" => $direccion,
-				"APUESTOREPORTA" => $director,
-				"AFUNESPECIFICAS" => $funciones
-				);
-			if($this->masy_reclutador_model->actualizar($id,$datos) == true)
-				redirect("masy_login_controller/recruiter");
+			if($this->masy_reclutador_model->eliminar($id) == true){
+				redirect("masy_login_controller/recruiter");				
+			}
 			else{
 				redirect("masy_login_controller/recruiter");
-			}
 			
+			}
 		}
 		else
 		{
@@ -132,18 +100,12 @@ class Masy_reclutador_controller extends CI_Controller {
 		}
 	}
 
-	function eliminar(){
-		if (!$this->input->is_ajax_request()) {
+	function buscar_vac(){
+		if ($this->input->is_ajax_request()) {
 			$id = $this->input->post("txtidvac1");
-			if($this->masy_reclutador_model->eliminar($id) == true){
-				echo "Registro Eliminado";
-				redirect("masy_login_controller/recruiter");				
-			}
-			else{
-				echo "No se pudo eliminar los datos";
-				redirect("masy_login_controller/recruiter");
+			$datos = $this->masy_reclutador_model->buscar($id);
+			echo json_encode($datos);
 			
-			}
 		}
 		else
 		{
