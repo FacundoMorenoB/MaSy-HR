@@ -213,6 +213,11 @@
                                </button>
                               </div>
                              </div>
+                             <div class="form-group">
+                              <div>
+                               <a href="<?php echo site_url('masy_reclutador_controller/pdf_vac');?>" class="btn btn-dark btn-block" name="pdfvac" id="pdfvac" >PDF</a>
+                              </div>
+                             </div>
                             </div>
                         </div>
                     </form>
