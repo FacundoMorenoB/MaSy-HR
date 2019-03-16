@@ -10,7 +10,6 @@
 <script src="<?=base_url()?>js/bootstrap.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/pikaday/1.6.1/pikaday.min.js"></script>
 <script src="<?=base_url()?>js/theme.js"></script>
-<script src="<?=base_url()?>js/masy_reclutador.js"></script>
 
 
 <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
@@ -32,6 +31,8 @@ $(".custom-file-input").on("change", function() {
 });
 </script>
 
+
+<script src="<?=base_url()?>js/masy_reclutador.js"></script>
 <?php
 
 /* End of file masy_bodyreclutador_cit_view.php */

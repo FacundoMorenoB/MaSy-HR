@@ -1,87 +1,38 @@
-$(document).on("ready",inicio);
-
-function inicio(){
+$( document ).ready(function() {
+	// Handler for .ready() called.
 	mostrarDatos("");
-	$("#buscar").keyup(function(){
-		buscar = $("#buscar").val();
+	$("#txtbuscarvac").keyup(function(){
+		buscar = $("#txtbuscarvac").val();
 		mostrarDatos(buscar);
 	});
-	$("#btnbuscarvac").click(function(){
+  	$("#btnbuscarvac").click(function(){
 		mostrarDatos("");
 	});
-	$("#btnactualizar").click(actualizar);
-	$("form").submit(function (){
-		console.log( $("form").attr("action") );
-		console.log( $("form").attr("method") );
-		console.log( $("form").serialize() );
-
-		$.ajax({
-			url:$("form").attr("action"),
-			type:$("form").attr("method"),
-			data:$("form").serialize(),
-			success:function(respuesta){
-				alert(respuesta);
-			}
-		});
-	});
-	$("body").on("click","#listaEmpleados a",function(event){
-		event.preventDefault();
-		curpsele = $(this).attr("href");
-		nombresele = $(this).parent().parent().children("td:eq(1)").text();
-		apaternosele = $(this).parent().parent().children("td:eq(2)").text();
-
-		$("#curpsele").val(curpsele);
-		$("#nombresele").val(nombresele);
-		$("#apaternosele").val(apaternosele);
-	});
-	$("body").on("click","#listaEmpleados button",function(event){
-		curp = $(this).attr("value");
-		eliminar(curp);
-	});
-}
+});
 
 function mostrarDatos(valor){
 	$.ajax({
-		url:"http://localhost/masy-hr/index.php/employees/mostrar",
+		url:"http://localhost/MaSy-HR/index.php/masy_reclutador_controller/mostrar",
 		type:"POST",
 		data:{buscar:valor},
 		success:function(respuesta){
 			//alert(respuesta);
 			var registros = eval(respuesta);
 			
-			html ="<table class='table table-responsive table-bordered'><thead>";
- 			html +="<tr><th>CURP</th><th>Nombre</th><th>Apellido Paterno</th><th>Accion</th></tr>";
-			html +="</thead><tbody>";
+			html ="";
+
 			for (var i = 0; i < registros.length; i++) {
-				html +="<tr><td>"+registros[i]["curp"]+"</td><td>"+registros[i]["nombre"]+"</td><td>"+registros[i]["apaterno"]+"</td><td><a href='"+registros[i]["curp"]+"' class='btn btn-warning' data-toggle='modal' data-target='#myModal'>E</a> <button class='btn btn-danger' type='button' value='"+registros[i]["curp"]+"'>X</button></td></tr>";
+				var num = Math.floor((Math.random() * (7-1))+1);
+				html +="<div class=\"col-md-6 col-lg-4\">";
+                html +="<div class=\"card border-0\"><a href=\"#formactualizarvac\"><img src=\"http://localhost/MaSy-HR/img/nature/image"+num+".jpg\" alt=\"Card Image\" class=\"card-img-top scale-on-hover\"></a>";
+                html +="<div class=\"card-body\">";
+				html +="<h6>"+registros[i]["ANOMBREPERFILPUESTO"]+"</h6>";
+				html +="<p class=\"text-muted card-text\">"+registros[i]["AFUNESPECIFICAS"]+"</p>";
+				html +="<a href='"+registros[i]["IDPERFILDEPUESTO"]+"' class='btn btn-warning' data-toggle='modal' data-target='#myModal'>E</a> <button class='btn btn-danger' type='button' value='"+registros[i]["IDPERFILDEPUESTO"]+"'>X</button>";
+				html +="</div></div></div>";
 			};
-			html +="</tbody></table>";
-			$("#listaEmpleados").html(html);
+			//alert(html);
+			$("#blklistavac").html(html);
 		}
 	});
 }
-
-function actualizar(){
-	$.ajax({
-		url:"http://localhost/masy-hr/index.php/employees/actualizar",
-		type:"POST",
-		data:$("#form-actualizar").serialize(),
-		success:function(respuesta){
-			alert(respuesta);
-			mostrarDatos("");
-		}
-	});
-}
-
-function eliminar(curpsele){
-	$.ajax({
-		url:"http://localhost/masy-hr/index.php/employees/eliminar",
-		type:"POST",
-		data:{curpsele:curp},
-		success:function(respuesta){
-			alert(respuesta);
-			mostrarDatos("");
-		}
-	});
-}
-

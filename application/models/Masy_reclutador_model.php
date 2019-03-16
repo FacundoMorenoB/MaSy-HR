@@ -15,7 +15,7 @@ class Masy_reclutador_model extends CI_Model {
 	}
 	function mostrar($valor){
 		$this->db->like("IDPERFILDEPUESTO",$valor);
-		$consulta = $this->db->get(" 	GSPERFILESPUESTOS");
+		$consulta = $this->db->get("GSPERFILESPUESTOS");
 		return $consulta->result();
 	}
 

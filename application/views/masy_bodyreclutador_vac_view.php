@@ -27,61 +27,14 @@
                         <div class="col-3"><input type="button" name="btnbuscarvac" id="btnbuscarvac" class="btn btn-info" value="Mostrar todo" data-toggle='modal' data-target='#basicModal'></div>
                     </div>
                     <div class="row justify-content-center">
-                        <div class="col-12" id="blklistavac">
+                        <div class="col-12">
                             <section class="portfolio-block projects-cards">
                                 <div class="container">
                                     <div class="heading">
                                         <h2>VACANTES.</h2>
                                     </div>
-                                    <div class="row">
-                                        <div class="col-md-6 col-lg-4">
-                                            <div class="card border-0"><a href="#formactualizarvac"><img src="<?=base_url()?>img/nature/image1.jpg" alt="Card Image" class="card-img-top scale-on-hover"></a>
-                                                <div class="card-body">
-                                                    <h6><a href="#">Lorem Ipsum</a></h6>
-                                                    <p class="text-muted card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc quam urna.</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-6 col-lg-4">
-                                            <div class="card border-0"><a href="#formactualizarvac"><img src="<?=base_url()?>img/nature/image2.jpg" alt="Card Image" class="card-img-top scale-on-hover"></a>
-                                                <div class="card-body">
-                                                    <h6><a href="#">Lorem Ipsum</a></h6>
-                                                    <p class="text-muted card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc quam urna.</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-6 col-lg-4">
-                                            <div class="card border-0"><a href="#formactualizarvac"><img src="<?=base_url()?>img/nature/image3.jpg" alt="Card Image" class="card-img-top scale-on-hover"></a>
-                                                <div class="card-body">
-                                                    <h6><a href="#">Lorem Ipsum</a></h6>
-                                                    <p class="text-muted card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc quam urna.</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-6 col-lg-4">
-                                            <div class="card border-0"><a href="#formactualizarvac"><img src="<?=base_url()?>img/nature/image4.jpg" alt="Card Image" class="card-img-top scale-on-hover"></a>
-                                                <div class="card-body">
-                                                    <h6><a href="#">Lorem Ipsum</a></h6>
-                                                    <p class="text-muted card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc quam urna.</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-6 col-lg-4">
-                                            <div class="card border-0"><a href="#formactualizarvac"><img src="<?=base_url()?>img/nature/image5.jpg" alt="Card Image" class="card-img-top scale-on-hover"></a>
-                                                <div class="card-body">
-                                                    <h6><a href="#">Lorem Ipsum</a></h6>
-                                                    <p class="text-muted card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc quam urna.</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-6 col-lg-4">
-                                            <div class="card border-0"><a href="#formactualizarvac"><img src="<?=base_url()?>img/nature/image6.jpg" alt="Card Image" class="card-img-top scale-on-hover"></a>
-                                                <div class="card-body">
-                                                    <h6><a href="#">Lorem Ipsum</a></h6>
-                                                    <p class="text-muted card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc quam urna.</p>
-                                                </div>
-                                            </div>
-                                        </div>
+                                    <div class="row" id="blklistavac">
+                                        
                                     </div>
                                 </div>
                             </section>
