@@ -9,6 +9,7 @@ $( document ).ready(function() {
 		mostrarDatos("");
 	});
 	$("#btnactualizar").click(actualizar);
+	$("#btnlimpiarvac").click(limpiar);
 	$("#formactualizarvac").submit(function (){
 		$.ajax({
 			url:$("#formactualizarvac").attr("action"),
@@ -104,4 +105,22 @@ function eliminar(valor){
 			mostrarDatos("");
 		}
 	});
+}
+
+function limpiar(){
+	$("#txtnomperfilvac1").val("");
+	$("#txtnivimpactovac1").val("");
+	$("#txtnivvaluacionvac1").val("");
+	$("#txtsldrangovac1").val("");
+	$("#txtsldofrecidovac1").val("");
+	$("#txtaremsnpuestovac1").val("");
+	$("#txtedadvac1").val("");
+	$("#selsexovac1").val("");
+	$("#textareconpuestovac1").val("");
+	$("#txtidiomavac1").val("");
+	$("#txtproginformavac1").val("");
+	$("#textarehabilivac1").val("");
+	$("#seldireccionvac1").val("");
+	$("#seldirectorvac1").val("");
+	$("#textarefuncionesvac1").val("");
 }
