@@ -15,8 +15,9 @@
                 </li>
                 <li class="nav-item dropdown"><a data-toggle="dropdown" aria-expanded="false" href="#" class="dropdown-toggle nav-link">Capacitacion</a>
                     <div role="menu" class="dropdown-menu">
-                        <a role="presentation" href="#" class="dropdown-item">Alta de Cursos</a>
-                        <a role="presentation" href="#" class="dropdown-item">Administracion de Cursos</a>
+                        <a role="presentation" href="#registrarcurso" id="registrarcurso-tab" class="dropdown-item" data-toggle="tab">Cursos</a>
+                        <a role="presentation" href="#calendarizacurso" id="calendarizacurso-tab" class="dropdown-item" data-toggle="tab">Calendarizar Cursos</a>
+                        <a role="presentation" href="#asignarcurso" id="asignarcurso-tab" class="dropdown-item" data-toggle="tab">Asignar Cursos</a>
                     </div>
                 </li>
             </ul>
@@ -220,7 +221,7 @@
                              </div>
                              <div class="form-group">
                               <div>
-                               <a href="" class="btn btn-info btn-block" name="btnlimpiarvac" id="btnlimpiarvac" >Limpiar</a>
+                               <a href="#formactualizarvac" class="btn btn-info btn-block" name="btnlimpiarvac" id="btnlimpiarvac" >Limpiar</a>
                               </div>
                              </div>
                             </div>

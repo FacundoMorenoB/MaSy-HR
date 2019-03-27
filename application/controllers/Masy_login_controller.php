@@ -67,6 +67,12 @@ class Masy_login_controller extends MY_Controller
 
 			echo $this->load->view('masy_bodyreclutador_cit_view', '', TRUE);
 
+			echo $this->load->view('masy_bodyreclutador_cur_new_view', '', TRUE);
+
+			echo $this->load->view('masy_bodyreclutador_cur_cal_view', '', TRUE);
+
+			echo $this->load->view('masy_bodyreclutador_cur_asig_view', '', TRUE);
+
 			echo $this->load->view('masy_footer_view', '', TRUE);
 		}
 	}

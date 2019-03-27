@@ -9,7 +9,10 @@ $( document ).ready(function() {
 		mostrarDatos("");
 	});
 	$("#btnactualizar").click(actualizar);
-	$("#btnlimpiarvac").click(limpiar);
+	$("#btnlimpiarvac").click(limpiarvac);
+	$("#btnlimpiarcur").click(limpiarcur);
+	$("#btnlimpiarcurcal").click(limpiarcurcal);
+	$("#btnlimpiarcurasig").click(limpiarcurasig);
 	$("#formactualizarvac").submit(function (){
 		$.ajax({
 			url:$("#formactualizarvac").attr("action"),
@@ -107,7 +110,7 @@ function eliminar(valor){
 	});
 }
 
-function limpiar(){
+function limpiarvac(){
 	$("#txtnomperfilvac1").val("");
 	$("#txtnivimpactovac1").val("");
 	$("#txtnivvaluacionvac1").val("");
@@ -123,4 +126,26 @@ function limpiar(){
 	$("#seldireccionvac1").val("");
 	$("#seldirectorvac1").val("");
 	$("#textarefuncionesvac1").val("");
+}
+
+function limpiarcur(){
+	$("#txtnombrecur1").val("");
+	$("#txtdireccioncur1").val("");
+	$("#txttipocur1").val("");
+	$("#txtarecontenidocur1").val("");
+	$("#fileimagencur1").val("");
+}
+
+function limpiarcurcal(){
+	$("#txtfechainicurcal1").val("");
+	$("#txtfechafincurcal1").val("");
+	$("#txtcapacitadorcurcal1").val("");
+	$("#txtcomentarioscurcal1").val("");
+	$("#txtclavecurcal1").val("");
+}
+
+function limpiarcurasig(){
+	$("#txtclaveempcurasig1").val("");
+	$("#txtfechainicurasig1").val("");
+	$("#txtfechafincurasig1").val("");
 }
