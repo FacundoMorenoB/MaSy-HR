@@ -1,42 +1,13 @@
 				<div class="tab-pane" id="calendarizacurso" role="tabpanel" aria-labelledby="calendarizacurso-tab">
 					<div class="row justify-content-start" style="margin-top: 10px">
-						<div class="col-4"><input class="form-control" type="text" name="txtbuscarcan" id="txtbuscarcan" placeholder="Buscar candidato"></div>
-						<div class="col-3"><input type="button" name="btnbuscarcan" id="btnbuscarcan" class="btn btn-info" value="Mostrar todo" data-toggle='modal' data-target='#basicModal'></div>
+						<div class="col-4"><input class="form-control" type="text" name="txtbuscarcalcur" id="txtbuscarcalcur" placeholder="Buscar candidato"></div>
+						<div class="col-3"><input type="button" name="btnbuscarcalcur" id="btnbuscarcalcur" class="btn btn-info" value="Mostrar todo" data-toggle='modal' data-target='#basicModal'></div>
 					</div>
 					<div class="container">
-						<div class="row justify-content-start" style="margin-top: 10px">
-							<table class="table">
-								<thead class="thead-dark">
-								<tr>
-									<th scope="col">#</th>
-									<th scope="col">First</th>
-									<th scope="col">Last</th>
-									<th scope="col">Handle</th>
-								</tr>
-								</thead>
-								<tbody>
-								<tr>
-									<th scope="row">1</th>
-									<td>Mark</td>
-									<td>Otto</td>
-									<td>@mdo</td>
-								</tr>
-								<tr>
-									<th scope="row">2</th>
-									<td>Jacob</td>
-									<td>Thornton</td>
-									<td>@fat</td>
-								</tr>
-								<tr>
-									<th scope="row">3</th>
-									<td>Larry</td>
-									<td>the Bird</td>
-									<td>@twitter</td>
-								</tr>
-								</tbody>
-							</table>
+						<div class="row justify-content-start" style="margin-top: 10px" id="list_cal_cur">
+
 						</div>
-						<form action="<?=base_url()?>masy_reclutador_controller/alta_can" method="post" role="form" id="formactualizarcalcur" name="formactualizarcalcur" style="margin-top: 30px">
+						<form action="<?php echo site_url('masy_cursos_controller/guardar_actualizar_cur_cal');?>" method="post" role="form" id="formactualizarcalcur" name="formactualizarcalcur" style="margin-top: 30px">
 							<div class="form-group row">
 								<div class="card border-success col-lg-12 mb-3">
 									<div class="card-header bg-success text-white" style="margin-top: 10px">
@@ -49,15 +20,16 @@
 										*
 										 </span>
 										</label>
+										<input class="form-control" id="txtidcurcal1" name="txtidcurcal1" type="hidden" value=""/>
 										<select class="select form-control" id="selcursocal1" name="selcursocal1">
-										 <option value="M&eacute;xico">
-										Curso 1
+										 <option value="1">
+										1
 										 </option>
-										 <option value="Estado de M&eacute;xico">
-										Curso 2
+										 <option value="2">
+										2
 										 </option>
-										 <option value="Jalisco">
-										Curso 3
+										 <option value="3">
+										3
 										 </option>
 										</select>
 									 </div>
@@ -81,39 +53,30 @@
 									</div>
 									<div class="form-group ">
 										<label class="control-label requiredField" for="txtcapacitadorcurcal1">
-										Direcci&oacute;n
+										Capacitador
 										<span class="asteriskField">
 										*
 										</span>
 										</label>
-										<input required class="form-control" id="txtcapacitadorcurcal1" name="txtcapacitadorcurcal1" type="text"/>
-										<span class="help-block" id="hint_txtcapacitadorcurcal1">
-										M&aacute;ximo 250 caracteres
-										</span>
+										<input required class="form-control" id="txtcapacitadorcurcal1" name="txtcapacitadorcurcal1" type="text" pattern="[0-9]+" maxlength="11"/>
 									</div>
 									<div class="form-group ">
-										<label class="control-label requiredField" for="txtcomentarioscurcal1">
-										Direcci&oacute;n
-										<span class="asteriskField">
-										*
-										</span>
-										</label>
-										<input required class="form-control" id="txtcomentarioscurcal1" name="txtcomentarioscurcal1" type="text"/>
-										<span class="help-block" id="hint_txtcomentarioscurcal1">
-										M&aacute;ximo 250 caracteres
-										</span>
-									</div>
+		                              <label class="control-label requiredField" for="txtarecomentarioscurcal1">
+		                               Comentarios
+		                               <span class="asteriskField">
+		                                *
+		                               </span>
+		                              </label>
+		                              <textarea required class="form-control" cols="40" id="txtarecomentarioscurcal1" name="txtarecomentarioscurcal1" rows="5" maxlength="500"></textarea>
+		                            </div>
 									<div class="form-group ">
 										<label class="control-label requiredField" for="txtclavecurcal1">
-										Direcci&oacute;n
+										Clave del curso
 										<span class="asteriskField">
 										*
 										</span>
 										</label>
 										<input required class="form-control" id="txtclavecurcal1" name="txtclavecurcal1" type="text"/>
-										<span class="help-block" id="hint_txtclavecurcal1">
-										M&aacute;ximo 250 caracteres
-										</span>
 									</div>
 									<div class="form-group">
 										<button class="btn btn-primary btn-block" name="submit1" type="submit">

@@ -1,42 +1,13 @@
 				<div class="tab-pane" id="registrarcurso" role="tabpanel" aria-labelledby="registrarcurso-tab">
 					<div class="row justify-content-start" style="margin-top: 10px">
-						<div class="col-4"><input class="form-control" type="text" name="txtbuscarcan" id="txtbuscarcan" placeholder="Buscar candidato"></div>
-						<div class="col-3"><input type="button" name="btnbuscarcan" id="btnbuscarcan" class="btn btn-info" value="Mostrar todo" data-toggle='modal' data-target='#basicModal'></div>
+						<div class="col-4"><input class="form-control" type="text" name="txtbuscarcur" id="txtbuscarcur" placeholder="Buscar candidato"></div>
+						<div class="col-3"><input type="button" name="btnbuscarcur" id="btnbuscarcur" class="btn btn-info" value="Mostrar todo" data-toggle='modal' data-target='#basicModal'></div>
 					</div>
 					<div class="container">
-						<div class="row justify-content-start" style="margin-top: 10px">
-							<table class="table">
-								<thead class="thead-dark">
-								<tr>
-									<th scope="col">#</th>
-									<th scope="col">First</th>
-									<th scope="col">Last</th>
-									<th scope="col">Handle</th>
-								</tr>
-								</thead>
-								<tbody>
-								<tr>
-									<th scope="row">1</th>
-									<td>Mark</td>
-									<td>Otto</td>
-									<td>@mdo</td>
-								</tr>
-								<tr>
-									<th scope="row">2</th>
-									<td>Jacob</td>
-									<td>Thornton</td>
-									<td>@fat</td>
-								</tr>
-								<tr>
-									<th scope="row">3</th>
-									<td>Larry</td>
-									<td>the Bird</td>
-									<td>@twitter</td>
-								</tr>
-								</tbody>
-							</table>
+						<div class="row justify-content-start" style="margin-top: 10px" id="list_nue_cur">
+							
 						</div>
-						<form action="<?=base_url()?>masy_reclutador_controller/alta_nuw_cur" method="post" role="form" id="formactualizarnuecur" name="formactualizarnuecur" style="margin-top: 30px">
+						<form action="<?php echo site_url('masy_cursos_controller/guardar_actualizar_nue_cur');?>" method="post" role="form" id="formactualizarnuecur" name="formactualizarnuecur" style="margin-top: 30px">
 							<div class="form-group row">
 								<div class="card border-primary col-lg-12 mb-3">
 									<div class="card-header bg-primary text-white" style="margin-top: 10px">
@@ -49,6 +20,7 @@
 										*
 										 </span>
 										</label>
+										<input class="form-control" id="txtidcur1" name="txtidvac1" type="hidden" value=""/>
 										<input required class="form-control" id="txtnombrecur1" name="txtnombrecur1" type="text" pattern="[A-Za-z0-9\s]+" maxlength="250"/>
 									 </div>
 									 <div class="form-group ">
@@ -58,7 +30,7 @@
 										*
 										 </span>
 										</label>
-										<input required class="form-control" id="txtdireccioncur1" name="txtdireccioncur1" type="text" pattern="[A-Za-z\s]+" maxlength="250"/>
+										<input required class="form-control" id="txtdireccioncur1" name="txtdireccioncur1" type="text" pattern="[0-9]+" maxlength="20"/>
 									 </div>
 									 <div class="form-group ">
 										<label class="control-label requiredField" for="txttipocur1">
@@ -93,7 +65,7 @@
 							</div>
 							<div class="form-group">
                               <div>
-                               <a href="<?php echo site_url('masy_reclutador_controller/pdf_vac');?>" class="btn btn-dark btn-block" name="pdfvac" id="pdfvac" >PDF</a>
+                               <a href="<?php echo site_url('masy_cursos_controller/pdf_nue_cur');?>" class="btn btn-dark btn-block" name="pdfvac" id="pdfvac" >PDF</a>
                               </div>
                              </div>
                              <div class="form-group">
