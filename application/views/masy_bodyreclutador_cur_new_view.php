@@ -20,7 +20,7 @@
 										*
 										 </span>
 										</label>
-										<input class="form-control" id="txtidcur1" name="txtidvac1" type="hidden" value=""/>
+										<input class="form-control" id="txtidcur1" name="txtidcur1" type="hidden" value=""/>
 										<input required class="form-control" id="txtnombrecur1" name="txtnombrecur1" type="text" pattern="[A-Za-z0-9\s]+" maxlength="250"/>
 									 </div>
 									 <div class="form-group ">

@@ -20,8 +20,10 @@
 										*
 										 </span>
 										</label>
-										<input class="form-control" id="txtidasigcal1" name="txtidcurcal1" type="hidden" value=""/>
-										<input required class="form-control" id="txtclaveempcurasig1" name="txtclaveempcurasig1" type="text"/>
+										<input class="form-control" id="txtidasigcal1" name="txtidasigcal1" type="hidden" value=""/>
+										<select class="select form-control" id="txtclaveempcurasig1" name="txtclaveempcurasig1">
+											
+										</select>
 										<span class="help-block" id="hint_txtclaveempcurasig1">
 										 M&aacute;ximo 250 caracteres
 										</span>
@@ -34,23 +36,7 @@
 										 </span>
 										</label>
 										<select class="select form-control" id="selclavecurasig1" name="selclavecurasig1">
-										 <option value="1">
-										1
-										 </option>
-										 <option value="2">
-										2
-										 </option>
-										 <option value="3">
-										3
-										 </option>
-										 </option>
-										 <option value="4">
-										4
-										 </option>
-										 </option>
-										 <option value="5">
-										5
-										 </option>
+											
 										</select>
 									 </div>
 									 <div class="form-group ">

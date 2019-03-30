@@ -22,15 +22,7 @@
 										</label>
 										<input class="form-control" id="txtidcurcal1" name="txtidcurcal1" type="hidden" value=""/>
 										<select class="select form-control" id="selcursocal1" name="selcursocal1">
-										 <option value="1">
-										1
-										 </option>
-										 <option value="2">
-										2
-										 </option>
-										 <option value="3">
-										3
-										 </option>
+										 
 										</select>
 									 </div>
 									<div class="form-group ">

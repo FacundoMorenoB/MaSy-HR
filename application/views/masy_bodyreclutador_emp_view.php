@@ -17,7 +17,7 @@
 										*
 										 </span>
 										</label>
-										<input class="form-control" id="txtidemp1" name="txtidvac1" type="hidden" value=""/>
+										<input class="form-control" id="txtidemp1" name="txtidemp1" type="hidden" value=""/>
 										<input required class="form-control" id="txtnombreemp1" name="txtnombreemp1" type="text" pattern="[A-Za-z\s]+" maxlength="50"/>
 									 </div>
 									 <div class="form-group ">
