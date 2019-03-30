@@ -67,7 +67,7 @@ class Masy_cursos_model extends CI_Model {
 		}
 	}
 	function mostrar_cur_cal($valor){
-		$this->db->like("CAPACITADOR",$valor);
+		$this->db->like("IDCAPACITADORES",$valor);
 		$consulta = $this->db->get("micalendariocursos");
 		return $consulta->result();
 	}
@@ -85,7 +85,7 @@ class Masy_cursos_model extends CI_Model {
 
 	function eliminar_cur_cal($id){
 		$this->db->where('IDMICALENDARCURSO', $id);
-		$this->db->delete(' 	micalendariocursos'); 
+		$this->db->delete('micalendariocursos'); 
 		if ($this->db->affected_rows() > 0) {
 			return true;
 		}
@@ -106,7 +106,7 @@ class Masy_cursos_model extends CI_Model {
 	//***************************************************************************************************************
 
 	function guardar_cur_asig($data){
-		$this->db->insert("GSPERFILESPUESTOS",$data);
+		$this->db->insert("incursosxempl",$data);
 
 		if ($this->db->affected_rows() > 0) {
 			return true;
@@ -116,14 +116,14 @@ class Masy_cursos_model extends CI_Model {
 		}
 	}
 	function mostrar_cur_asig($valor){
-		$this->db->like("ANOMBREPERFILPUESTO",$valor);
-		$consulta = $this->db->get("GSPERFILESPUESTOS");
+		$this->db->like("IDGSPERSONAS",$valor);
+		$consulta = $this->db->get("incursosxempl");
 		return $consulta->result();
 	}
 
 	function actualizar_cur_asig($id,$data){
-		$this->db->where('IDPERFILDEPUESTO', $id);
-		$this->db->update('GSPERFILESPUESTOS', $data); 
+		$this->db->where('IDMICURSOSXEMPL', $id);
+		$this->db->update('incursosxempl', $data); 
 		if ($this->db->affected_rows() > 0) {
 			return true;
 		}
@@ -133,8 +133,8 @@ class Masy_cursos_model extends CI_Model {
 	}
 
 	function eliminar_cur_asig($id){
-		$this->db->where('IDPERFILDEPUESTO', $id);
-		$this->db->delete(' 	GSPERFILESPUESTOS'); 
+		$this->db->where('IDMICURSOSXEMPL', $id);
+		$this->db->delete('incursosxempl'); 
 		if ($this->db->affected_rows() > 0) {
 			return true;
 		}
@@ -144,8 +144,8 @@ class Masy_cursos_model extends CI_Model {
 	}
 
 	function buscar_cur_asig($id){
-		$this->db->where("IDPERFILDEPUESTO",$id);
-		$consulta = $this->db->get("GSPERFILESPUESTOS");
+		$this->db->where("IDMICURSOSXEMPL",$id);
+		$consulta = $this->db->get("incursosxempl");
 		return $consulta->result();
 	}
 

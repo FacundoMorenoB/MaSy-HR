@@ -11,7 +11,7 @@
                     </div>
                 </li>
                 <li class="nav-item">
-                  <a href="#" class="nav-link">Empleados</a>
+                  <a role="presentation" href="#registraremp" id="registraremp-tab" class="dropdown-item" data-toggle="tab">Empleados</a>
                 </li>
                 <li class="nav-item dropdown"><a data-toggle="dropdown" aria-expanded="false" href="#" class="dropdown-toggle nav-link">Capacitacion</a>
                     <div role="menu" class="dropdown-menu">

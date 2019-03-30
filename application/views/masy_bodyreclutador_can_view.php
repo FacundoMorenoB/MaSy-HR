@@ -36,7 +36,7 @@
 								</tbody>
 							</table>
 						</div>
-						<form action="<?=base_url()?>masy_reclutador_controller/alta_can" method="post" role="form" id="formactualizarcan" name="formactualizarcan" style="margin-top: 30px">
+						<form action="<?php echo site_url('masy_reclutador_controller/guardar_actualizar_can');?>" method="post" role="form" id="formactualizarcan" name="formactualizarcan" style="margin-top: 30px">
 							<div class="form-group row">
 								<div class="col">
 									 <div class="form-group ">
@@ -172,13 +172,13 @@
 										 </span>
 										</label>
 										<select class="select form-control" id="selvacantecan1" name="selvacantecan1">
-										 <option value="Director general">
+										 <option value="1">
 										Director general
 										 </option>
-										 <option value="Ingeniero TI">
+										 <option value="2">
 										Ingeniero TI
 										 </option>
-										 <option value="Maniobras generales">
+										 <option value="3">
 										Maniobras generales
 										 </option>
 										</select>

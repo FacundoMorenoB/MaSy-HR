@@ -1,8 +1,10 @@
 $( document ).ready(function() {
 	// Handler for .ready() called.
 	mostrarDatos("");
+	mostrarDatos_emp("");
 	mostrarDatos_nue_cur("");
 	mostrarDatos_cal_cur("");
+	mostrarDatos_asig_cur("");
 
 	$("#txtbuscarvac").keyup(function(){
 		txtbuscarvac = $("#txtbuscarvac").val();
@@ -16,6 +18,11 @@ $( document ).ready(function() {
 		txtbuscarcalcur = $("#txtbuscarcalcur").val();
 		mostrarDatos_cal_cur(txtbuscarcalcur);
 	});
+	$("#txtbuscarcurasig").keyup(function(){
+		txtbuscarcurasig = $("#txtbuscarcurasig").val();
+		mostrarDatos_asig_cur(txtbuscarcurasig);
+	});
+
 
 
   	$("#btnbuscarvac").click(function(){
@@ -27,11 +34,15 @@ $( document ).ready(function() {
 	$("#btnbuscarcalcur").click(function(){
 		mostrarDatos_cal_cur("");
 	});
+	$("#btnbuscarcalcur").click(function(){
+		mostrarDatos_asig_cur("");
+	});
 
 	$("#btnlimpiarvac").click(limpiarvac);
 	$("#btnlimpiarcur").click(limpiarcur);
 	$("#btnlimpiarcurcal").click(limpiarcurcal);
 	$("#btnlimpiarcurasig").click(limpiarcurasig);
+	$("#btnlimpiaremp").click(btnlimpiaremp);
 
 
 	$("#btnactualizar").click(actualizar);
@@ -80,6 +91,43 @@ $( document ).ready(function() {
 		eliminar(id);
 	});
 
+
+	$("body").on("click","#list_nue_emp a",function(event){
+		event.preventDefault();
+		valor = $(this).attr("href");
+		$("#txtidemp1").val(valor);
+		$.ajax({
+			url:"http://localhost/MaSy-HR/index.php/masy_reclutador_controller/buscar_emp",
+			type:"POST",
+			data:{txtidemp1:valor},
+			success:function(respuesta){
+				//alert(respuesta);
+				var registros = eval(respuesta);
+				$("#txtidemp1").val(registros[0]["IDGSPERSONAS"]);
+				$("#txtnombreemp1").val(registros[0]["ANOMBREPERSONA"]);
+				$("#txtapaternoemp1").val(registros[0]["APATERNO"]);
+				$("#txtamaternoemp1").val(registros[0]["AMATERNO"]);
+				$("#txtdireccionemp1").val(registros[0]["ADIRECCION"]);
+				$("#txttelefonoemp1").val(registros[0]["ATELEFONO"]);
+				$("#txtcurpemp1").val(registros[0]["ACURP"]);
+				$("#txtrfcemp1").val(registros[0]["ARFC"]);
+				$("#txtfechanacemp1").val(registros[0]["AFECHANACIMIENTO"]);
+				$("#selciudademp1").val(registros[0]["NCIUDAD"]);
+				$("#selestadoemp1").val(registros[0]["AESTADO"]);
+				$("#selvacanteemp1").val(registros[0]["IDPERFILDEPUESTO"]);
+				$("#txtfechaaltemp1").val(registros[0]["AUFECHAMOV"]);
+				$("#filecvemp1").val(registros[0]["CVVTAE"]);
+				$("#filecontratoemp1").val(registros[0]["CONTRATO"]);
+				$("#fileexamenemp1").val(registros[0]["ADRESULTPSICO"]);
+			}
+		});
+
+	});
+	$("body").on("click","#list_nue_emp button",function(event){
+		id = $(this).attr("value");
+		eliminar_emp(id);
+	});
+
 	
 
 	$("body").on("click","#list_nue_cur a",function(event){
@@ -96,7 +144,7 @@ $( document ).ready(function() {
 				$("#txtidcur1").val(registros[0]["IDCURSOIND"]);
 				$("#txtnombrecur1").val(registros[0]["ANOMBRECURSO"]);
 				$("#txttipocur1").val(registros[0]["ATIPOCURSO"]);
-				$("#txtdireccioncur1").val(registros[0]["ADIRECCIONCURSO"]);
+				$("#txtdireccioncur1").val(registros[0]["IDGSDIRECCION"]);
 				$("#txtarecontenidocur1").val(registros[0]["ACONTENIDO"]);
 				$("#fileimagencur1").val(registros[0]["AIMGFOLLETO"]);
 			}
@@ -124,7 +172,7 @@ $( document ).ready(function() {
 				$("#selcursocal1").val(registros[0]["IDCURSOIND"]);
 				$("#txtfechainicurcal1").val(registros[0]["AFECHAINICIO"]);
 				$("#txtfechafincurcal1").val(registros[0]["AFECHAFIN"]);
-				$("#txtcapacitadorcurcal1").val(registros[0]["CAPACITADOR"]);
+				$("#txtcapacitadorcurcal1").val(registros[0]["IDCAPACITADORES"]);
 				$("#txtarecomentarioscurcal1").val(registros[0]["ACOMENTARIOS"]);
 				$("#txtclavecurcal1").val(registros[0]["ACLAVECURSO"]);
 			}
@@ -133,8 +181,32 @@ $( document ).ready(function() {
 	});
 	$("body").on("click","#list_cal_cur button",function(event){
 		id = $(this).attr("value");
-		eliminar_nue_cur(id);
+		eliminar_cur_cal(id);
 	});
+
+	$("body").on("click","#list_asig_cur a",function(event){
+		event.preventDefault();
+		valor = $(this).attr("href");
+		$("#txtidasigcal1").val(valor);
+		$.ajax({
+			url:"http://localhost/MaSy-HR/index.php/masy_cursos_controller/buscar_cur_asig",
+			type:"POST",
+			data:{txtidasigcal1:valor},
+			success:function(respuesta){
+				//alert(respuesta);
+				var registros = eval(respuesta);
+				$("#txtidasigcal1").val(registros[0]["IDMICURSOSXEMPL"]);
+				$("#txtclaveempcurasig1").val(registros[0]["IDGSPERSONAS"]);
+				$("#selclavecurasig1").val(registros[0]["IDMICALENDARIOCURSOS"]);
+			}
+		});
+
+	});
+	$("body").on("click","#list_asig_cur button",function(event){
+		id = $(this).attr("value");
+		eliminar_cur_asig(id);
+	});
+
 });
 
 function mostrarDatos(valor){
@@ -164,6 +236,33 @@ function mostrarDatos(valor){
 	});
 }
 
+function mostrarDatos_emp(valor){
+	$.ajax({
+		url:"http://localhost/MaSy-HR/index.php/masy_reclutador_controller/mostrar_emp",
+		type:"POST",
+		data:{txtbuscaremp:valor},
+		success:function(respuesta){
+			//alert(respuesta);
+			var registros = eval(respuesta);
+			
+			html = "<section class=\"portfolio-block block-intro border-bottom\">";
+                
+                
+			for (var i = 0; i < registros.length; i++) {
+				html +="<div class=\"container col-md-12 col-lg-12\">";
+				html +="<a href='"+registros[i]["IDGSPERSONAS"]+"'><div class=\"avatar\" style=\"background-image:url(http://localhost/MaSy-HR/img/avatars/avatar.jpg);\"></div></a>"
+                html +="<div class=\"card-body\">";
+				html +="<p class=\"text-muted card-text\">"+registros[i]["ANOMBREPERSONA"]+" "+registros[i]["APATERNO"]+" "+registros[i]["AMATERNO"]+"</p>";
+				html +="<a href='"+registros[i]["IDGSPERSONAS"]+"' class='btn btn-warning' data-toggle='modal' data-target='#myModal'>Editar</a> <button class='btn btn-danger' type='button' value='"+registros[i]["IDGSPERSONAS"]+"'>Eliminar</button>";
+				html +="</div>";
+			};
+	        html += "</section>";
+			//alert(html);
+			$("#list_nue_emp").html(html);
+		}
+	});
+}
+
 function mostrarDatos_nue_cur(valor){
 	$.ajax({
 		url:"http://localhost/MaSy-HR/index.php/masy_cursos_controller/mostrar_nue_cur",
@@ -187,7 +286,7 @@ function mostrarDatos_nue_cur(valor){
 
 
 			for (var i = 0; i < registros.length; i++) {
-				html +="<tr><th scope=\"row\">"+registros[i]["ANOMBRECURSO"]+"</th><td>"+registros[i]["ADIRECCIONCURSO"]+"</td><td>"+registros[i]["ATIPOCURSO"]+"</td><td>"+registros[i]["AIMGFOLLETO"]+"</td>"
+				html +="<tr><th scope=\"row\">"+registros[i]["ANOMBRECURSO"]+"</th><td>"+registros[i]["IDGSDIRECCION"]+"</td><td>"+registros[i]["ATIPOCURSO"]+"</td><td>"+registros[i]["AIMGFOLLETO"]+"</td>"
 				html +="<td><a href='"+registros[i]["IDCURSOIND"]+"' class='btn btn-warning' data-toggle='modal' data-target='#myModal'>Editar</a> <button class='btn btn-danger' type='button' value='"+registros[i]["IDCURSOIND"]+"'>Eliminar</button></td></tr>";
 			};
 			html +="</tbody></table>";
@@ -221,12 +320,45 @@ function mostrarDatos_cal_cur(valor){
 
 
 			for (var i = 0; i < registros.length; i++) {
-				html +="<tr><th scope=\"row\">"+registros[i]["IDCURSOIND"]+"</th><td>"+registros[i]["AFECHAINICIO"]+"</td><td>"+registros[i]["AFECHAFIN"]+"</td><td>"+registros[i]["CAPACITADOR"]+"</td><td>"+registros[i]["ACLAVECURSO"]+"</td>"
+				html +="<tr><th scope=\"row\">"+registros[i]["IDCURSOIND"]+"</th><td>"+registros[i]["AFECHAINICIO"]+"</td><td>"+registros[i]["AFECHAFIN"]+"</td><td>"+registros[i]["IDCAPACITADORES"]+"</td><td>"+registros[i]["ACLAVECURSO"]+"</td>"
 				html +="<td><a href='"+registros[i]["IDMICALENDARCURSO"]+"' class='btn btn-warning' data-toggle='modal' data-target='#myModal'>Editar</a> <button class='btn btn-danger' type='button' value='"+registros[i]["IDMICALENDARCURSO"]+"'>Eliminar</button></td></tr>";
 			};
 			html +="</tbody></table>";
 			//alert(html);
 			$("#list_cal_cur").html(html);
+		}
+	});
+}
+
+function mostrarDatos_asig_cur(valor){
+	$.ajax({
+		url:"http://localhost/MaSy-HR/index.php/masy_cursos_controller/mostrar_cur_asig",
+		type:"POST",
+		data:{txtbuscarcurasig:valor},
+		success:function(respuesta){
+			//alert(respuesta);
+			var registros = eval(respuesta);
+			
+			html ="<table class=\"table\">"
+			html += "<thead class=\"thead-dark\">"
+			html += "<tr>"
+			html += "<th scope=\"col\">Clave del empleado</th>"
+			html += "<th scope=\"col\">Clave del curso</th>"
+			html += "<th scope=\"col\">Fecha de inicio</th>"
+			html += "<th scope=\"col\">Fecha de fin</th>"
+			html += "<th scope=\"col\">Acciones</th>"
+			html += "</tr>"
+			html += "</thead>"
+			html += "<tbody>"
+
+
+			for (var i = 0; i < registros.length; i++) {
+				html +="<tr><th scope=\"row\">"+registros[i]["IDGSPERSONAS"]+"</th><td>"+registros[i]["IDMICALENDARIOCURSOS"]+"</td><td>2019-01-01</td><td>2019-01-01</td>"
+				html +="<td><a href='"+registros[i]["IDMICURSOSXEMPL"]+"' class='btn btn-warning' data-toggle='modal' data-target='#myModal'>Editar</a> <button class='btn btn-danger' type='button' value='"+registros[i]["IDMICURSOSXEMPL"]+"'>Eliminar</button></td></tr>";
+			};
+			html +="</tbody></table>";
+			//alert(html);
+			$("#list_asig_cur").html(html);
 		}
 	});
 }
@@ -279,6 +411,18 @@ function eliminar(valor){
 	});
 }
 
+function eliminar_emp(valor){
+	$.ajax({
+		url:"http://localhost/MaSy-HR/index.php/masy_reclutador_controller/eliminar_emp",
+		type:"POST",
+		data:{txtidemp1:valor},
+		success:function(respuesta){
+			//alert(respuesta);
+			mostrarDatos_emp("");
+		}
+	});
+}
+
 function eliminar_nue_cur(valor){
 	$.ajax({
 		url:"http://localhost/MaSy-HR/index.php/masy_cursos_controller/eliminar_nue_cur",
@@ -291,7 +435,7 @@ function eliminar_nue_cur(valor){
 	});
 }
 
-function eliminar_nue_cur(valor){
+function eliminar_cur_cal(valor){
 	$.ajax({
 		url:"http://localhost/MaSy-HR/index.php/masy_cursos_controller/eliminar_cur_cal",
 		type:"POST",
@@ -299,6 +443,18 @@ function eliminar_nue_cur(valor){
 		success:function(respuesta){
 			//alert(respuesta);
 			mostrarDatos_cal_cur("");
+		}
+	});
+}
+
+function eliminar_cur_asig(valor){
+	$.ajax({
+		url:"http://localhost/MaSy-HR/index.php/masy_cursos_controller/eliminar_cur_asig",
+		type:"POST",
+		data:{txtidasigcal1:valor},
+		success:function(respuesta){
+			//alert(respuesta);
+			mostrarDatos_asig_cur("");
 		}
 	});
 }
@@ -341,4 +497,23 @@ function limpiarcurasig(){
 	$("#txtclaveempcurasig1").val("");
 	$("#txtfechainicurasig1").val("");
 	$("#txtfechafincurasig1").val("");
+}
+
+
+function btnlimpiaremp(){
+	$("#txtnombreemp1").val("");
+	$("#txtapaternoemp1").val("");
+	$("#txtamaternoemp1").val("");
+	$("#txtdireccionemp1").val("");
+	$("#txttelefonoemp1").val("");
+	$("#txtcurpemp1").val("");
+	$("#txtrfcemp1").val("");
+	$("#txtfechanacemp1").val("");
+	$("#selciudademp1").val("");
+	$("#selestadoemp1").val("");
+	$("#selvacanteemp1").val("");
+	$("#txtfechaaltemp1").val("");
+	$("#filecvemp1").val("");
+	$("#filecontratoemp1").val("");
+	$("#fileexamenemp1").val("");
 }

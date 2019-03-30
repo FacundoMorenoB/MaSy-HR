@@ -34,7 +34,7 @@ class Masy_cursos_controller extends CI_Controller {
 			$datos = array(
 				"ANOMBRECURSO" => $nomcurso,
 				"ATIPOCURSO" => $tipocurso,
-				"ADIRECCIONCURSO" => $dircurso,
+				"IDGSDIRECCION" => $dircurso,
 				"ACONTENIDO" => $contcurso,
 				"AIMGFOLLETO" => $imagecurso,
 			);
@@ -131,10 +131,10 @@ class Masy_cursos_controller extends CI_Controller {
 				"IDCURSOIND" => $curso,
 				"AFECHAINICIO" => $fechaini,
 				"AFECHAFIN" => $fechafin,
-				"IDGSPERSONAS" => "1",
+				"IDGSPERSONAS" => "5",
 				"ACOMENTARIOS" => $comentarios,
 				"ACLAVECURSO" => $clavecurso,
-				"CAPACITADOR" => $capacitador
+				"IDCAPACITADORES" => $capacitador
 			);
 
 			if ($id == '') {
@@ -199,6 +199,95 @@ class Masy_cursos_controller extends CI_Controller {
 	}
 
 	public function pdf_cur_cal(){
+		$mpdf = new \Mpdf\Mpdf();
+        $html = $this->load->view('masy_bodyreclutador_vac_view',[],true);
+        $mpdf->WriteHTML($html);
+        $mpdf->Output(); // opens in browser
+        //$mpdf->Output('arjun.pdf','D'); // it downloads the file into the user system, with give name
+	}
+
+
+	//SECCION DE SIGNACION CURSO
+	//***************************************************************************************************************
+	//***************************************************************************************************************
+	//***************************************************************************************************************
+
+
+	function guardar_actualizar_cur_asig(){
+		//El metodo is_ajax_request() de la libreria input permite verificar
+		//si se esta accediendo mediante el metodo AJAX 
+		if (!$this->input->is_ajax_request()) {
+			$id = $this->input->post("txtidasigcal1");
+			$calveemp = $this->input->post("txtclaveempcurasig1");
+			$clavecur = $this->input->post("selclavecurasig1");
+
+			$datos = array(
+				"IDGSPERSONAS" => $calveemp,
+				"IDMICALENDARIOCURSOS" => $clavecur
+			);
+
+			if ($id == '') {
+				$r = $this->masy_cursos_model->guardar_cur_asig($datos);
+				redirect("masy_login_controller/recruiter");
+			}
+			else{
+				$this->masy_cursos_model->actualizar_cur_asig($id,$datos);
+				redirect("masy_login_controller/recruiter");
+			}
+		}
+		else
+		{
+			echo $this->input->is_ajax_request();
+			show_404();
+		}
+
+
+	}
+
+	function mostrar_cur_asig(){
+		if ($this->input->is_ajax_request()) {
+			$buscar = $this->input->post("txtbuscarcurasig");
+			$datos = $this->masy_cursos_model->mostrar_cur_asig($buscar);
+			echo json_encode($datos);
+			
+		}
+		else
+		{
+			show_404();
+		}
+	}
+
+	function eliminar_cur_asig(){
+		if ($this->input->is_ajax_request()) {
+			$id = $this->input->post("txtidasigcal1");
+			if($this->masy_cursos_model->eliminar_cur_asig($id) == true){
+				redirect("masy_login_controller/recruiter");				
+			}
+			else{
+				redirect("masy_login_controller/recruiter");
+			
+			}
+		}
+		else
+		{
+			show_404();
+		}
+	}
+
+	function buscar_cur_asig(){
+		if ($this->input->is_ajax_request()) {
+			$id = $this->input->post("txtidasigcal1");
+			$datos = $this->masy_cursos_model->buscar_cur_asig($id);
+			echo json_encode($datos);
+			
+		}
+		else
+		{
+			show_404();
+		}
+	}
+
+	public function pdf_cur_asig(){
 		$mpdf = new \Mpdf\Mpdf();
         $html = $this->load->view('masy_bodyreclutador_vac_view',[],true);
         $mpdf->WriteHTML($html);

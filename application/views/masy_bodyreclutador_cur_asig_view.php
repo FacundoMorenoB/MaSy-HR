@@ -1,42 +1,13 @@
 				<div class="tab-pane" id="asignarcurso" role="tabpanel" aria-labelledby="asignarcurso-tab">
 					<div class="row justify-content-start" style="margin-top: 10px">
-						<div class="col-4"><input class="form-control" type="text" name="txtbuscarcan" id="txtbuscarcan" placeholder="Buscar candidato"></div>
-						<div class="col-3"><input type="button" name="btnbuscarcan" id="btnbuscarcan" class="btn btn-info" value="Mostrar todo" data-toggle='modal' data-target='#basicModal'></div>
+						<div class="col-4"><input class="form-control" type="text" name="txtbuscarcurasig" id="txtbuscarcurasig" placeholder="Buscar candidato"></div>
+						<div class="col-3"><input type="button" name="btnbuscarcurasig" id="btnbuscarcurasig" class="btn btn-info" value="Mostrar todo" data-toggle='modal' data-target='#basicModal'></div>
 					</div>
 					<div class="container">
-						<div class="row justify-content-start" style="margin-top: 10px">
-							<table class="table">
-								<thead class="thead-dark">
-								<tr>
-									<th scope="col">#</th>
-									<th scope="col">First</th>
-									<th scope="col">Last</th>
-									<th scope="col">Handle</th>
-								</tr>
-								</thead>
-								<tbody>
-								<tr>
-									<th scope="row">1</th>
-									<td>Mark</td>
-									<td>Otto</td>
-									<td>@mdo</td>
-								</tr>
-								<tr>
-									<th scope="row">2</th>
-									<td>Jacob</td>
-									<td>Thornton</td>
-									<td>@fat</td>
-								</tr>
-								<tr>
-									<th scope="row">3</th>
-									<td>Larry</td>
-									<td>the Bird</td>
-									<td>@twitter</td>
-								</tr>
-								</tbody>
-							</table>
+						<div class="row justify-content-start" style="margin-top: 10px" id="list_asig_cur">
+							
 						</div>
-						<form action="<?=base_url()?>masy_reclutador_controller/alta_can" method="post" role="form" id="formactualizarasigcur" name="formactualizarasigcur" style="margin-top: 30px">
+						<form action="<?php echo site_url('masy_cursos_controller/guardar_actualizar_cur_asig');?>" method="post" role="form" id="formactualizarasigcur" name="formactualizarasigcur" style="margin-top: 30px">
 							<div class="form-group row">
 								<div class="card border-warning col-lg-12 mb-3">
 									<div class="card-header text-white bg-warning" style="margin-top: 10px">
@@ -49,6 +20,7 @@
 										*
 										 </span>
 										</label>
+										<input class="form-control" id="txtidasigcal1" name="txtidcurcal1" type="hidden" value=""/>
 										<input required class="form-control" id="txtclaveempcurasig1" name="txtclaveempcurasig1" type="text"/>
 										<span class="help-block" id="hint_txtclaveempcurasig1">
 										 M&aacute;ximo 250 caracteres
@@ -62,14 +34,22 @@
 										 </span>
 										</label>
 										<select class="select form-control" id="selclavecurasig1" name="selclavecurasig1">
-										 <option value="M&eacute;xico">
-										Curso1
+										 <option value="1">
+										1
 										 </option>
-										 <option value="Estado de M&eacute;xico">
-										Curso2
+										 <option value="2">
+										2
 										 </option>
-										 <option value="Jalisco">
-										Curso3
+										 <option value="3">
+										3
+										 </option>
+										 </option>
+										 <option value="4">
+										4
+										 </option>
+										 </option>
+										 <option value="5">
+										5
 										 </option>
 										</select>
 									 </div>
