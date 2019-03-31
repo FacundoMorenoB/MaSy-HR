@@ -18,8 +18,10 @@ class Masy_cursos_model extends CI_Model {
 		}
 	}
 	function mostrar_cur($valor){
-		$this->db->like("ANOMBRECURSO",$valor);
-		$consulta = $this->db->get("mincursos");
+		$this->db->like("mincursos.ANOMBRECURSO",$valor);
+		$this->db->from('mincursos');
+		$this->db->join('gsdireccionessub', 'mincursos.IDGSDIRECCION = gsdireccionessub.IDGSDIRECCION');
+		$consulta = $this->db->get();
 		return $consulta->result();
 	}
 
@@ -66,9 +68,14 @@ class Masy_cursos_model extends CI_Model {
 			return false;
 		}
 	}
+	
 	function mostrar_cur_cal($valor){
-		$this->db->like("IDCAPACITADORES",$valor);
-		$consulta = $this->db->get("micalendariocursos");
+		$this->db->like("mincursos.ANOMBRECURSO",$valor);
+		$this->db->from('micalendariocursos');
+		$this->db->join('mincursos', 'micalendariocursos.IDCURSOIND = mincursos.IDCURSOIND');
+		$this->db->join('micapacitadores', 'micalendariocursos.IDCAPACITADORES = micapacitadores.IDCAPACITADORES');
+		$this->db->join('gspersonas', 'micapacitadores.IDGSPERSONA = gspersonas.IDGSPERSONAS');
+		$consulta = $this->db->get();
 		return $consulta->result();
 	}
 
@@ -116,8 +123,12 @@ class Masy_cursos_model extends CI_Model {
 		}
 	}
 	function mostrar_cur_asig($valor){
-		$this->db->like("IDGSPERSONAS",$valor);
-		$consulta = $this->db->get("incursosxempl");
+		$this->db->like("ANOMBRECURSO",$valor);
+		$this->db->from('incursosxempl');
+		$this->db->join('gspersonas', 'incursosxempl.IDGSPERSONAS = gspersonas.IDGSPERSONAS');
+		$this->db->join('micalendariocursos', 'incursosxempl.IDMICALENDARIOCURSOS = micalendariocursos.IDMICALENDARCURSO');
+		$this->db->join('mincursos', 'micalendariocursos.IDCURSOIND = mincursos.IDCURSOIND');
+		$consulta = $this->db->get();
 		return $consulta->result();
 	}
 
@@ -145,9 +156,44 @@ class Masy_cursos_model extends CI_Model {
 
 	function buscar_cur_asig($id){
 		$this->db->where("IDMICURSOSXEMPL",$id);
-		$consulta = $this->db->get("incursosxempl");
+		$this->db->from('incursosxempl');
+		$this->db->join('gspersonas', 'incursosxempl.IDGSPERSONAS = gspersonas.IDGSPERSONAS');
+		$this->db->join('micalendariocursos', 'incursosxempl.IDMICALENDARIOCURSOS = micalendariocursos.IDMICALENDARCURSO');
+		$this->db->join('mincursos', 'micalendariocursos.IDCURSOIND = mincursos.IDCURSOIND');
+		$consulta = $this->db->get();
 		return $consulta->result();
 	}
+
+	//SECCION DE ASIGNAR CURSO
+	//***************************************************************************************************************
+	//***************************************************************************************************************
+	//***************************************************************************************************************
+
+	function mostrar_dir_cur($valor){
+		$this->db->like("IDGSDIRECCION",$valor);
+		$consulta = $this->db->get("gsdireccionessub");
+		return $consulta->result();
+	}
+
+	function mostrar_emp_capa(){
+		$this->db->select('*');
+		$this->db->from('micapacitadores');
+		$this->db->join('gspersonas', 'micapacitadores.IDGSPERSONA = gspersonas.IDGSPERSONAS');
+		$consulta = $this->db->get();
+		return $consulta->result();
+	}
+
+	function buscar_cur_asig_list($id){
+		$this->db->where("IDMICALENDARIOCURSOS",$id);
+		$this->db->from('incursosxempl');
+		$this->db->join('gspersonas', 'incursosxempl.IDGSPERSONAS = gspersonas.IDGSPERSONAS');
+		$this->db->join('micalendariocursos', 'incursosxempl.IDMICALENDARIOCURSOS = micalendariocursos.IDMICALENDARCURSO');
+		$this->db->join('mincursos', 'micalendariocursos.IDCURSOIND = mincursos.IDCURSOIND');
+		$consulta = $this->db->get();
+		return $consulta->result();
+	}
+
+
 
 
 }

@@ -7,6 +7,9 @@ $( document ).ready(function() {
 	mostrarDatos_asig_cur("");
 	mostrarDatos_cal_cur_list("");
 	mostrarDatos_asig_cur_list("");
+	mostrarDatos_dir_cur("");
+	mostrarDatos_emp_capa_cur_list("");
+	mostrarDatos_cal_asig_list("");
 
 	$("#txtbuscarvac").keyup(function(){
 		txtbuscarvac = $("#txtbuscarvac").val();
@@ -29,15 +32,20 @@ $( document ).ready(function() {
 
   	$("#btnbuscarvac").click(function(){
 		mostrarDatos("");
+		$("#txtbuscarvac").val("");
 	});
 	$("#btnbuscarcur").click(function(){
 		mostrarDatos_nue_cur("");
+		$("#txtbuscarcur").val("");
 	});
 	$("#btnbuscarcalcur").click(function(){
 		mostrarDatos_cal_cur("");
+		$("#txtbuscarcalcur").val("");
 	});
-	$("#btnbuscarcalcur").click(function(){
+	$("#btnbuscarcurasig").click(function(){
 		mostrarDatos_asig_cur("");
+		$("#txtbuscarcurasig").val("");
+
 	});
 
 	$("#btnlimpiarvac").click(limpiarvac);
@@ -163,12 +171,12 @@ $( document ).ready(function() {
 	$("body").on("click","#selclavecurasig1 option",function(event){
 		event.preventDefault();
 		valor = $(this).attr("value");
+		$("#txtidasigfecid1").val(valor);
 		//alert(valor);
-		$("#txtidcurcal1").val(valor);
 		$.ajax({
-			url:"http://localhost/MaSy-HR/index.php/masy_cursos_controller/buscar_cur_cal",
+			url:"http://localhost/MaSy-HR/index.php/masy_cursos_controller/buscar_cur_asig_list",
 			type:"POST",
-			data:{txtidcurcal1:valor},
+			data:{txtidasigfecid1:valor},
 			success:function(respuesta){
 				//alert(respuesta);
 				var registros = eval(respuesta);
@@ -176,7 +184,6 @@ $( document ).ready(function() {
 				$("#txtfechafincurasig1").val(registros[0]["AFECHAFIN"]);
 			}
 		});
-
 	});
 
 
@@ -210,6 +217,7 @@ $( document ).ready(function() {
 	$("body").on("click","#list_asig_cur a",function(event){
 		event.preventDefault();
 		valor = $(this).attr("href");
+		alert(valor);
 		$("#txtidasigcal1").val(valor);
 		$.ajax({
 			url:"http://localhost/MaSy-HR/index.php/masy_cursos_controller/buscar_cur_asig",
@@ -221,6 +229,8 @@ $( document ).ready(function() {
 				$("#txtidasigcal1").val(registros[0]["IDMICURSOSXEMPL"]);
 				$("#txtclaveempcurasig1").val(registros[0]["IDGSPERSONAS"]);
 				$("#selclavecurasig1").val(registros[0]["IDMICALENDARIOCURSOS"]);
+				$("#txtfechainicurasig1").val(registros[0]["AFECHAINICIO"]);
+				$("#txtfechafincurasig1").val(registros[0]["AFECHAFIN"]);
 			}
 		});
 
@@ -250,7 +260,7 @@ function mostrarDatos(valor){
                 html +="<div class=\"card-body\">";
 				html +="<h6>"+registros[i]["ANOMBREPERFILPUESTO"]+"</h6>";
 				html +="<p class=\"text-muted card-text\">"+registros[i]["AFUNESPECIFICAS"]+"</p>";
-				html +="<a href='"+registros[i]["IDPERFILDEPUESTO"]+"' class='btn btn-warning' data-toggle='modal' data-target='#myModal'>Editar</a> <button class='btn btn-danger' type='button' value='"+registros[i]["IDPERFILDEPUESTO"]+"'>Eliminar</button>";
+				html +="<a href='"+registros[i]["IDPERFILDEPUESTO"]+"' class='btn btn-warning btn-block' data-toggle='modal' data-target='#myModal'>Editar</a> <button class='btn btn-danger btn-block' type='button' value='"+registros[i]["IDPERFILDEPUESTO"]+"'>Eliminar</button>";
 				html +="</div></div></div>";
 			};
 			//alert(html);
@@ -276,7 +286,7 @@ function mostrarDatos_emp(valor){
 				html +="<a href='"+registros[i]["IDGSPERSONAS"]+"'><div class=\"avatar\" style=\"background-image:url(http://localhost/MaSy-HR/img/avatars/avatar.jpg);\"></div></a>"
                 html +="<div class=\"card-body\">";
 				html +="<p class=\"text-muted card-text\">"+registros[i]["ANOMBREPERSONA"]+" "+registros[i]["APATERNO"]+" "+registros[i]["AMATERNO"]+"</p>";
-				html +="<a href='"+registros[i]["IDGSPERSONAS"]+"' class='btn btn-warning' data-toggle='modal' data-target='#myModal'>Editar</a> <button class='btn btn-danger' type='button' value='"+registros[i]["IDGSPERSONAS"]+"'>Eliminar</button>";
+				html +="<a href='"+registros[i]["IDGSPERSONAS"]+"' class='btn btn-warning btn-block' data-toggle='modal' data-target='#myModal'>Editar</a> <button class='btn btn-danger btn-block' type='button' value='"+registros[i]["IDGSPERSONAS"]+"'>Eliminar</button>";
 				html +="</div></div>";
 			};
 			//alert(html);
@@ -308,8 +318,8 @@ function mostrarDatos_nue_cur(valor){
 
 
 			for (var i = 0; i < registros.length; i++) {
-				html +="<tr><th scope=\"row\">"+registros[i]["ANOMBRECURSO"]+"</th><td>"+registros[i]["IDGSDIRECCION"]+"</td><td>"+registros[i]["ATIPOCURSO"]+"</td><td>"+registros[i]["AIMGFOLLETO"]+"</td>"
-				html +="<td><a href='"+registros[i]["IDCURSOIND"]+"' class='btn btn-warning' data-toggle='modal' data-target='#myModal'>Editar</a> <button class='btn btn-danger' type='button' value='"+registros[i]["IDCURSOIND"]+"'>Eliminar</button></td></tr>";
+				html +="<tr><th scope=\"row\">"+registros[i]["ANOMBRECURSO"]+"</th><td>"+registros[i]["ANOMBREDIRECCION"]+"</td><td>"+registros[i]["ATIPOCURSO"]+"</td><td>"+registros[i]["AIMGFOLLETO"]+"</td>"
+				html +="<td><a href='"+registros[i]["IDCURSOIND"]+"' class='btn btn-warning btn-block' data-toggle='modal' data-target='#myModal'>Editar</a> <button class='btn btn-danger btn-block' type='button' value='"+registros[i]["IDCURSOIND"]+"'>Eliminar</button></td></tr>";
 			};
 			html +="</tbody></table>";
 			//alert(html);
@@ -342,8 +352,8 @@ function mostrarDatos_cal_cur(valor){
 
 
 			for (var i = 0; i < registros.length; i++) {
-				html +="<tr><th scope=\"row\">"+registros[i]["IDCURSOIND"]+"</th><td>"+registros[i]["AFECHAINICIO"]+"</td><td>"+registros[i]["AFECHAFIN"]+"</td><td>"+registros[i]["IDCAPACITADORES"]+"</td><td>"+registros[i]["ACLAVECURSO"]+"</td>"
-				html +="<td><a href='"+registros[i]["IDMICALENDARCURSO"]+"' class='btn btn-warning' data-toggle='modal' data-target='#myModal'>Editar</a> <button class='btn btn-danger' type='button' value='"+registros[i]["IDMICALENDARCURSO"]+"'>Eliminar</button></td></tr>";
+				html +="<tr><th scope=\"row\">"+registros[i]["ANOMBRECURSO"]+"</th><td>"+registros[i]["AFECHAINICIO"]+"</td><td>"+registros[i]["AFECHAFIN"]+"</td><td>"+registros[i]["ANOMBREPERSONA"]+" "+registros[i]["APATERNO"]+" "+registros[i]["AMATERNO"]+"</td><td>"+registros[i]["ACLAVECURSO"]+"</td>"
+				html +="<td><a href='"+registros[i]["IDMICALENDARCURSO"]+"' class='btn btn-warning btn-block' data-toggle='modal' data-target='#myModal'>Editar</a> <button class='btn btn-danger btn-block' type='button' value='"+registros[i]["IDMICALENDARCURSO"]+"'>Eliminar</button></td></tr>";
 			};
 			html +="</tbody></table>";
 			//alert(html);
@@ -356,7 +366,7 @@ function mostrarDatos_cal_cur_list(valor){
 	$.ajax({
 		url:"http://localhost/MaSy-HR/index.php/masy_cursos_controller/mostrar_nue_cur",
 		type:"POST",
-		data:{txtbuscarcalcur:valor},
+		data:{valor},
 		success:function(respuesta){
 			//alert(respuesta);
 			var registros = eval(respuesta);
@@ -367,6 +377,24 @@ function mostrarDatos_cal_cur_list(valor){
 			};
 			//alert(html);
 			$("#selcursocal1").html(html);
+		}
+	});
+}
+
+function mostrarDatos_cal_asig_list(valor){
+	$.ajax({
+		url:"http://localhost/MaSy-HR/index.php/masy_cursos_controller/mostrar_cur_cal",
+		type:"POST",
+		data:{valor},
+		success:function(respuesta){
+			//alert(respuesta);
+			var registros = eval(respuesta);
+			
+			html = "";
+			for (var i = 0; i < registros.length; i++) {
+				html += "<option value="+registros[i]["IDMICALENDARCURSO"]+">"+registros[i]["ANOMBRECURSO"]+"</option>";
+			};
+			//alert(html);
 			$("#selclavecurasig1").html(html);
 		}
 	});
@@ -376,7 +404,7 @@ function mostrarDatos_asig_cur_list(valor){
 	$.ajax({
 		url:"http://localhost/MaSy-HR/index.php/masy_reclutador_controller/mostrar_emp",
 		type:"POST",
-		data:{txtbuscarcalcur:valor},
+		data:{valor},
 		success:function(respuesta){
 			//alert(respuesta);
 			var registros = eval(respuesta);
@@ -387,6 +415,45 @@ function mostrarDatos_asig_cur_list(valor){
 			};
 			//alert(html);
 			$("#txtclaveempcurasig1").html(html);
+		}
+	});
+}
+
+function mostrarDatos_emp_capa_cur_list(valor){
+	$.ajax({
+		url:"http://localhost/MaSy-HR/index.php/masy_cursos_controller/mostrar_emp_capa",
+		type:"POST",
+		data:{valor},
+		success:function(respuesta){
+			//alert(respuesta);
+			var registros = eval(respuesta);
+			
+			html = "";
+			for (var i = 0; i < registros.length; i++) {
+				html += "<option value="+registros[i]["IDCAPACITADORES"]+">"+registros[i]["ANOMBREPERSONA"]+" "+registros[i]["APATERNO"]+" "+registros[i]["AMATERNO"]+"</option>";
+			};
+			//alert(html);
+			$("#txtcapacitadorcurcal1").html(html);
+		}
+	});
+}
+
+
+function mostrarDatos_dir_cur(valor){
+	$.ajax({
+		url:"http://localhost/MaSy-HR/index.php/masy_cursos_controller/mostrar_dir_cur",
+		type:"POST",
+		data:{valor},
+		success:function(respuesta){
+			//alert(respuesta);
+			var registros = eval(respuesta);
+			
+			html = "";
+			for (var i = 0; i < registros.length; i++) {
+				html += "<option value="+registros[i]["IDGSDIRECCION"]+">"+registros[i]["ANOMBREDIRECCION"]+"</option>";
+			};
+			//alert(html);
+			$("#txtdireccioncur1").html(html);
 		}
 	});
 }
@@ -403,8 +470,8 @@ function mostrarDatos_asig_cur(valor){
 			html ="<table class=\"table\">"
 			html += "<thead class=\"thead-dark\">"
 			html += "<tr>"
-			html += "<th scope=\"col\">Clave del empleado</th>"
-			html += "<th scope=\"col\">Clave del curso</th>"
+			html += "<th scope=\"col\">Empleado asignado</th>"
+			html += "<th scope=\"col\">Curso asignado</th>"
 			html += "<th scope=\"col\">Fecha de inicio</th>"
 			html += "<th scope=\"col\">Fecha de fin</th>"
 			html += "<th scope=\"col\">Acciones</th>"
@@ -414,8 +481,8 @@ function mostrarDatos_asig_cur(valor){
 
 
 			for (var i = 0; i < registros.length; i++) {
-				html +="<tr><th scope=\"row\">"+registros[i]["IDGSPERSONAS"]+"</th><td>"+registros[i]["IDMICALENDARIOCURSOS"]+"</td><td>2019-01-01</td><td>2019-01-01</td>"
-				html +="<td><a href='"+registros[i]["IDMICURSOSXEMPL"]+"' class='btn btn-warning' data-toggle='modal' data-target='#myModal'>Editar</a> <button class='btn btn-danger' type='button' value='"+registros[i]["IDMICURSOSXEMPL"]+"'>Eliminar</button></td></tr>";
+				html +="<tr><th scope=\"row\">"+registros[i]["ANOMBREPERSONA"]+" "+registros[i]["APATERNO"]+" "+registros[i]["AMATERNO"]+"</th><td>"+registros[i]["ANOMBRECURSO"]+"</td><td>"+registros[i]["AFECHAINICIO"]+"</td><td>"+registros[i]["AFECHAFIN"]+"</td>"
+				html +="<td><a href='"+registros[i]["IDMICURSOSXEMPL"]+"' class='btn btn-warning btn-block' data-toggle='modal' data-target='#myModal'>Editar</a> <button class='btn btn-danger btn-block' type='button' value='"+registros[i]["IDMICURSOSXEMPL"]+"'>Eliminar</button></td></tr>";
 			};
 			html +="</tbody></table>";
 			//alert(html);

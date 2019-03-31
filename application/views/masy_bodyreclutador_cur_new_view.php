@@ -30,7 +30,9 @@
 										*
 										 </span>
 										</label>
-										<input required class="form-control" id="txtdireccioncur1" name="txtdireccioncur1" type="text" pattern="[0-9]+" maxlength="20"/>
+										<select class="select form-control" id="txtdireccioncur1" name="txtdireccioncur1">
+										 
+										</select>
 									 </div>
 									 <div class="form-group ">
 										<label class="control-label requiredField" for="txttipocur1">

@@ -46,7 +46,8 @@
 										*
 										 </span>
 										</label>
-										<input required class="form-control form_datetime" id="txtfechainicurasig1" name="txtfechainicurasig1" placeholder="YYYY-MM-DD" type="text" readonly />
+										<input class="form-control" id="txtidasigfecid1" name="txtidasigfecid1" type="hidden" value=""/>
+										<input required class="form-control" id="txtfechainicurasig1" name="txtfechainicurasig1" placeholder="YYYY-MM-DD" type="text" readonly />
 									</div>
 									<div class="form-group ">
 										<label class="control-label requiredField" for="txtfechafincurasig1">
@@ -55,7 +56,7 @@
 										*
 										 </span>
 										</label>
-										<input required class="form-control form_datetime" id="txtfechafincurasig1" name="txtfechafincurasig1" placeholder="YYYY-MM-DD" type="text" readonly />
+										<input required class="form-control" id="txtfechafincurasig1" name="txtfechafincurasig1" placeholder="YYYY-MM-DD" type="text" readonly />
 									</div>
 									<div class="form-group">
 										<button class="btn btn-primary btn-block" name="submit1" type="submit">

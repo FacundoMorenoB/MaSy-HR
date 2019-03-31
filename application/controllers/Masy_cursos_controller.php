@@ -295,5 +295,49 @@ class Masy_cursos_controller extends CI_Controller {
         //$mpdf->Output('arjun.pdf','D'); // it downloads the file into the user system, with give name
 	}
 
+	//SECCION DE ASIGNAR CURSO
+	//***************************************************************************************************************
+	//***************************************************************************************************************
+	//***************************************************************************************************************
+	
+	function mostrar_dir_cur(){
+		if ($this->input->is_ajax_request()) {
+			$buscar = $this->input->post("txtdireccioncur1");
+			$datos = $this->masy_cursos_model->mostrar_dir_cur($buscar);
+			echo json_encode($datos);
+			
+		}
+		else
+		{
+			show_404();
+		}
+	}
+
+
+	function mostrar_emp_capa(){
+		if ($this->input->is_ajax_request()) {
+			$datos = $this->masy_cursos_model->mostrar_emp_capa();
+			echo json_encode($datos);
+			
+		}
+		else
+		{
+			show_404();
+		}
+	}
+
+	function buscar_cur_asig_list(){
+		if ($this->input->is_ajax_request()) {
+			$id = $this->input->post("txtidasigfecid1");
+			$datos = $this->masy_cursos_model->buscar_cur_asig_list($id);
+			echo json_encode($datos);
+			
+		}
+		else
+		{
+			show_404();
+		}
+	}
+
 }
 

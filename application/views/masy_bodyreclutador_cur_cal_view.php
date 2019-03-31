@@ -50,7 +50,9 @@
 										*
 										</span>
 										</label>
-										<input required class="form-control" id="txtcapacitadorcurcal1" name="txtcapacitadorcurcal1" type="text" pattern="[0-9]+" maxlength="11"/>
+										<select class="select form-control" id="txtcapacitadorcurcal1" name="txtcapacitadorcurcal1">
+										 
+										</select>
 									</div>
 									<div class="form-group ">
 		                              <label class="control-label requiredField" for="txtarecomentarioscurcal1">
