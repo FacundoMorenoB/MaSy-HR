@@ -144,14 +144,7 @@
 										 </span>
 										</label>
 										<select class="select form-control" id="selvacanteemp1" name="selvacanteemp1">
-										 <option value="1">
-										Director general
-										 </option>
-										 <option value="2">
-										Ingeniero TI
-										 </option>
-										 <option value="3">
-										Maniobras generales
+
 										 </option>
 										</select>
 									 </div>

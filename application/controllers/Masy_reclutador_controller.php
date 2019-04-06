@@ -170,7 +170,6 @@ class Masy_reclutador_controller extends CI_Controller {
 				"AFECHANACIMIENTO" => $fechanacemp,
 				"NCIUDAD" => "1",
 				"AESTADO" => "1",
-				"IDPERFILDEPUESTO" => $vacanteemp,
 				"AUFECHAMOV" => $fechaaltemp,
 				"CVVTAE" => $ecvemp,
 				"CONTRATO" => $econtratoemp,
@@ -229,6 +228,19 @@ class Masy_reclutador_controller extends CI_Controller {
 		if ($this->input->is_ajax_request()) {
 			$id = $this->input->post("txtidemp1");
 			$datos = $this->masy_reclutador_model->buscar_emp($id);
+			echo json_encode($datos);
+			
+		}
+		else
+		{
+			show_404();
+		}
+	}
+
+	function mostrar_perf_emp(){
+		if ($this->input->is_ajax_request()) {
+			$buscar = $this->input->post("txtbuscaremp");
+			$datos = $this->masy_reclutador_model->mostrar_perf_emp($buscar);
 			echo json_encode($datos);
 			
 		}

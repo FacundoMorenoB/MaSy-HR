@@ -106,4 +106,10 @@ class Masy_reclutador_model extends CI_Model {
 		return $consulta->result();
 	}
 
+	function mostrar_perf_emp($valor){
+		$this->db->like("ANOMBREPUESTO",$valor);
+		$consulta = $this->db->get("gspuestos");
+		return $consulta->result();
+	}
+
 }

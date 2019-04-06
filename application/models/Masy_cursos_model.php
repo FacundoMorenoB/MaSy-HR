@@ -184,11 +184,8 @@ class Masy_cursos_model extends CI_Model {
 	}
 
 	function buscar_cur_asig_list($id){
-		$this->db->where("IDMICALENDARIOCURSOS",$id);
-		$this->db->from('incursosxempl');
-		$this->db->join('gspersonas', 'incursosxempl.IDGSPERSONAS = gspersonas.IDGSPERSONAS');
-		$this->db->join('micalendariocursos', 'incursosxempl.IDMICALENDARIOCURSOS = micalendariocursos.IDMICALENDARCURSO');
-		$this->db->join('mincursos', 'micalendariocursos.IDCURSOIND = mincursos.IDCURSOIND');
+		$this->db->where("IDMICALENDARCURSO",$id);
+		$this->db->from('micalendariocursos');
 		$consulta = $this->db->get();
 		return $consulta->result();
 	}

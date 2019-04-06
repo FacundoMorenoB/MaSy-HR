@@ -10,6 +10,7 @@ $( document ).ready(function() {
 	mostrarDatos_dir_cur("");
 	mostrarDatos_emp_capa_cur_list("");
 	mostrarDatos_cal_asig_list("");
+	mostrarDatos_perf_emp("");
 
 	$("#txtbuscarvac").keyup(function(){
 		txtbuscarvac = $("#txtbuscarvac").val();
@@ -644,4 +645,34 @@ function btnlimpiaremp(){
 	$("#filecvemp1").val("");
 	$("#filecontratoemp1").val("");
 	$("#fileexamenemp1").val("");
+}
+
+
+//***********************************************************************************************************
+//***********************************************************************************************************
+//***********************************************************************************************************
+//***********************************************************************************************************
+// FUNCIONES EMPLEADOS
+//***********************************************************************************************************
+//***********************************************************************************************************
+//***********************************************************************************************************
+//***********************************************************************************************************
+
+function mostrarDatos_perf_emp(valor){
+	$.ajax({
+		url:"http://localhost/MaSy-HR/index.php/masy_reclutador_controller/mostrar_perf_emp",
+		type:"POST",
+		data:{valor},
+		success:function(respuesta){
+			//alert(respuesta);
+			var registros = eval(respuesta);
+			
+			html = "";
+			for (var i = 0; i < registros.length; i++) {
+				html += "<option value="+registros[i]["IDGSPUESTOS"]+">"+registros[i]["ANOMBREPUESTO"]+"</option>";
+			};
+			//alert(html);
+			$("#selvacanteemp1").html(html);
+		}
+	});
 }

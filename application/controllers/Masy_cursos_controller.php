@@ -131,7 +131,6 @@ class Masy_cursos_controller extends CI_Controller {
 				"IDCURSOIND" => $curso,
 				"AFECHAINICIO" => $fechaini,
 				"AFECHAFIN" => $fechafin,
-				"IDGSPERSONAS" => "5",
 				"ACOMENTARIOS" => $comentarios,
 				"ACLAVECURSO" => $clavecurso,
 				"IDCAPACITADORES" => $capacitador

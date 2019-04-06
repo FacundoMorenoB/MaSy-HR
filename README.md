@@ -1,15 +1,17 @@
 # MaSy-HR
-Project RH-UDL
+Poyecto RH-UDL
 
-#Installa Project.
+#Instalar el Poyecto.
+1. Descarga o clona el proyecto
 
-1.- Download or clone proyect.
+2. Descomprime el paquete
 
-2.- Unzip paskage.
+3. Copia la carpeta MaSy-HR en tu servidor web (Ejemplo: /var/wwww/html/)
 
-3.- Copy folder MaSy-HR in your apache server example: /var/www/html/masy-rh
+4. Crea una base de datos en MySQL llamada: masy-hr
 
-4.- Create one data base in your mysql server (name: masy-rh)
+5. Configura tu base de datos en el archivo: MaSy-HR/application/config/database.php
 
-5.- Copy the content file (db/install_community_auth.sql) and execute in your new data base
-
+6. Instalar mpdf(Para poder generar los PDFS): 
+	Solo hay que tener composer instalado y ejecutar el siguiente comando en la terminal ubicado en la carpeta del proyecto
+	#composer require mpdf/mpdf 
