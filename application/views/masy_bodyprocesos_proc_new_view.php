@@ -1,4 +1,4 @@
-				<div class="tab-pane" id="registrarproceso" role="tabpanel" aria-labelledby="registrarcurso-tab">
+				<div class="tab-pane" id="registrarproceso" role="tabpanel" aria-labelledby="registrarproceso-tab">
 					<div class="row justify-content-start" style="margin-top: 10px">
 						<div class="col-4"><input class="form-control" type="text" name="txtbuscarcur" id="txtbuscarcur" placeholder="Buscar Proceso"></div>
 						<div class="col-3"><input type="button" name="btnbuscarcur" id="btnbuscarcur" class="btn btn-info" value="Mostrar todo" data-toggle='modal' data-target='#basicModal'></div>
@@ -51,7 +51,7 @@
 		                              <input class"form-control" type="date" name="fechaInicioProc1"/>
 																	<input class"form-control" type="date" name="fechaFinProc1"/>
 		                             </div>
-                    <div class="card-body text-primary">
+                    				<div class="card-body text-primary">
 										<div class="custom-file">
 											<input type="file" class="custom-file-input" id="filemanualproc1">
 											<label class="custom-file-label" for="filemanualproc">Selecciona el Manual del curso</label>
@@ -77,6 +77,38 @@
 						</form>
 					</div>
 				</div>
+			</div>
+        </div>
+    </section>
+</main>
+
+<script src="<?=base_url()?>js/jquery.min.js"></script>
+<script src="<?=base_url()?>js/bootstrap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pikaday/1.6.1/pikaday.min.js"></script>
+<script src="<?=base_url()?>js/theme.js"></script>
+
+
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+<script type="text/javascript">
+    $( function() {
+    $( ".form_datetime" ).datepicker();
+    $( ".form_datetime" ).datepicker(  "option", "showAnim", "slideDown");
+    $( ".form_datetime" ).datepicker(  "option", "dateFormat", "yy-mm-dd");
+  } );
+</script> 
+
+<script>
+// Add the following code if you want the name of the file appear on select
+$(".custom-file-input").on("change", function() {
+  var fileName = $(this).val().split("\\").pop();
+  $(this).siblings(".custom-file-label").addClass("selected").html(fileName);
+});
+</script>
+
+
+<script s
 
 <?php
 

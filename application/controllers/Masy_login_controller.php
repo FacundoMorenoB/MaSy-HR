@@ -78,6 +78,24 @@ class Masy_login_controller extends MY_Controller
 			echo $this->load->view('masy_footer_view', '', TRUE);
 		}
 	}
+
+
+
+	public function security()
+	{
+		if( $this->require_role('admin','security') )
+		{
+			echo $this->load->view('masy_headerreclutador_view', '', TRUE);
+
+			echo $this->load->view('masy_bodySeguridadHigiene_view', '', TRUE);
+
+			echo $this->load->view('masy_bodySeguridadHigiene_cat_art_view', '', TRUE);
+
+			echo $this->load->view('masy_bodyprocesos_proc_new_view', '', TRUE);
+
+			echo $this->load->view('masy_footer_view', '', TRUE);
+		}
+	}
 	
 	// -----------------------------------------------------------------------
 

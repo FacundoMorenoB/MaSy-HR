@@ -21,12 +21,13 @@
 
 <body>
     <nav class="navbar navbar-dark navbar-expand-md"id="app-navbar">
-        <div class="container-fluid"><a class="navbar-brand"href="<?php echo site_url('masy_login_controller/index'); ?>"><img src="<?=base_url()?>/img/masyhr_Logo.png"width="50"height="50"/></a><button data-toggle="collapse"data-target="#navcol-1"class="navbar-toggler"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+        <div class="container-fluid"><a class="navbar-brand"href="<?php echo site_url('masy_login_controller/index'); ?>"><img src="<?=base_url()?>/img/masyhr_Logo.png"width="70"height="75"/></a><button data-toggle="collapse"data-target="#navcol-1"class="navbar-toggler"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
             <div
                 class="collapse navbar-collapse"id="navcol-1">
                 <ul class="nav navbar-nav ml-auto">
-                    <li role="presentation"class="nav-item"><a href="<?php echo site_url('masy_login_controller/personaldata'); ?>"class="nav-link">Informacion personal</a></li>
+                    <li role="presentation"class="nav-item"><a href="#"class="nav-link">Informacion personal</a></li>
                     <li role="presentation"class="nav-item"><a href="<?php echo site_url('masy_login_controller/recruiter'); ?>"class="nav-link">Reclutamiento y Selecci&oacute;n</a></li>
+                    <li role="presentation"class="nav-item"><a href="<?php echo site_url('masy_login_controller/security'); ?>"class="nav-link">Seguridad e Higiene</a></li>
                     <li role="presentation"class="nav-item active">
                     	<div class="btn btn-light action-button">
 						<?php

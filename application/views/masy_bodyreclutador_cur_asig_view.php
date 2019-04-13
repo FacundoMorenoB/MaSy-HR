@@ -35,6 +35,7 @@
 										*
 										 </span>
 										</label>
+										<input class="form-control" id="txtidasigfecid1" name="txtidasigfecid1" type="hidden" value=""/>
 										<select class="select form-control" id="selclavecurasig1" name="selclavecurasig1">
 											
 										</select>
@@ -46,7 +47,6 @@
 										*
 										 </span>
 										</label>
-										<input class="form-control" id="txtidasigfecid1" name="txtidasigfecid1" type="hidden" value=""/>
 										<input required class="form-control" id="txtfechainicurasig1" name="txtfechainicurasig1" placeholder="YYYY-MM-DD" type="text" readonly />
 									</div>
 									<div class="form-group ">

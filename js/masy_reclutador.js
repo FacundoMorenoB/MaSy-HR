@@ -63,7 +63,7 @@ $( document ).ready(function() {
 			type:$("#formactualizarvac").attr("method"),
 			data:$("#formactualizarvac").serialize(),
 			success:function(respuesta){
-				alert(respuesta);
+				//alert(respuesta);
 			}
 		});
 	});
@@ -181,6 +181,7 @@ $( document ).ready(function() {
 			success:function(respuesta){
 				//alert(respuesta);
 				var registros = eval(respuesta);
+				$("#txtidasigfecid1").val(registros[0]["IDMICALENDARCURSO"]);
 				$("#txtfechainicurasig1").val(registros[0]["AFECHAINICIO"]);
 				$("#txtfechafincurasig1").val(registros[0]["AFECHAFIN"]);
 			}
@@ -218,7 +219,7 @@ $( document ).ready(function() {
 	$("body").on("click","#list_asig_cur a",function(event){
 		event.preventDefault();
 		valor = $(this).attr("href");
-		alert(valor);
+		//alert(valor);
 		$("#txtidasigcal1").val(valor);
 		$.ajax({
 			url:"http://localhost/MaSy-HR/index.php/masy_cursos_controller/buscar_cur_asig",
@@ -498,7 +499,7 @@ function actualizar(){
 		type:"POST",
 		data:$("#form-formactualizarvac").serialize(),
 		success:function(respuesta){
-			alert(respuesta);
+			//alert(respuesta);
 			mostrarDatos("");
 		}
 	});
@@ -510,7 +511,7 @@ function actualizar_nue_cur(){
 		type:"POST",
 		data:$("#formactualizarnuecur").serialize(),
 		success:function(respuesta){
-			alert(respuesta);
+			//alert(respuesta);
 			mostrarDatos("");
 		}
 	});
@@ -522,7 +523,7 @@ function actualizar_cal_cur(){
 		type:"POST",
 		data:$("#formactualizarcalcur").serialize(),
 		success:function(respuesta){
-			alert(respuesta);
+			//alert(respuesta);
 			mostrarDatos("");
 		}
 	});

@@ -1,4 +1,4 @@
-				<div class="tab-pane" id="catalogoart" role="tabpanel" aria-labelledby="registrarcand-tab">
+				<div class="tab-pane" id="catalogoart" role="tabpanel" aria-labelledby="catalogoart-tab">
 					<div class="row justify-content-start" style="margin-top: 10px">
 						<div class="col-4"><input class="form-control" type="text" name="txtbuscarcan" id="txtbuscarcan" placeholder="Buscar Artículo"></div>
 						<div class="col-3"><input type="button" name="btnbuscarcan" id="btnbuscarcan" class="btn btn-info" value="Mostrar todo" data-toggle='modal' data-target='#basicModal'></div>
@@ -55,3 +55,4 @@
 							</table>
 						</div>
 					</div>
+				</div>
