@@ -18,7 +18,7 @@
               -->
                 <li class="nav-item dropdown"><a data-toggle="dropdown" aria-expanded="false" href="#" class="dropdown-toggle nav-link">Salud Ocupacional</a>
                     <div role="menu" class="dropdown-menu">
-                        <a role="presentation" href="#registrarMedicos" id="registrarMedicos-tab" class="dropdown-item" data-toggle="tab">Médicos Asignados</a>
+                        <a role="presentation" href="#registxrarMedicos" id="registrarMedicos-tab" class="dropdown-item" data-toggle="tab">Médicos Asignados</a>
                         <a role="presentation" href="#registrarConsultorios" id="registrarConsultorios-tab" class="dropdown-item" data-toggle="tab">Consultorios</a>
                         <a role="presentation" href="#registrarCitas" id="registrarCitas-tab" class="dropdown-item" data-toggle="tab">Citas Médicas</a>
                         <a role="presentation" href="#registrarMedicamentos" id="registrarMedicamentos-tab" class="dropdown-item" data-toggle="tab">Medicamentos</a>
@@ -35,7 +35,7 @@
                         </div>
                     </div>
 
-                    <form action="<?php echo site_url('masy_reclutador_controller/guardar_actualizar_proc');?>" method="post" role="form" id="formactualizarproc" name="formactualizarproc">
+                    <form action="<?php echo site_url('masy_seghig_controller/guardar_actualizar_nue_curhig');?>" method="post" role="form" id="formactualizarproc" name="formactualizarproc">
                         <div class="form-group row">
                             <div class="col">
                               <div class="form-group ">
@@ -58,36 +58,46 @@
                               <label class="control-label requiredField" for="txtAreacurhig">
                                Área
                               </label>
-                              <input required class="form-control" id="txtAreacurhig" name="txtAreacurhig" type="text" pattern="[A-Za-z\s]+" maxlength="250"/>
+                              <input required class="form-control" id="txtAreacurhig" name="txtAreacurhig" type="text" pattern="[0-9]++" maxlength="250"/>
                              </div>
                           </div>
                           <div class="col-md-auto"></div>
                           <div class="col col-lg-6">
                              <div class="form-group">
-                              <label class="control-label requiredField" for="txtVigcurhig">
-                               Vigencia
+                              <label class="control-label requiredField" for="txtnomcurhig1">
+                               Fecha de Inicio
                                <span class="asteriskField">
                                 *
                                </span>
                               </label>
-                              <br>
-                              <span>Inicio:</span>
                               <input required class="form-control form_datetime" id="txtfechainicurhig" name="txtfechainicurhig" placeholder="YYYY-MM-DD" type="text" readonly />
-                              <br>
-                              <span>Fin:</span>
+                             </div>
+                             <div class="form-group">
+                               <label class="control-label requiredField" for="txtnomcurhig1">
+                               Fecha de Fin
+                               <span class="asteriskField">
+                                *
+                               </span>
+                              </label>
                               <input required class="form-control form_datetime" id="txtfechafincurhig" name="txtfechafincurhig" placeholder="YYYY-MM-DD" type="text" readonly />
                              </div>
-                             <div class="form-group ">
-                              <label class="control-label " for="btnDescargaManual">
-                               Manual
-                              </label>
-                              <button class="btn" style="width: 100%"><i class="fa fa-download"></i> Descargar</button>
+                             <div class="form-group">
+                                <label class="control-label requiredField" for="txtnomcurhig1">
+                                  Adjuntar manual
+                                  <span class="asteriskField">
+                                   *
+                                  </span>
+                               </label>
+                                <div class="custom-file">
+                                  <input type="file" class="custom-file-input" id="filemancurhig1">
+                                  <label class="custom-file-label fa fa-download" for="filemancurhig1" style="text-align: left;">  Manual</label>
+                                </div>
                              </div>
                             </div>
                         </div>
                         <div class="row justify-content-start" style="margin-top: 100px">
-                          <div class="col-7"><input class="form-control" type="text" name="txtbuscarcur" id="txtbuscarcur" placeholder="Buscar Proceso"></div>
-                          <div class="col-3"><input type="button" name="btnbuscarcur" id="btnbuscarcur" class="btn btn-info" value="Mostrar todo" data-toggle='modal' data-target='#basicModal'></div>
+                          <div class="col-7"><input class="form-control" type="text" name="txtbuscarcurhig" id="txtbuscarcurhig" placeholder="Buscar Proceso"></div>
+                          <div class="col-3"><input type="button" name="btnbuscarcurhig" id="btnbuscarcurhig" class="btn btn-info" value="Mostrar todo" data-toggle='modal' data-target='#basicModal'></div>
                         </div>
                         <div style="margin-top: 20px">
                           <table class="table">
