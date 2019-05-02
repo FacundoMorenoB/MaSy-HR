@@ -20,8 +20,8 @@ class Masy_cursos_controller extends CI_Controller {
 
 
 	function guardar_actualizar_nue_cur(){
-		//El metodo is_ajax_request() de la libreria input permite verificar
-		//si se esta accediendo mediante el metodo AJAX 
+		//el metodo is_ajax_request() de la libreria input permite verificar
+		//si se esta accediendo mediante el metodo ajax 
 		if (!$this->input->is_ajax_request()) {
 			$id = $this->input->post("txtidcur1");
 			$nomcurso = $this->input->post("txtnombrecur1");
@@ -32,11 +32,11 @@ class Masy_cursos_controller extends CI_Controller {
 
 
 			$datos = array(
-				"ANOMBRECURSO" => $nomcurso,
-				"ATIPOCURSO" => $tipocurso,
-				"IDGSDIRECCION" => $dircurso,
-				"ACONTENIDO" => $contcurso,
-				"AIMGFOLLETO" => $imagecurso,
+				"anombrecurso" => $nomcurso,
+				"atipocurso" => $tipocurso,
+				"idgsdireccion" => $dircurso,
+				"acontenido" => $contcurso,
+				"aimgfolleto" => $imagecurso,
 			);
 
 			if ($id == '') {
@@ -101,22 +101,22 @@ class Masy_cursos_controller extends CI_Controller {
 	}
 
 	public function pdf_nue_cur(){
-		$mpdf = new \Mpdf\Mpdf();
+		$mpdf = new \mpdf\mpdf();
         $html = $this->load->view('masy_bodyreclutador_vac_view',[],true);
-        $mpdf->WriteHTML($html);
-        $mpdf->Output(); // opens in browser
-        //$mpdf->Output('arjun.pdf','D'); // it downloads the file into the user system, with give name
+        $mpdf->writehtml($html);
+        $mpdf->output(); // opens in browser
+        //$mpdf->output('arjun.pdf','d'); // it downloads the file into the user system, with give name
 	}
 
-	//SECCION DE CALENDARIZAR CURSO
+	//seccion de calendarizar curso
 	//***************************************************************************************************************
 	//***************************************************************************************************************
 	//***************************************************************************************************************
 
 
 	function guardar_actualizar_cur_cal(){
-		//El metodo is_ajax_request() de la libreria input permite verificar
-		//si se esta accediendo mediante el metodo AJAX 
+		//el metodo is_ajax_request() de la libreria input permite verificar
+		//si se esta accediendo mediante el metodo ajax 
 		if (!$this->input->is_ajax_request()) {
 			$id = $this->input->post("txtidcurcal1");
 			$curso = $this->input->post("selcursocal1");
@@ -128,12 +128,12 @@ class Masy_cursos_controller extends CI_Controller {
 
 
 			$datos = array(
-				"IDCURSOIND" => $curso,
-				"AFECHAINICIO" => $fechaini,
-				"AFECHAFIN" => $fechafin,
-				"ACOMENTARIOS" => $comentarios,
-				"ACLAVECURSO" => $clavecurso,
-				"IDCAPACITADORES" => $capacitador
+				"idcursoind" => $curso,
+				"afechainicio" => $fechaini,
+				"afechafin" => $fechafin,
+				"acomentarios" => $comentarios,
+				"aclavecurso" => $clavecurso,
+				"idcapacitadores" => $capacitador
 			);
 
 			if ($id == '') {
@@ -198,31 +198,31 @@ class Masy_cursos_controller extends CI_Controller {
 	}
 
 	public function pdf_cur_cal(){
-		$mpdf = new \Mpdf\Mpdf();
+		$mpdf = new \mpdf\mpdf();
         $html = $this->load->view('masy_bodyreclutador_vac_view',[],true);
-        $mpdf->WriteHTML($html);
-        $mpdf->Output(); // opens in browser
-        //$mpdf->Output('arjun.pdf','D'); // it downloads the file into the user system, with give name
+        $mpdf->writehtml($html);
+        $mpdf->output(); // opens in browser
+        //$mpdf->output('arjun.pdf','d'); // it downloads the file into the user system, with give name
 	}
 
 
-	//SECCION DE SIGNACION CURSO
+	//seccion de signacion curso
 	//***************************************************************************************************************
 	//***************************************************************************************************************
 	//***************************************************************************************************************
 
 
 	function guardar_actualizar_cur_asig(){
-		//El metodo is_ajax_request() de la libreria input permite verificar
-		//si se esta accediendo mediante el metodo AJAX 
+		//el metodo is_ajax_request() de la libreria input permite verificar
+		//si se esta accediendo mediante el metodo ajax 
 		if (!$this->input->is_ajax_request()) {
 			$id = $this->input->post("txtidasigcal1");
 			$calveemp = $this->input->post("txtclaveempcurasig1");
 			$clavecur = $this->input->post("selclavecurasig1");
 
 			$datos = array(
-				"IDGSPERSONAS" => $calveemp,
-				"IDMICALENDARIOCURSOS" => $clavecur
+				"idgspersonas" => $calveemp,
+				"idmicalendariocursos" => $clavecur
 			);
 
 			if ($id == '') {
@@ -287,14 +287,14 @@ class Masy_cursos_controller extends CI_Controller {
 	}
 
 	public function pdf_cur_asig(){
-		$mpdf = new \Mpdf\Mpdf();
+		$mpdf = new \mpdf\mpdf();
         $html = $this->load->view('masy_bodyreclutador_vac_view',[],true);
-        $mpdf->WriteHTML($html);
-        $mpdf->Output(); // opens in browser
-        //$mpdf->Output('arjun.pdf','D'); // it downloads the file into the user system, with give name
+        $mpdf->writehtml($html);
+        $mpdf->output(); // opens in browser
+        //$mpdf->output('arjun.pdf','d'); // it downloads the file into the user system, with give name
 	}
 
-	//SECCION DE ASIGNAR CURSO
+	//seccion de asignar curso
 	//***************************************************************************************************************
 	//***************************************************************************************************************
 	//***************************************************************************************************************
