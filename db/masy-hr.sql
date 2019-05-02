@@ -1,15 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.5
+-- version 4.6.6deb5
 -- https://www.phpmyadmin.net/
 --
--- Servidor: 127.0.0.1
--- Tiempo de generación: 06-04-2019 a las 05:32:29
--- Versión del servidor: 10.1.38-MariaDB
--- Versión de PHP: 7.3.3
+-- Servidor: localhost:3306
+-- Tiempo de generación: 01-05-2019 a las 21:11:56
+-- Versión del servidor: 5.7.26-0ubuntu0.18.10.1
+-- Versión de PHP: 7.2.17-0ubuntu0.18.10.1
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
-START TRANSACTION;
 SET time_zone = "+00:00";
 
 
@@ -42,8 +40,8 @@ CREATE TABLE `acl` (
 
 CREATE TABLE `acl_actions` (
   `action_id` int(10) UNSIGNED NOT NULL,
-  `action_code` varchar(100) NOT NULL COMMENT 'No periods allowed!',
-  `action_desc` varchar(100) NOT NULL COMMENT 'Human readable description',
+  `action_code` varchar(100) NOT NULL COMMENT 'no periods allowed!',
+  `action_desc` varchar(100) NOT NULL COMMENT 'human readable description',
   `category_id` int(10) UNSIGNED NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -55,8 +53,8 @@ CREATE TABLE `acl_actions` (
 
 CREATE TABLE `acl_categories` (
   `category_id` int(10) UNSIGNED NOT NULL,
-  `category_code` varchar(100) NOT NULL COMMENT 'No periods allowed!',
-  `category_desc` varchar(100) NOT NULL COMMENT 'Human readable description'
+  `category_code` varchar(100) NOT NULL COMMENT 'no periods allowed!',
+  `category_desc` varchar(100) NOT NULL COMMENT 'human readable description'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -79,8 +77,8 @@ CREATE TABLE `auth_sessions` (
 --
 
 INSERT INTO `auth_sessions` (`id`, `user_id`, `login_time`, `modified_at`, `ip_address`, `user_agent`) VALUES
-('qubhsk3akcifvqrfuohdqdcmnfi1m17e', 1637400287, '2019-04-06 04:32:26', '2019-04-06 03:30:07', '::1', 'Firefox 66.0 on Windows 10'),
-('bf2s6ds0mckph4atodetmbu9sbprr08n', 1637400287, '2019-04-06 04:58:16', '2019-04-06 03:31:20', '::1', 'Chrome 73.0.3683.86 on Windows 10');
+('cfcb8fmgctbojrhnoqeiat2e451926iu', 1637400287, '2019-05-01 18:55:21', '2019-05-01 23:55:22', '10.35.172.245', 'Firefox 66.0 on Windows 10'),
+('gufm0hdkmmtn807umir048psm236lgql', 1637400287, '2019-05-01 21:08:39', '2019-05-02 02:08:39', '10.35.172.245', 'Firefox 66.0 on Windows 10');
 
 -- --------------------------------------------------------
 
@@ -100,17 +98,11 @@ CREATE TABLE `ci_sessions` (
 --
 
 INSERT INTO `ci_sessions` (`id`, `ip_address`, `timestamp`, `data`) VALUES
-('maccggsv69147qasmebgo6r41h05i185', '::1', 1554517946, 0x5f5f63695f6c6173745f726567656e65726174657c693a313535343531373934363b617574685f6964656e746966696572737c733a38333a22613a323a7b733a373a22757365725f6964223b733a31303a2231363337343030323837223b733a31303a226c6f67696e5f74696d65223b733a31393a22323031392d30342d30362030343a33323a3236223b7d223b),
-('dubmnekg52ohc3uf7kc1qml3fvmqn0dt', '::1', 1554519442, 0x5f5f63695f6c6173745f726567656e65726174657c693a313535343531393434323b617574685f6964656e746966696572737c733a38333a22613a323a7b733a373a22757365725f6964223b733a31303a2231363337343030323837223b733a31303a226c6f67696e5f74696d65223b733a31393a22323031392d30342d30362030343a33323a3236223b7d223b),
-('qrn762bc7cqahjfcak9ruvr82fglmoj8', '::1', 1554520156, 0x5f5f63695f6c6173745f726567656e65726174657c693a313535343532303135363b617574685f6964656e746966696572737c733a38333a22613a323a7b733a373a22757365725f6964223b733a31303a2231363337343030323837223b733a31303a226c6f67696e5f74696d65223b733a31393a22323031392d30342d30362030343a33323a3236223b7d223b),
-('kpfatin7a2lgbhl73h7it54ucj9dukft', '::1', 1554519496, 0x5f5f63695f6c6173745f726567656e65726174657c693a313535343531393439363b617574685f6964656e746966696572737c733a38333a22613a323a7b733a373a22757365725f6964223b733a31303a2231363337343030323837223b733a31303a226c6f67696e5f74696d65223b733a31393a22323031392d30342d30362030343a35383a3136223b7d223b),
-('hvnjui249prqplfg09akec1j43hrspms', '::1', 1554520741, 0x5f5f63695f6c6173745f726567656e65726174657c693a313535343532303734313b617574685f6964656e746966696572737c733a38333a22613a323a7b733a373a22757365725f6964223b733a31303a2231363337343030323837223b733a31303a226c6f67696e5f74696d65223b733a31393a22323031392d30342d30362030343a35383a3136223b7d223b),
-('ukuseunnidauhthmcvq0gh18i2lu8tq1', '::1', 1554520477, 0x5f5f63695f6c6173745f726567656e65726174657c693a313535343532303437373b617574685f6964656e746966696572737c733a38333a22613a323a7b733a373a22757365725f6964223b733a31303a2231363337343030323837223b733a31303a226c6f67696e5f74696d65223b733a31393a22323031392d30342d30362030343a33323a3236223b7d223b),
-('ba0fupcodav18g0vi7in4v3k8t934eua', '::1', 1554520800, 0x5f5f63695f6c6173745f726567656e65726174657c693a313535343532303830303b617574685f6964656e746966696572737c733a38333a22613a323a7b733a373a22757365725f6964223b733a31303a2231363337343030323837223b733a31303a226c6f67696e5f74696d65223b733a31393a22323031392d30342d30362030343a33323a3236223b7d223b),
-('ghna0parjpoco1mpgudk2t64akharm8o', '::1', 1554521480, 0x5f5f63695f6c6173745f726567656e65726174657c693a313535343532313438303b617574685f6964656e746966696572737c733a38333a22613a323a7b733a373a22757365725f6964223b733a31303a2231363337343030323837223b733a31303a226c6f67696e5f74696d65223b733a31393a22323031392d30342d30362030343a35383a3136223b7d223b),
-('fog3t6sfeb25khcb70mlub2t55ctfgvn', '::1', 1554521407, 0x5f5f63695f6c6173745f726567656e65726174657c693a313535343532313430373b617574685f6964656e746966696572737c733a38333a22613a323a7b733a373a22757365725f6964223b733a31303a2231363337343030323837223b733a31303a226c6f67696e5f74696d65223b733a31393a22323031392d30342d30362030343a33323a3236223b7d223b),
-('qubhsk3akcifvqrfuohdqdcmnfi1m17e', '::1', 1554521436, 0x5f5f63695f6c6173745f726567656e65726174657c693a313535343532313430373b617574685f6964656e746966696572737c733a38333a22613a323a7b733a373a22757365725f6964223b733a31303a2231363337343030323837223b733a31303a226c6f67696e5f74696d65223b733a31393a22323031392d30342d30362030343a33323a3236223b7d223b),
-('bf2s6ds0mckph4atodetmbu9sbprr08n', '::1', 1554521480, 0x5f5f63695f6c6173745f726567656e65726174657c693a313535343532313438303b617574685f6964656e746966696572737c733a38333a22613a323a7b733a373a22757365725f6964223b733a31303a2231363337343030323837223b733a31303a226c6f67696e5f74696d65223b733a31393a22323031392d30342d30362030343a35383a3136223b7d223b);
+('33eprjfo7855pi1fc4gp79rifjiu2vab', '10.35.172.245', 1556754921, 0x5f5f63695f6c6173745f726567656e65726174657c693a313535363735343932313b),
+('4ch4ujtknik2g439a9a40mdpakeuse9s', '10.35.172.245', 1556754921, 0x5f5f63695f6c6173745f726567656e65726174657c693a313535363735343932313b617574685f6964656e746966696572737c733a38333a22613a323a7b733a373a22757365725f6964223b733a31303a2231363337343030323837223b733a31303a226c6f67696e5f74696d65223b733a31393a22323031392d30352d30312031383a35353a3231223b7d223b),
+('cfcb8fmgctbojrhnoqeiat2e451926iu', '10.35.172.245', 1556754940, 0x5f5f63695f6c6173745f726567656e65726174657c693a313535363735343932313b617574685f6964656e746966696572737c733a38333a22613a323a7b733a373a22757365725f6964223b733a31303a2231363337343030323837223b733a31303a226c6f67696e5f74696d65223b733a31393a22323031392d30352d30312031383a35353a3231223b7d223b),
+('dhm291fi297k4mdpumc3pqio2t5j3cou', '10.35.172.245', 1556762919, 0x5f5f63695f6c6173745f726567656e65726174657c693a313535363736323931393b617574685f6964656e746966696572737c733a38333a22613a323a7b733a373a22757365725f6964223b733a31303a2231363337343030323837223b733a31303a226c6f67696e5f74696d65223b733a31393a22323031392d30352d30312032313a30383a3339223b7d223b),
+('gufm0hdkmmtn807umir048psm236lgql', '10.35.172.245', 1556762929, 0x5f5f63695f6c6173745f726567656e65726174657c693a313535363736323931393b617574685f6964656e746966696572737c733a38333a22613a323a7b733a373a22757365725f6964223b733a31303a2231363337343030323837223b733a31303a226c6f67696e5f74696d65223b733a31393a22323031392d30352d30312032313a30383a3339223b7d223b);
 
 -- --------------------------------------------------------
 
@@ -132,10 +124,13 @@ CREATE TABLE `denied_access` (
 --
 
 CREATE TABLE `gsareasdireccion` (
-  `IDGSAREASDIRECCION` int(11) NOT NULL,
-  `ANOMBREAREA` varchar(100) NOT NULL,
-  `IDGSDIRECCION` int(11) NOT NULL,
-  `IDGSPERSONAS` int(11) NOT NULL
+  `idgsareasdireccion` int(11) NOT NULL,
+  `anombrearea` varchar(100) NOT NULL,
+  `idgsdireccion` int(11) NOT NULL,
+  `user_id` int(10) UNSIGNED NOT NULL,
+  `aufecha` datetime DEFAULT NULL,
+  `autipomovimiento` varchar(16) DEFAULT NULL,
+  `auidusuario` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -145,18 +140,29 @@ CREATE TABLE `gsareasdireccion` (
 --
 
 CREATE TABLE `gsdirdireccionesgen` (
-  `IDGSDIRDIRECCION` int(11) NOT NULL,
-  `ACLAVEDIRECCION` varchar(10) NOT NULL,
-  `ANOMBREDIRECCION` varchar(50) NOT NULL
+  `idgsdirdireccion` int(11) NOT NULL,
+  `aclavedireccion` varchar(10) NOT NULL,
+  `anombredireccion` varchar(50) NOT NULL,
+  `aufecha` datetime DEFAULT NULL,
+  `autipomovimiento` varchar(16) DEFAULT NULL,
+  `auidusuario` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Volcado de datos para la tabla `gsdirdireccionesgen`
 --
 
-INSERT INTO `gsdirdireccionesgen` (`IDGSDIRDIRECCION`, `ACLAVEDIRECCION`, `ANOMBREDIRECCION`) VALUES
-(1, 'ABC', 'Direccion General'),
-(2, 'DEF', 'Direccion TI');
+INSERT INTO `gsdirdireccionesgen` (`idgsdirdireccion`, `aclavedireccion`, `anombredireccion`, `aufecha`, `autipomovimiento`, `auidusuario`) VALUES
+(1, 'DGEG', 'Director General de Grupo', '2019-05-01 00:00:00', '1', 1637400287),
+(2, 'DGOAD', 'Director Global de Administración', '2019-05-01 00:00:00', '1', 1637400287),
+(3, 'DGOPA', 'Director Global de Personal y Asuntos Corporativos', '2019-05-01 00:00:00', '1', 1637400287),
+(4, 'DGOTA', 'Director Global de Transformación', '2019-05-01 00:00:00', '1', 1637400287),
+(5, 'DGOCO', 'Director Global de Contabilidad', '2019-05-01 00:00:00', '1', 1637400287),
+(6, 'DGOMK', 'Director Global de Marketing', '2019-05-01 00:00:00', '1', 1637400287),
+(7, 'DGOPR', 'Director Global de Producción', '2019-05-01 00:00:00', '1', 1637400287),
+(8, 'DGOVT', 'Director Global de Ventas', '2019-05-01 00:00:00', '1', 1637400287),
+(9, 'DGOAU', 'Director Global de Auditoría', '2019-05-01 00:00:00', '1', 1637400287),
+(10, 'DGOSI', 'Director Global de Sistemas', '2019-05-01 00:00:00', '1', 1637400287);
 
 -- --------------------------------------------------------
 
@@ -165,18 +171,39 @@ INSERT INTO `gsdirdireccionesgen` (`IDGSDIRDIRECCION`, `ACLAVEDIRECCION`, `ANOMB
 --
 
 CREATE TABLE `gsdireccionessub` (
-  `IDGSDIRECCION` int(11) NOT NULL,
-  `ANOMBREDIRECCION` varchar(50) NOT NULL,
-  `IDGSDIRDIRECCION` int(11) NOT NULL
+  `idgsdireccion` int(11) NOT NULL,
+  `anombredireccion` varchar(50) NOT NULL,
+  `idgsdirdireccion` int(11) NOT NULL,
+  `aufecha` datetime DEFAULT NULL,
+  `autipomovimiento` varchar(16) DEFAULT NULL,
+  `auidusuario` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Volcado de datos para la tabla `gsdireccionessub`
 --
 
-INSERT INTO `gsdireccionessub` (`IDGSDIRECCION`, `ANOMBREDIRECCION`, `IDGSDIRDIRECCION`) VALUES
-(1, 'Direccion General', 1),
-(2, 'Direccion TI', 2);
+INSERT INTO `gsdireccionessub` (`idgsdireccion`, `anombredireccion`, `idgsdirdireccion`, `aufecha`, `autipomovimiento`, `auidusuario`) VALUES
+(1, 'Director General de Grupo', 1, '2019-05-01 00:00:00', '1', 1637400287),
+(2, 'Director Global de Administración', 2, '2019-05-01 00:00:00', '1', 1637400287),
+(3, 'Director Global de Personal y Asuntos Corporativos', 3, '2019-05-01 00:00:00', '1', 1637400287),
+(4, 'Director Global de Transformación', 4, '2019-05-01 00:00:00', '1', 1637400287),
+(5, 'Director Global de Contabilidad', 5, '2019-05-01 00:00:00', '1', 1637400287),
+(6, 'Director Global de Marketing', 6, '2019-05-01 00:00:00', '1', 1637400287),
+(7, 'Director Global de Producción', 7, '2019-05-01 00:00:00', '1', 1637400287),
+(8, 'Director Global de Ventas', 8, '2019-05-01 00:00:00', '1', 1637400287),
+(9, 'Director Global de Auditoría', 9, '2019-05-01 00:00:00', '1', 1637400287),
+(10, 'Director Global de Sistemas', 10, '2019-05-01 00:00:00', '1', 1637400287),
+(11, 'Director Cuentas por Cobrar', 2, '2019-05-01 00:00:00', '1', 1637400287),
+(12, 'Director Cuentas por Pagar', 2, '2019-05-01 00:00:00', '1', 1637400287),
+(13, 'Director de Mejora Continua', 2, '2019-05-01 00:00:00', '1', 1637400287),
+(14, 'Director de Reclutamiento y Selección', 3, '2019-05-01 00:00:00', '1', 1637400287),
+(15, 'Director de Capacitación', 3, '2019-05-01 00:00:00', '1', 1637400287),
+(16, 'Director de Seguridad e Higiene', 3, '2019-05-01 00:00:00', '1', 1637400287),
+(17, 'Director de Nominas', 3, '2019-05-01 00:00:00', '1', 1637400287),
+(18, 'Director de Mejora Continua', 3, '2019-05-01 00:00:00', '1', 1637400287),
+(19, 'Director de Seguridad Cibernetica', 10, '2019-05-01 00:00:00', '1', 1637400287),
+(20, 'Director de Infraestructura', 10, '2019-05-01 00:00:00', '1', 1637400287);
 
 -- --------------------------------------------------------
 
@@ -185,10 +212,12 @@ INSERT INTO `gsdireccionessub` (`IDGSDIRECCION`, `ANOMBREDIRECCION`, `IDGSDIRDIR
 --
 
 CREATE TABLE `gsgerencias` (
-  `IDGSGERENCIAS` int(11) NOT NULL,
-  `ADESCRIPCIONGERE` varchar(50) NOT NULL,
-  `IDGSPERSONA` int(11) NOT NULL,
-  `IDGSPERSONAS` int(11) DEFAULT NULL
+  `idgsgerencias` int(11) NOT NULL,
+  `adescripciongere` varchar(50) NOT NULL,
+  `user_id` int(10) UNSIGNED NOT NULL,
+  `aufecha` datetime DEFAULT NULL,
+  `autipomovimiento` varchar(16) DEFAULT NULL,
+  `auidusuario` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -198,39 +227,32 @@ CREATE TABLE `gsgerencias` (
 --
 
 CREATE TABLE `gsperfilespuestos` (
-  `IDPERFILDEPUESTO` int(11) NOT NULL,
-  `ANOMBREPERFILPUESTO` varchar(250) DEFAULT NULL,
-  `AGERENCIAPERT` varchar(50) DEFAULT NULL,
-  `APUESTOREPORTA` varchar(20) DEFAULT NULL,
-  `ANIVELIMPACTO` varchar(10) NOT NULL,
-  `ANIVELEVALUACION` varchar(10) NOT NULL,
-  `ARANGOSUELDO` varchar(50) NOT NULL,
-  `NSUELDO` decimal(10,2) NOT NULL,
-  `AMISION` varchar(500) NOT NULL,
-  `NRANGOEDAD` varchar(50) NOT NULL,
-  `AGENERO` varchar(50) NOT NULL,
-  `AESTADOCIVIL` varchar(20) DEFAULT NULL,
-  `AESCOLARIDAD` int(11) DEFAULT NULL,
-  `AESTATUSESCOLARIDAD` varchar(20) DEFAULT NULL,
-  `NAEXPERIENCIA` varchar(10) NOT NULL,
-  `APUESTOSOCUPADOS` varchar(150) NOT NULL,
-  `ACONOCIMIENTOSTEC` varchar(150) NOT NULL,
-  `AIDIOMAS` varchar(10) NOT NULL,
-  `APROGRAMASINFO` varchar(100) NOT NULL,
-  `AMANEJOVALORES` varchar(50) NOT NULL,
-  `AHABILIDADESPRF` varchar(150) NOT NULL,
-  `AFUNESPECIFICAS` varchar(500) DEFAULT NULL,
-  `AUFECHAMOV` datetime NOT NULL,
-  `AUIDGSUSUARIO` int(11) DEFAULT NULL,
-  `AUHORA` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+  `idperfildepuesto` int(11) NOT NULL,
+  `idgspuestos` int(11) NOT NULL,
+  `agerenciapert` varchar(50) DEFAULT NULL,
+  `apuestoreporta` varchar(20) DEFAULT NULL,
+  `anivelimpacto` varchar(10) NOT NULL,
+  `anivelevaluacion` varchar(10) NOT NULL,
+  `arangosueldo` varchar(50) NOT NULL,
+  `nsueldo` decimal(10,2) NOT NULL,
+  `amision` varchar(500) NOT NULL,
+  `nrangoedad` varchar(50) NOT NULL,
+  `agenero` varchar(50) NOT NULL,
+  `aestadocivil` varchar(20) DEFAULT NULL,
+  `aescolaridad` int(11) DEFAULT NULL,
+  `aestatusescolaridad` varchar(20) DEFAULT NULL,
+  `naexperiencia` varchar(10) NOT NULL,
+  `apuestosocupados` varchar(150) NOT NULL,
+  `aconocimientostec` varchar(150) NOT NULL,
+  `aidiomas` varchar(10) NOT NULL,
+  `aprogramasinfo` varchar(100) NOT NULL,
+  `amanejovalores` varchar(50) NOT NULL,
+  `ahabilidadesprf` varchar(150) NOT NULL,
+  `afunespecificas` varchar(500) DEFAULT NULL,
+  `aufecha` datetime NOT NULL,
+  `autipomovimiento` varchar(10) DEFAULT NULL,
+  `auidusuario` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Volcado de datos para la tabla `gsperfilespuestos`
---
-
-INSERT INTO `gsperfilespuestos` (`IDPERFILDEPUESTO`, `ANOMBREPERFILPUESTO`, `AGERENCIAPERT`, `APUESTOREPORTA`, `ANIVELIMPACTO`, `ANIVELEVALUACION`, `ARANGOSUELDO`, `NSUELDO`, `AMISION`, `NRANGOEDAD`, `AGENERO`, `AESTADOCIVIL`, `AESCOLARIDAD`, `AESTATUSESCOLARIDAD`, `NAEXPERIENCIA`, `APUESTOSOCUPADOS`, `ACONOCIMIENTOSTEC`, `AIDIOMAS`, `APROGRAMASINFO`, `AMANEJOVALORES`, `AHABILIDADESPRF`, `AFUNESPECIFICAS`, `AUFECHAMOV`, `AUIDGSUSUARIO`, `AUHORA`) VALUES
-(1, 'Director General', 'Dirección General', 'Director general', '1', 'Director', '$20000 - $50000', '35000.00', 'Director General', '25-35', 'Hombre', NULL, NULL, NULL, '', '', 'Director General', 'Ingles, Fr', 'Ofimatica, ERPs, SAP,ITIL', '', 'Director General', 'Director General', '0000-00-00 00:00:00', NULL, '2019-04-06 02:33:01');
 
 -- --------------------------------------------------------
 
@@ -239,50 +261,13 @@ INSERT INTO `gsperfilespuestos` (`IDPERFILDEPUESTO`, `ANOMBREPERFILPUESTO`, `AGE
 --
 
 CREATE TABLE `gsperfilessistema` (
-  `IDGESPERFILES` int(11) NOT NULL,
-  `ADESCRIPCION` varchar(50) NOT NULL,
-  `ACLAVEPERFIL` varchar(10) NOT NULL,
-  `AUFECHAMOV` datetime DEFAULT NULL,
-  `AUIDUSUARIO` int(11) DEFAULT NULL,
-  `AUHORA` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+  `idgesperfiles` int(11) NOT NULL,
+  `adescripcion` varchar(50) NOT NULL,
+  `aclaveperfil` varchar(10) NOT NULL,
+  `aufecha` datetime DEFAULT NULL,
+  `autipomovimiento` varchar(16) DEFAULT NULL,
+  `auidusuario` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `gspersonas`
---
-
-CREATE TABLE `gspersonas` (
-  `IDGSPERSONAS` int(11) NOT NULL,
-  `ANOMBREPERSONA` varchar(50) DEFAULT NULL,
-  `APATERNO` varchar(20) DEFAULT NULL,
-  `AMATERNO` varchar(20) DEFAULT NULL,
-  `ADIRECCION` varchar(20) DEFAULT NULL,
-  `ATELEFONO` varchar(20) DEFAULT NULL,
-  `ACURP` varchar(50) DEFAULT NULL,
-  `ARFC` varchar(20) DEFAULT NULL,
-  `AFECHANACIMIENTO` datetime DEFAULT NULL,
-  `NCIUDAD` int(11) DEFAULT NULL,
-  `AESTADO` int(11) DEFAULT NULL,
-  `CVVTAE` blob,
-  `CONTRATO` blob,
-  `IDGSPUESTOS` int(11) DEFAULT NULL,
-  `ACANDIDATO` tinyint(4) DEFAULT NULL,
-  `AEMPLEADO` tinyint(4) DEFAULT NULL,
-  `ADRESULTPSICO` blob,
-  `AUFECHAMOV` datetime DEFAULT NULL,
-  `IDUSUARIO` int(11) DEFAULT NULL,
-  `AUHORA` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Volcado de datos para la tabla `gspersonas`
---
-
-INSERT INTO `gspersonas` (`IDGSPERSONAS`, `ANOMBREPERSONA`, `APATERNO`, `AMATERNO`, `ADIRECCION`, `ATELEFONO`, `ACURP`, `ARFC`, `AFECHANACIMIENTO`, `NCIUDAD`, `AESTADO`, `CVVTAE`, `CONTRATO`, `IDGSPUESTOS`, `ACANDIDATO`, `AEMPLEADO`, `ADRESULTPSICO`, `AUFECHAMOV`, `IDUSUARIO`, `AUHORA`) VALUES
-(1, 'Jesus ', 'Garcia', 'Gonzalez', 'Bugambilias', '55-5555-5555', 'JGGZRPMZ452841LKRP', 'JGGZRPM123456', '2019-04-01 00:00:00', 1, 1, NULL, NULL, NULL, NULL, NULL, NULL, '2019-04-01 00:00:00', NULL, '2019-04-06 03:00:58'),
-(2, 'Facundo', 'Moreno', 'Bonilla', 'Bugambilias', '55-5555-5555', 'MOBF880122HMCRBC03', 'MOBF880122JTA', '2019-04-01 00:00:00', 1, 1, NULL, NULL, NULL, NULL, NULL, NULL, '2019-04-30 00:00:00', NULL, '2019-04-06 03:12:17');
 
 -- --------------------------------------------------------
 
@@ -291,32 +276,30 @@ INSERT INTO `gspersonas` (`IDGSPERSONAS`, `ANOMBREPERSONA`, `APATERNO`, `AMATERN
 --
 
 CREATE TABLE `gspuestos` (
-  `IDGSPUESTOS` int(11) NOT NULL,
-  `ANOMBREPUESTO` varchar(50) NOT NULL,
-  `ADESCRIPCIONPUESTO` varchar(100) DEFAULT NULL
+  `idgspuestos` int(11) NOT NULL,
+  `anombrepuesto` varchar(50) NOT NULL,
+  `adescripcionpuesto` varchar(100) DEFAULT NULL,
+  `idgsdireccion` int(11) DEFAULT NULL,
+  `aufecha` datetime DEFAULT NULL,
+  `autipomovimiento` varchar(16) DEFAULT NULL,
+  `auidusuario` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Volcado de datos para la tabla `gspuestos`
 --
 
-INSERT INTO `gspuestos` (`IDGSPUESTOS`, `ANOMBREPUESTO`, `ADESCRIPCIONPUESTO`) VALUES
-(1, 'Director General', 'Director General'),
-(2, 'Director TI', 'Director TI');
-
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `gsusuarios`
---
-
-CREATE TABLE `gsusuarios` (
-  `IDGSUSUARIO` int(11) NOT NULL,
-  `IDGSPERSONAS` int(11) DEFAULT NULL,
-  `ACLAVEUSUARIO` varchar(50) NOT NULL,
-  `APASSWORD` varchar(50) NOT NULL,
-  `ACLAVEPERFIL` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+INSERT INTO `gspuestos` (`idgspuestos`, `anombrepuesto`, `adescripcionpuesto`, `idgsdireccion`, `aufecha`, `autipomovimiento`, `auidusuario`) VALUES
+(1, 'Director General de Grupo', 'Director General de Grupo', 1, '2019-05-01 00:00:00', '1', 1637400287),
+(2, 'Director de Seguridad Cibernetica', 'Director de Seguridad Cibernetica', 19, '2019-05-01 00:00:00', '1', 1637400287),
+(3, 'Director de Redes y Comunicaciones', 'Director de Redes y Comunicaciones', 19, '2019-05-01 00:00:00', '1', 1637400287),
+(4, 'Sub-Director de Redes Comunicaciones', 'Sub-Director de Redes Comunicaciones', 19, '2019-05-01 00:00:00', '1', 1637400287),
+(5, 'Gerente de Redes Comunicaciones', 'Gerente de Redes Comunicaciones', 19, '2019-05-01 00:00:00', '1', 1637400287),
+(6, 'Técnico de Redes Comunicaciones', 'Técnico de Redes Comunicaciones', 19, '2019-05-01 00:00:00', '1', 1637400287),
+(7, 'Director de Seguridad y Perfilado', 'Director de Seguridad y Perfilado', 19, '2019-05-01 00:00:00', '1', 1637400287),
+(8, 'Sub-Director de Seguridad y Perfilado', 'Sub-Director de Seguridad y Perfilado', 19, '2019-05-01 00:00:00', '1', 1637400287),
+(9, 'Gerente de Seguridad y Perfilado', 'Gerente de Seguridad y Perfilado', 19, '2019-05-01 00:00:00', '1', 1637400287),
+(10, 'Técnico de Seguridad y Perfilado', 'Técnico de Seguridad y Perfilado', 19, '2019-05-01 00:00:00', '1', 1637400287);
 
 -- --------------------------------------------------------
 
@@ -325,18 +308,13 @@ CREATE TABLE `gsusuarios` (
 --
 
 CREATE TABLE `incursosxempl` (
-  `IDMICURSOSXEMPL` int(11) NOT NULL,
-  `IDGSPERSONAS` int(11) NOT NULL,
-  `IDMICALENDARIOCURSOS` int(11) NOT NULL
+  `idmicursosxempl` int(11) NOT NULL,
+  `user_id` int(10) UNSIGNED NOT NULL,
+  `idmicalendariocursos` int(11) NOT NULL,
+  `aufecha` datetime DEFAULT NULL,
+  `atipomovimiento` varchar(16) DEFAULT NULL,
+  `auidusuario` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Volcado de datos para la tabla `incursosxempl`
---
-
-INSERT INTO `incursosxempl` (`IDMICURSOSXEMPL`, `IDGSPERSONAS`, `IDMICALENDARIOCURSOS`) VALUES
-(1, 1, 1),
-(2, 1, 2);
 
 -- --------------------------------------------------------
 
@@ -363,13 +341,6 @@ CREATE TABLE `login_errors` (
   `time` datetime NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
---
--- Volcado de datos para la tabla `login_errors`
---
-
-INSERT INTO `login_errors` (`ai`, `username_or_email`, `ip_address`, `time`) VALUES
-(1, 'admuser', '::1', '2019-04-06 04:58:14');
-
 -- --------------------------------------------------------
 
 --
@@ -377,22 +348,17 @@ INSERT INTO `login_errors` (`ai`, `username_or_email`, `ip_address`, `time`) VAL
 --
 
 CREATE TABLE `micalendariocursos` (
-  `IDMICALENDARCURSO` int(11) NOT NULL,
-  `IDCURSOIND` int(11) NOT NULL,
-  `AFECHAINICIO` datetime DEFAULT NULL,
-  `AFECHAFIN` datetime NOT NULL,
-  `ACOMENTARIOS` varchar(250) DEFAULT NULL,
-  `ACLAVECURSO` varchar(20) NOT NULL,
-  `IDCAPACITADORES` int(11) DEFAULT NULL
+  `idmicalendarcurso` int(11) NOT NULL,
+  `idcursoind` int(11) NOT NULL,
+  `afechainicio` datetime DEFAULT NULL,
+  `afechafin` datetime NOT NULL,
+  `acomentarios` varchar(250) DEFAULT NULL,
+  `aclavecurso` varchar(20) NOT NULL,
+  `idcapacitadores` int(11) DEFAULT NULL,
+  `aufecha` datetime DEFAULT NULL,
+  `autipomovimiento` varchar(16) DEFAULT NULL,
+  `auidusuario` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Volcado de datos para la tabla `micalendariocursos`
---
-
-INSERT INTO `micalendariocursos` (`IDMICALENDARCURSO`, `IDCURSOIND`, `AFECHAINICIO`, `AFECHAFIN`, `ACOMENTARIOS`, `ACLAVECURSO`, `IDCAPACITADORES`) VALUES
-(1, 1, '2019-04-01 00:00:00', '2019-04-01 00:00:00', 'Capacitación', 'ABC', 1),
-(2, 2, '2019-04-01 00:00:00', '2019-04-30 00:00:00', 'Induccion', 'DEF', 1);
 
 -- --------------------------------------------------------
 
@@ -401,17 +367,13 @@ INSERT INTO `micalendariocursos` (`IDMICALENDARCURSO`, `IDCURSOIND`, `AFECHAINIC
 --
 
 CREATE TABLE `micapacitadores` (
-  `IDCAPACITADORES` int(11) NOT NULL,
-  `IDGSPERSONA` int(11) NOT NULL,
-  `APREPARACION` varchar(100) NOT NULL
+  `idcapacitadores` int(11) NOT NULL,
+  `user_id` int(10) UNSIGNED NOT NULL,
+  `apreparacion` varchar(100) NOT NULL,
+  `aufecha` datetime DEFAULT NULL,
+  `autipomovimiento` varchar(16) DEFAULT NULL,
+  `auidusuario` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Volcado de datos para la tabla `micapacitadores`
---
-
-INSERT INTO `micapacitadores` (`IDCAPACITADORES`, `IDGSPERSONA`, `APREPARACION`) VALUES
-(1, 2, 'Capacitador');
 
 -- --------------------------------------------------------
 
@@ -420,22 +382,16 @@ INSERT INTO `micapacitadores` (`IDCAPACITADORES`, `IDGSPERSONA`, `APREPARACION`)
 --
 
 CREATE TABLE `mincursos` (
-  `IDCURSOIND` int(11) NOT NULL,
-  `ANOMBRECURSO` varchar(50) NOT NULL,
-  `ATIPOCURSO` varchar(20) NOT NULL,
-  `IDGSDIRECCION` int(11) NOT NULL,
-  `ACONTENIDO` varchar(2500) DEFAULT NULL,
-  `AIMGFOLLETO` longblob
+  `idcursoind` int(11) NOT NULL,
+  `anombrecurso` varchar(50) NOT NULL,
+  `atipocurso` varchar(20) NOT NULL,
+  `idgsdireccion` int(11) NOT NULL,
+  `acontenido` varchar(2500) DEFAULT NULL,
+  `aimgfolleto` longblob NOT NULL,
+  `aufecha` datetime DEFAULT NULL,
+  `autipomovimiento` varchar(16) DEFAULT NULL,
+  `auidusuario` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Volcado de datos para la tabla `mincursos`
---
-
-INSERT INTO `mincursos` (`IDCURSOIND`, `ANOMBRECURSO`, `ATIPOCURSO`, `IDGSDIRECCION`, `ACONTENIDO`, `AIMGFOLLETO`) VALUES
-(1, 'Capacitacion', 'Obligatorio', 1, 'Capacitacion', NULL),
-(2, 'Induccion', 'Obligatorio', 1, 'Capacitacion', NULL),
-(3, 'Servicio', 'Requerido', 1, 'Servicio', NULL);
 
 -- --------------------------------------------------------
 
@@ -444,12 +400,15 @@ INSERT INTO `mincursos` (`IDCURSOIND`, `ANOMBRECURSO`, `ATIPOCURSO`, `IDGSDIRECC
 --
 
 CREATE TABLE `shcitasmedicas` (
-  `IDCITASMEDICAS` int(11) NOT NULL,
-  `IDCONSULTORIO` int(11) NOT NULL,
-  `IDGSPERSONA` int(11) NOT NULL,
-  `AFECHACONSULTA` date NOT NULL,
-  `ARECETAMEDICA` tinyint(4) DEFAULT NULL,
-  `RECETAMEDICA` blob
+  `idcitasmedicas` int(11) NOT NULL,
+  `idconsultorio` int(11) NOT NULL,
+  `user_id` int(10) UNSIGNED NOT NULL,
+  `afechaconsulta` date NOT NULL,
+  `arecetamedica` tinyint(4) DEFAULT NULL,
+  `recetamedica` blob,
+  `aufecha` datetime DEFAULT NULL,
+  `autipomovimiento` varchar(16) DEFAULT NULL,
+  `auidusuario` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -459,9 +418,12 @@ CREATE TABLE `shcitasmedicas` (
 --
 
 CREATE TABLE `shconsultorios` (
-  `IDSHCONSULTORIOS` int(11) NOT NULL,
-  `AOFICINACONSULTORIO` varchar(50) NOT NULL,
-  `IDMEDICO` int(11) NOT NULL
+  `idshconsultorios` int(11) NOT NULL,
+  `aoficinaconsultorio` varchar(50) NOT NULL,
+  `idmedico` int(11) NOT NULL,
+  `aufecha` datetime DEFAULT NULL,
+  `autipomovimiento` varchar(16) DEFAULT NULL,
+  `auidusuario` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -471,10 +433,13 @@ CREATE TABLE `shconsultorios` (
 --
 
 CREATE TABLE `shentradasmed` (
-  `IDENTRADA` int(11) NOT NULL,
-  `FECHAENTRADA` date NOT NULL,
-  `IDMEDICAMENTO` int(11) NOT NULL,
-  `CANTIDAD` varchar(10) NOT NULL
+  `identrada` int(11) NOT NULL,
+  `fechaentrada` date NOT NULL,
+  `idmedicamento` int(11) NOT NULL,
+  `cantidad` varchar(10) NOT NULL,
+  `aufecha` datetime DEFAULT NULL,
+  `autipomovimiento` varchar(16) DEFAULT NULL,
+  `auidusuario` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -484,10 +449,13 @@ CREATE TABLE `shentradasmed` (
 --
 
 CREATE TABLE `shmedicamentos` (
-  `IDMEDICAMENTOS` int(11) NOT NULL,
-  `ADESCRIPCIONMEDICAMENTO` varchar(100) NOT NULL,
-  `NCOSTO` decimal(10,2) NOT NULL,
-  `AUBICACI0N` varchar(50) NOT NULL
+  `idmedicamentos` int(11) NOT NULL,
+  `adescripcionmedicamento` varchar(100) NOT NULL,
+  `ncosto` decimal(10,2) NOT NULL,
+  `aubicaci` varchar(50) NOT NULL,
+  `aufecha` datetime DEFAULT NULL,
+  `autipomovimiento` varchar(16) DEFAULT NULL,
+  `auidusuario` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -497,9 +465,12 @@ CREATE TABLE `shmedicamentos` (
 --
 
 CREATE TABLE `shmedicosasignados` (
-  `IDMEDICO` int(11) NOT NULL,
-  `IDGSPERSONA` int(11) NOT NULL,
-  `AESPECIALIDAD` varchar(100) NOT NULL
+  `idmedico` int(11) NOT NULL,
+  `user_id` int(10) UNSIGNED NOT NULL,
+  `aespecialidad` varchar(100) NOT NULL,
+  `aufecha` datetime DEFAULT NULL,
+  `autipomovimiento` varchar(16) DEFAULT NULL,
+  `auidusuario` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -509,13 +480,16 @@ CREATE TABLE `shmedicosasignados` (
 --
 
 CREATE TABLE `shprocesos` (
-  `IDSHPROCESOS` int(11) NOT NULL,
-  `APROCESO` varchar(100) NOT NULL,
-  `IDDIRECCIONEMP` int(11) NOT NULL,
-  `IDGSAREASDIRECCION` int(11) NOT NULL,
-  `AFECHAINICIO` date NOT NULL,
-  `AFECHAFIN` date NOT NULL,
-  `AMANUALPROCESO` blob NOT NULL
+  `idshprocesos` int(11) NOT NULL,
+  `aproceso` varchar(100) NOT NULL,
+  `iddireccionemp` int(11) NOT NULL,
+  `idgsareasdireccion` int(11) NOT NULL,
+  `afechainicio` date NOT NULL,
+  `afechafin` date NOT NULL,
+  `amanualproceso` blob NOT NULL,
+  `aufecha` datetime DEFAULT NULL,
+  `autipomovimiento` varchar(16) DEFAULT NULL,
+  `auidusuario` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -525,11 +499,14 @@ CREATE TABLE `shprocesos` (
 --
 
 CREATE TABLE `shsalidasmed` (
-  `IDSALIDASMED` int(11) NOT NULL,
-  `AFECHASALIDA` date NOT NULL,
-  `IDMEDICAMENTO` int(11) NOT NULL,
-  `IDCONSULTORIO` int(11) NOT NULL,
-  `NCANTIDAD` varchar(10) NOT NULL
+  `idsalidasmed` int(11) NOT NULL,
+  `afechasalida` date NOT NULL,
+  `idmedicamento` int(11) NOT NULL,
+  `idconsultorio` int(11) NOT NULL,
+  `ncantidad` varchar(10) NOT NULL,
+  `aufecha` datetime DEFAULT NULL,
+  `autipomovimiento` varchar(16) DEFAULT NULL,
+  `auidusuario` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -562,25 +539,44 @@ CREATE TABLE `users` (
   `passwd_modified_at` datetime DEFAULT NULL,
   `last_login` datetime DEFAULT NULL,
   `created_at` datetime NOT NULL,
-  `modified_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+  `modified_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `anombrepersona` varchar(50) DEFAULT NULL,
+  `apaterno` varchar(20) DEFAULT NULL,
+  `amaterno` varchar(20) DEFAULT NULL,
+  `adireccion` varchar(20) DEFAULT NULL,
+  `atelefono` varchar(20) DEFAULT NULL,
+  `acurp` varchar(50) DEFAULT NULL,
+  `arfc` varchar(20) DEFAULT NULL,
+  `afechanacimiento` datetime DEFAULT NULL,
+  `nciudad` int(11) DEFAULT NULL,
+  `aestado` int(11) DEFAULT NULL,
+  `cvvtae` blob,
+  `contrato` blob,
+  `idgspuestos` int(11) DEFAULT NULL,
+  `acandidato` tinyint(4) DEFAULT NULL,
+  `aempleado` tinyint(4) DEFAULT NULL,
+  `adresultpsico` blob,
+  `aufecha` datetime DEFAULT NULL,
+  `autipomovimiento` varchar(16) DEFAULT NULL,
+  `auidusuario` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Volcado de datos para la tabla `users`
 --
 
-INSERT INTO `users` (`user_id`, `username`, `email`, `auth_level`, `banned`, `passwd`, `passwd_recovery_code`, `passwd_recovery_date`, `passwd_modified_at`, `last_login`, `created_at`, `modified_at`) VALUES
-(1637400287, 'admin', 'admin@masy.hr.com', 9, '0', '$2y$11$rAtGz48T6o2zc1/0iSESYOAp4KjRtsGAqeXaxiq/Xq1dS0/krcOf6', NULL, NULL, NULL, '2019-04-06 04:58:16', '2019-03-13 05:14:35', '2019-04-06 02:58:16');
+INSERT INTO `users` (`user_id`, `username`, `email`, `auth_level`, `banned`, `passwd`, `passwd_recovery_code`, `passwd_recovery_date`, `passwd_modified_at`, `last_login`, `created_at`, `modified_at`, `anombrepersona`, `apaterno`, `amaterno`, `adireccion`, `atelefono`, `acurp`, `arfc`, `afechanacimiento`, `nciudad`, `aestado`, `cvvtae`, `contrato`, `idgspuestos`, `acandidato`, `aempleado`, `adresultpsico`, `aufecha`, `autipomovimiento`, `auidusuario`) VALUES
+(1637400287, 'admin', 'admin@masy.hr.com', 9, '0', '$2y$11$rAtGz48T6o2zc1/0iSESYOAp4KjRtsGAqeXaxiq/Xq1dS0/krcOf6', NULL, NULL, NULL, '2019-05-01 21:08:39', '2019-03-13 05:14:35', '2019-05-02 02:08:39', 'Administrador', NULL, NULL, 'MaSy-HR', '55-5555-5555', NULL, NULL, '2019-01-01 00:00:00', 1, 1, NULL, NULL, 1, NULL, NULL, NULL, '2019-05-01 00:00:00', '1', 1637400287);
 
 --
 -- Disparadores `users`
 --
 DELIMITER $$
-CREATE TRIGGER `ca_passwd_trigger` BEFORE UPDATE ON `users` FOR EACH ROW BEGIN
-    IF ((NEW.passwd <=> OLD.passwd) = 0) THEN
-        SET NEW.passwd_modified_at = NOW();
-    END IF;
-END
+CREATE TRIGGER `ca_passwd_trigger` BEFORE UPDATE ON `users` FOR EACH ROW begin
+    if ((new.passwd <=> old.passwd) = 0) then
+        set new.passwd_modified_at = now();
+    end if;
+end
 $$
 DELIMITER ;
 
@@ -634,67 +630,56 @@ ALTER TABLE `denied_access`
 -- Indices de la tabla `gsareasdireccion`
 --
 ALTER TABLE `gsareasdireccion`
-  ADD PRIMARY KEY (`IDGSAREASDIRECCION`),
-  ADD KEY `FK_GSAREASDIRECCION_GSDIRECCIONESSUB` (`IDGSDIRECCION`);
+  ADD PRIMARY KEY (`idgsareasdireccion`),
+  ADD KEY `fk_gsareasdireccion_gsdireccionessub` (`idgsdireccion`);
 
 --
 -- Indices de la tabla `gsdirdireccionesgen`
 --
 ALTER TABLE `gsdirdireccionesgen`
-  ADD PRIMARY KEY (`IDGSDIRDIRECCION`);
+  ADD PRIMARY KEY (`idgsdirdireccion`);
 
 --
 -- Indices de la tabla `gsdireccionessub`
 --
 ALTER TABLE `gsdireccionessub`
-  ADD PRIMARY KEY (`IDGSDIRECCION`),
-  ADD KEY `FK_GSDIRECCIONESSUB_GSDIRDIRECCIONESGEN` (`IDGSDIRDIRECCION`);
+  ADD PRIMARY KEY (`idgsdireccion`),
+  ADD KEY `fk_gsdireccionessub_gsdirdireccionesgen` (`idgsdirdireccion`);
 
 --
 -- Indices de la tabla `gsgerencias`
 --
 ALTER TABLE `gsgerencias`
-  ADD PRIMARY KEY (`IDGSGERENCIAS`),
-  ADD KEY `FK_GSGERENCIAS_GSPERSONAS` (`IDGSPERSONAS`);
+  ADD PRIMARY KEY (`idgsgerencias`),
+  ADD KEY `fk_gsgerencias_gspersonas` (`user_id`);
 
 --
 -- Indices de la tabla `gsperfilespuestos`
 --
 ALTER TABLE `gsperfilespuestos`
-  ADD PRIMARY KEY (`IDPERFILDEPUESTO`);
+  ADD PRIMARY KEY (`idperfildepuesto`),
+  ADD KEY `fk_gsperfilespuestos_gspuestos` (`idgspuestos`);
 
 --
 -- Indices de la tabla `gsperfilessistema`
 --
 ALTER TABLE `gsperfilessistema`
-  ADD PRIMARY KEY (`IDGESPERFILES`);
-
---
--- Indices de la tabla `gspersonas`
---
-ALTER TABLE `gspersonas`
-  ADD PRIMARY KEY (`IDGSPERSONAS`),
-  ADD KEY `FK_GSPERSONAS_GSPUESTOS` (`IDGSPUESTOS`);
+  ADD PRIMARY KEY (`idgesperfiles`);
 
 --
 -- Indices de la tabla `gspuestos`
 --
 ALTER TABLE `gspuestos`
-  ADD PRIMARY KEY (`IDGSPUESTOS`);
-
---
--- Indices de la tabla `gsusuarios`
---
-ALTER TABLE `gsusuarios`
-  ADD PRIMARY KEY (`IDGSUSUARIO`);
+  ADD PRIMARY KEY (`idgspuestos`),
+  ADD KEY `fk_gspuestos_gsdireccionessub` (`idgsdireccion`);
 
 --
 -- Indices de la tabla `incursosxempl`
 --
 ALTER TABLE `incursosxempl`
-  ADD PRIMARY KEY (`IDMICURSOSXEMPL`),
-  ADD KEY `FK_INCURSOSXEMPL_GSPERSONAS` (`IDGSPERSONAS`),
-  ADD KEY `FK_INCURSOSXEMPL_MICALENDARIOCURSOS` (`IDMICALENDARIOCURSOS`);
+  ADD PRIMARY KEY (`idmicursosxempl`),
+  ADD KEY `fk_incursosxempl_gspersonas` (`user_id`),
+  ADD KEY `fk_incursosxempl_micalendariocursos` (`idmicalendariocursos`);
 
 --
 -- Indices de la tabla `ips_on_hold`
@@ -712,72 +697,72 @@ ALTER TABLE `login_errors`
 -- Indices de la tabla `micalendariocursos`
 --
 ALTER TABLE `micalendariocursos`
-  ADD PRIMARY KEY (`IDMICALENDARCURSO`),
-  ADD KEY `FK_MICALENDARIOCURSOS_MICAPACITADORES` (`IDCAPACITADORES`),
-  ADD KEY `FK_MICALENDARIOCURSOS_MINCURSOS` (`IDCURSOIND`);
+  ADD PRIMARY KEY (`idmicalendarcurso`),
+  ADD KEY `fk_micalendariocursos_micapacitadores` (`idcapacitadores`),
+  ADD KEY `fk_micalendariocursos_mincursos` (`idcursoind`);
 
 --
 -- Indices de la tabla `micapacitadores`
 --
 ALTER TABLE `micapacitadores`
-  ADD PRIMARY KEY (`IDCAPACITADORES`),
-  ADD KEY `FK_MICAPACITADORES_GSPERSONAS` (`IDGSPERSONA`);
+  ADD PRIMARY KEY (`idcapacitadores`),
+  ADD KEY `fk_micapacitadores_gspersonas` (`user_id`);
 
 --
 -- Indices de la tabla `mincursos`
 --
 ALTER TABLE `mincursos`
-  ADD PRIMARY KEY (`IDCURSOIND`),
-  ADD KEY `FK_MINCURSOS_GSDIRECCIONESSUB` (`IDGSDIRECCION`);
+  ADD PRIMARY KEY (`idcursoind`),
+  ADD KEY `fk_mincursos_gsdireccionessub` (`idgsdireccion`);
 
 --
 -- Indices de la tabla `shcitasmedicas`
 --
 ALTER TABLE `shcitasmedicas`
-  ADD PRIMARY KEY (`IDCITASMEDICAS`),
-  ADD KEY `FK_SHCITASMEDICAS_GSPERSONAS` (`IDGSPERSONA`),
-  ADD KEY `FK_SHCITASMEDICAS_SHCONSULTORIOS` (`IDCONSULTORIO`);
+  ADD PRIMARY KEY (`idcitasmedicas`),
+  ADD KEY `fk_shcitasmedicas_gspersonas` (`user_id`),
+  ADD KEY `fk_shcitasmedicas_shconsultorios` (`idconsultorio`);
 
 --
 -- Indices de la tabla `shconsultorios`
 --
 ALTER TABLE `shconsultorios`
-  ADD PRIMARY KEY (`IDSHCONSULTORIOS`),
-  ADD KEY `FK_SHCONSULTORIOS_SHMEDICOSASIGNADOS` (`IDMEDICO`);
+  ADD PRIMARY KEY (`idshconsultorios`),
+  ADD KEY `fk_shconsultorios_shmedicosasignados` (`idmedico`);
 
 --
 -- Indices de la tabla `shentradasmed`
 --
 ALTER TABLE `shentradasmed`
-  ADD PRIMARY KEY (`IDENTRADA`),
-  ADD KEY `FK_SHENTRADASMED_SHMEDICAMENTOS` (`IDMEDICAMENTO`);
+  ADD PRIMARY KEY (`identrada`),
+  ADD KEY `fk_shentradasmed_shmedicamentos` (`idmedicamento`);
 
 --
 -- Indices de la tabla `shmedicamentos`
 --
 ALTER TABLE `shmedicamentos`
-  ADD PRIMARY KEY (`IDMEDICAMENTOS`);
+  ADD PRIMARY KEY (`idmedicamentos`);
 
 --
 -- Indices de la tabla `shmedicosasignados`
 --
 ALTER TABLE `shmedicosasignados`
-  ADD PRIMARY KEY (`IDMEDICO`),
-  ADD KEY `FK_SHMEDICOSASIGNADOS_GSPERSONAS` (`IDGSPERSONA`);
+  ADD PRIMARY KEY (`idmedico`),
+  ADD KEY `fk_shmedicosasignados_gspersonas` (`user_id`);
 
 --
 -- Indices de la tabla `shprocesos`
 --
 ALTER TABLE `shprocesos`
-  ADD PRIMARY KEY (`IDSHPROCESOS`);
+  ADD PRIMARY KEY (`idshprocesos`);
 
 --
 -- Indices de la tabla `shsalidasmed`
 --
 ALTER TABLE `shsalidasmed`
-  ADD PRIMARY KEY (`IDSALIDASMED`),
-  ADD KEY `FK_SHSALIDASMED_SHCONSULTORIOS` (`IDCONSULTORIO`),
-  ADD KEY `FK_SHSALIDASMED_SHMEDICAMENTOS` (`IDMEDICAMENTO`);
+  ADD PRIMARY KEY (`idsalidasmed`),
+  ADD KEY `fk_shsalidasmed_shconsultorios` (`idconsultorio`),
+  ADD KEY `fk_shsalidasmed_shmedicamentos` (`idmedicamento`);
 
 --
 -- Indices de la tabla `username_or_email_on_hold`
@@ -791,7 +776,8 @@ ALTER TABLE `username_or_email_on_hold`
 ALTER TABLE `users`
   ADD PRIMARY KEY (`user_id`),
   ADD UNIQUE KEY `email` (`email`),
-  ADD UNIQUE KEY `username` (`username`);
+  ADD UNIQUE KEY `username` (`username`),
+  ADD KEY `fk_gspersonas_gspuestos` (`idgspuestos`);
 
 --
 -- AUTO_INCREMENT de las tablas volcadas
@@ -802,163 +788,126 @@ ALTER TABLE `users`
 --
 ALTER TABLE `acl`
   MODIFY `ai` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
-
 --
 -- AUTO_INCREMENT de la tabla `acl_actions`
 --
 ALTER TABLE `acl_actions`
   MODIFY `action_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
-
 --
 -- AUTO_INCREMENT de la tabla `acl_categories`
 --
 ALTER TABLE `acl_categories`
   MODIFY `category_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
-
 --
 -- AUTO_INCREMENT de la tabla `denied_access`
 --
 ALTER TABLE `denied_access`
   MODIFY `ai` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
-
 --
 -- AUTO_INCREMENT de la tabla `gsareasdireccion`
 --
 ALTER TABLE `gsareasdireccion`
-  MODIFY `IDGSAREASDIRECCION` int(11) NOT NULL AUTO_INCREMENT;
-
+  MODIFY `idgsareasdireccion` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT de la tabla `gsdirdireccionesgen`
 --
 ALTER TABLE `gsdirdireccionesgen`
-  MODIFY `IDGSDIRDIRECCION` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
-
+  MODIFY `idgsdirdireccion` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 --
 -- AUTO_INCREMENT de la tabla `gsdireccionessub`
 --
 ALTER TABLE `gsdireccionessub`
-  MODIFY `IDGSDIRECCION` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
-
+  MODIFY `idgsdireccion` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 --
 -- AUTO_INCREMENT de la tabla `gsgerencias`
 --
 ALTER TABLE `gsgerencias`
-  MODIFY `IDGSGERENCIAS` int(11) NOT NULL AUTO_INCREMENT;
-
+  MODIFY `idgsgerencias` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT de la tabla `gsperfilespuestos`
 --
 ALTER TABLE `gsperfilespuestos`
-  MODIFY `IDPERFILDEPUESTO` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
-
+  MODIFY `idperfildepuesto` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT de la tabla `gsperfilessistema`
 --
 ALTER TABLE `gsperfilessistema`
-  MODIFY `IDGESPERFILES` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT de la tabla `gspersonas`
---
-ALTER TABLE `gspersonas`
-  MODIFY `IDGSPERSONAS` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
-
+  MODIFY `idgesperfiles` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT de la tabla `gspuestos`
 --
 ALTER TABLE `gspuestos`
-  MODIFY `IDGSPUESTOS` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
-
---
--- AUTO_INCREMENT de la tabla `gsusuarios`
---
-ALTER TABLE `gsusuarios`
-  MODIFY `IDGSUSUARIO` int(11) NOT NULL AUTO_INCREMENT;
-
+  MODIFY `idgspuestos` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 --
 -- AUTO_INCREMENT de la tabla `incursosxempl`
 --
 ALTER TABLE `incursosxempl`
-  MODIFY `IDMICURSOSXEMPL` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
-
+  MODIFY `idmicursosxempl` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT de la tabla `ips_on_hold`
 --
 ALTER TABLE `ips_on_hold`
   MODIFY `ai` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
-
 --
 -- AUTO_INCREMENT de la tabla `login_errors`
 --
 ALTER TABLE `login_errors`
-  MODIFY `ai` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
-
+  MODIFY `ai` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT de la tabla `micalendariocursos`
 --
 ALTER TABLE `micalendariocursos`
-  MODIFY `IDMICALENDARCURSO` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
-
+  MODIFY `idmicalendarcurso` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT de la tabla `micapacitadores`
 --
 ALTER TABLE `micapacitadores`
-  MODIFY `IDCAPACITADORES` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
-
+  MODIFY `idcapacitadores` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT de la tabla `mincursos`
 --
 ALTER TABLE `mincursos`
-  MODIFY `IDCURSOIND` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
-
+  MODIFY `idcursoind` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT de la tabla `shcitasmedicas`
 --
 ALTER TABLE `shcitasmedicas`
-  MODIFY `IDCITASMEDICAS` int(11) NOT NULL AUTO_INCREMENT;
-
+  MODIFY `idcitasmedicas` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT de la tabla `shconsultorios`
 --
 ALTER TABLE `shconsultorios`
-  MODIFY `IDSHCONSULTORIOS` int(11) NOT NULL AUTO_INCREMENT;
-
+  MODIFY `idshconsultorios` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT de la tabla `shentradasmed`
 --
 ALTER TABLE `shentradasmed`
-  MODIFY `IDENTRADA` int(11) NOT NULL AUTO_INCREMENT;
-
+  MODIFY `identrada` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT de la tabla `shmedicamentos`
 --
 ALTER TABLE `shmedicamentos`
-  MODIFY `IDMEDICAMENTOS` int(11) NOT NULL AUTO_INCREMENT;
-
+  MODIFY `idmedicamentos` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT de la tabla `shmedicosasignados`
 --
 ALTER TABLE `shmedicosasignados`
-  MODIFY `IDMEDICO` int(11) NOT NULL AUTO_INCREMENT;
-
+  MODIFY `idmedico` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT de la tabla `shprocesos`
 --
 ALTER TABLE `shprocesos`
-  MODIFY `IDSHPROCESOS` int(11) NOT NULL AUTO_INCREMENT;
-
+  MODIFY `idshprocesos` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT de la tabla `shsalidasmed`
 --
 ALTER TABLE `shsalidasmed`
-  MODIFY `IDSALIDASMED` int(11) NOT NULL AUTO_INCREMENT;
-
+  MODIFY `idsalidasmed` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT de la tabla `username_or_email_on_hold`
 --
 ALTER TABLE `username_or_email_on_hold`
   MODIFY `ai` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
-
 --
 -- Restricciones para tablas volcadas
 --
@@ -980,84 +929,95 @@ ALTER TABLE `acl_actions`
 -- Filtros para la tabla `gsareasdireccion`
 --
 ALTER TABLE `gsareasdireccion`
-  ADD CONSTRAINT `FK_GSAREASDIRECCION_GSDIRECCIONESSUB` FOREIGN KEY (`IDGSDIRECCION`) REFERENCES `gsdireccionessub` (`IDGSDIRECCION`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+  ADD CONSTRAINT `fk_gsareasdireccion_gsdireccionessub` FOREIGN KEY (`idgsdireccion`) REFERENCES `gsdireccionessub` (`idgsdireccion`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
 -- Filtros para la tabla `gsdireccionessub`
 --
 ALTER TABLE `gsdireccionessub`
-  ADD CONSTRAINT `FK_GSDIRECCIONESSUB_GSDIRDIRECCIONESGEN` FOREIGN KEY (`IDGSDIRDIRECCION`) REFERENCES `gsdirdireccionesgen` (`IDGSDIRDIRECCION`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+  ADD CONSTRAINT `fk_gsdireccionessub_gsdirdireccionesgen` FOREIGN KEY (`idgsdirdireccion`) REFERENCES `gsdirdireccionesgen` (`idgsdirdireccion`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
 -- Filtros para la tabla `gsgerencias`
 --
 ALTER TABLE `gsgerencias`
-  ADD CONSTRAINT `FK_GSGERENCIAS_GSPERSONAS` FOREIGN KEY (`IDGSPERSONAS`) REFERENCES `gspersonas` (`IDGSPERSONAS`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+  ADD CONSTRAINT `fk_gsgerencias_gspersonas` FOREIGN KEY (`user_id`) REFERENCES `users` (`user_id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
--- Filtros para la tabla `gspersonas`
+-- Filtros para la tabla `gsperfilespuestos`
 --
-ALTER TABLE `gspersonas`
-  ADD CONSTRAINT `FK_GSPERSONAS_GSPUESTOS` FOREIGN KEY (`IDGSPUESTOS`) REFERENCES `gspuestos` (`IDGSPUESTOS`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+ALTER TABLE `gsperfilespuestos`
+  ADD CONSTRAINT `fk_gsperfilespuestos_gspuestos` FOREIGN KEY (`idgspuestos`) REFERENCES `gspuestos` (`idgspuestos`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+
+--
+-- Filtros para la tabla `gspuestos`
+--
+ALTER TABLE `gspuestos`
+  ADD CONSTRAINT `fk_gspuestos_gsdireccionessub` FOREIGN KEY (`idgsdireccion`) REFERENCES `gsdireccionessub` (`idgsdireccion`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
 -- Filtros para la tabla `incursosxempl`
 --
 ALTER TABLE `incursosxempl`
-  ADD CONSTRAINT `FK_INCURSOSXEMPL_GSPERSONAS` FOREIGN KEY (`IDGSPERSONAS`) REFERENCES `gspersonas` (`IDGSPERSONAS`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  ADD CONSTRAINT `FK_INCURSOSXEMPL_MICALENDARIOCURSOS` FOREIGN KEY (`IDMICALENDARIOCURSOS`) REFERENCES `micalendariocursos` (`IDMICALENDARCURSO`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+  ADD CONSTRAINT `fk_incursosxempl_gspersonas` FOREIGN KEY (`user_id`) REFERENCES `users` (`user_id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  ADD CONSTRAINT `fk_incursosxempl_micalendariocursos` FOREIGN KEY (`idmicalendariocursos`) REFERENCES `micalendariocursos` (`idmicalendarcurso`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
 -- Filtros para la tabla `micalendariocursos`
 --
 ALTER TABLE `micalendariocursos`
-  ADD CONSTRAINT `FK_MICALENDARIOCURSOS_MICAPACITADORES` FOREIGN KEY (`IDCAPACITADORES`) REFERENCES `micapacitadores` (`IDCAPACITADORES`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  ADD CONSTRAINT `FK_MICALENDARIOCURSOS_MINCURSOS` FOREIGN KEY (`IDCURSOIND`) REFERENCES `mincursos` (`IDCURSOIND`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+  ADD CONSTRAINT `fk_micalendariocursos_micapacitadores` FOREIGN KEY (`idcapacitadores`) REFERENCES `micapacitadores` (`idcapacitadores`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  ADD CONSTRAINT `fk_micalendariocursos_mincursos` FOREIGN KEY (`idcursoind`) REFERENCES `mincursos` (`idcursoind`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
 -- Filtros para la tabla `micapacitadores`
 --
 ALTER TABLE `micapacitadores`
-  ADD CONSTRAINT `FK_MICAPACITADORES_GSPERSONAS` FOREIGN KEY (`IDGSPERSONA`) REFERENCES `gspersonas` (`IDGSPERSONAS`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+  ADD CONSTRAINT `fk_micapacitadores_gspersonas` FOREIGN KEY (`user_id`) REFERENCES `users` (`user_id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
 -- Filtros para la tabla `mincursos`
 --
 ALTER TABLE `mincursos`
-  ADD CONSTRAINT `FK_MINCURSOS_GSDIRECCIONESSUB` FOREIGN KEY (`IDGSDIRECCION`) REFERENCES `gsdireccionessub` (`IDGSDIRECCION`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+  ADD CONSTRAINT `fk_mincursos_gsdireccionessub` FOREIGN KEY (`idgsdireccion`) REFERENCES `gsdireccionessub` (`idgsdireccion`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
 -- Filtros para la tabla `shcitasmedicas`
 --
 ALTER TABLE `shcitasmedicas`
-  ADD CONSTRAINT `FK_SHCITASMEDICAS_GSPERSONAS` FOREIGN KEY (`IDGSPERSONA`) REFERENCES `gspersonas` (`IDGSPERSONAS`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  ADD CONSTRAINT `FK_SHCITASMEDICAS_SHCONSULTORIOS` FOREIGN KEY (`IDCONSULTORIO`) REFERENCES `shconsultorios` (`IDSHCONSULTORIOS`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+  ADD CONSTRAINT `fk_shcitasmedicas_gspersonas` FOREIGN KEY (`user_id`) REFERENCES `users` (`user_id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  ADD CONSTRAINT `fk_shcitasmedicas_shconsultorios` FOREIGN KEY (`idconsultorio`) REFERENCES `shconsultorios` (`idshconsultorios`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
 -- Filtros para la tabla `shconsultorios`
 --
 ALTER TABLE `shconsultorios`
-  ADD CONSTRAINT `FK_SHCONSULTORIOS_SHMEDICOSASIGNADOS` FOREIGN KEY (`IDMEDICO`) REFERENCES `shmedicosasignados` (`IDMEDICO`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+  ADD CONSTRAINT `fk_shconsultorios_shmedicosasignados` FOREIGN KEY (`idmedico`) REFERENCES `shmedicosasignados` (`idmedico`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
 -- Filtros para la tabla `shentradasmed`
 --
 ALTER TABLE `shentradasmed`
-  ADD CONSTRAINT `FK_SHENTRADASMED_SHMEDICAMENTOS` FOREIGN KEY (`IDMEDICAMENTO`) REFERENCES `shmedicamentos` (`IDMEDICAMENTOS`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+  ADD CONSTRAINT `fk_shentradasmed_shmedicamentos` FOREIGN KEY (`idmedicamento`) REFERENCES `shmedicamentos` (`idmedicamentos`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
 -- Filtros para la tabla `shmedicosasignados`
 --
 ALTER TABLE `shmedicosasignados`
-  ADD CONSTRAINT `FK_SHMEDICOSASIGNADOS_GSPERSONAS` FOREIGN KEY (`IDGSPERSONA`) REFERENCES `gspersonas` (`IDGSPERSONAS`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+  ADD CONSTRAINT `fk_shmedicosasignados_gspersonas` FOREIGN KEY (`user_id`) REFERENCES `users` (`user_id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
 -- Filtros para la tabla `shsalidasmed`
 --
 ALTER TABLE `shsalidasmed`
-  ADD CONSTRAINT `FK_SHSALIDASMED_SHCONSULTORIOS` FOREIGN KEY (`IDCONSULTORIO`) REFERENCES `shconsultorios` (`IDSHCONSULTORIOS`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  ADD CONSTRAINT `FK_SHSALIDASMED_SHMEDICAMENTOS` FOREIGN KEY (`IDMEDICAMENTO`) REFERENCES `shmedicamentos` (`IDMEDICAMENTOS`) ON DELETE NO ACTION ON UPDATE NO ACTION;
-COMMIT;
+  ADD CONSTRAINT `fk_shsalidasmed_shconsultorios` FOREIGN KEY (`idconsultorio`) REFERENCES `shconsultorios` (`idshconsultorios`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  ADD CONSTRAINT `fk_shsalidasmed_shmedicamentos` FOREIGN KEY (`idmedicamento`) REFERENCES `shmedicamentos` (`idmedicamentos`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+
+--
+-- Filtros para la tabla `users`
+--
+ALTER TABLE `users`
+  ADD CONSTRAINT `fk_gspersonas_gspuestos` FOREIGN KEY (`idgspuestos`) REFERENCES `gspuestos` (`idgspuestos`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
