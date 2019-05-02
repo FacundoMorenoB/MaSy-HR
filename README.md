@@ -15,3 +15,5 @@ Poyecto RH-UDL
 6. Instalar mpdf(Para poder generar los PDFS): 
 	Solo hay que tener composer instalado y ejecutar el siguiente comando en la terminal ubicado en la carpeta del proyecto
 	#composer require mpdf/mpdf 
+	
+7. Si es necesario cambiar permisos a carpeta vendor (Esta carpeta es creada por mpdf) para utilizar el modulo de PDF.
