@@ -24,6 +24,7 @@ class Masy_reclutador_model extends CI_Model {
 		$this->db->like("gspuestos.anombrepuesto",$valor);
 		$this->db->from('gspuestos');
 		$this->db->join('gsperfilespuestos', 'gspuestos.idgspuestos = gsperfilespuestos.idgspuestos');
+		$this->db->where("gsperfilespuestos.autipomovimiento != 3");
 		$consulta = $this->db->get();
 		return $consulta->result();
 	}
@@ -39,9 +40,9 @@ class Masy_reclutador_model extends CI_Model {
 		}
 	}
 
-	function eliminar($id){
+	function eliminar($id,$data){
 		$this->db->where('idperfildepuesto', $id);
-		$this->db->delete('gsperfilespuestos'); 
+		$this->db->update('gsperfilespuestos', $data);
 		if ($this->db->affected_rows() > 0) {
 			return true;
 		}
@@ -53,6 +54,18 @@ class Masy_reclutador_model extends CI_Model {
 	function buscar($id){
 		$this->db->where("idperfildepuesto",$id);
 		$consulta = $this->db->get("gsperfilespuestos");
+		return $consulta->result();
+	}
+
+	function mostrar_dirgen($valor){
+		$this->db->like("idgsdirdireccion",$valor);
+		$consulta = $this->db->get("gsdirdireccionesgen");
+		return $consulta->result();
+	}
+
+	function mostrar_puesto($valor){
+		$this->db->like("idgspuestos",$valor);
+		$consulta = $this->db->get("gspuestos");
 		return $consulta->result();
 	}
 
@@ -77,7 +90,7 @@ class Masy_reclutador_model extends CI_Model {
 	}
 	function mostrar_emp($valor){
 		$this->db->like("anombrepersona",$valor);
-		$this->db->where("user_id != 1637400287");
+		$this->db->where("user_id != 1637400287 and autipomovimiento != 3");
 		$consulta = $this->db->get("users");
 		return $consulta->result();
 	}
@@ -93,9 +106,9 @@ class Masy_reclutador_model extends CI_Model {
 		}
 	}
 
-	function eliminar_emp($id){
+	function eliminar_emp($id, $data){
 		$this->db->where('user_id', $id);
-		$this->db->delete('users'); 
+		$this->db->update('users', $data); 
 		if ($this->db->affected_rows() > 0) {
 			return true;
 		}

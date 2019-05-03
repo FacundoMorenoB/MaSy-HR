@@ -106,13 +106,13 @@
 										 </span>
 										</label>
 										<select class="select form-control" id="selciudademp1" name="selciudademp1">
-										 <option value="La Paz">
+										 <option value="1">
 										La Paz
 										 </option>
-										 <option value="Doctores">
+										 <option value="2">
 										Doctores
 										 </option>
-										 <option value="Guadalajara">
+										 <option value="3">
 										Guadalajara
 										 </option>
 										</select>
@@ -125,13 +125,13 @@
 										 </span>
 										</label>
 										<select class="select form-control" id="selestadoemp1" name="selestadoemp1">
-										 <option value="M&eacute;xico">
+										 <option value="1">
 										M&eacute;xico
 										 </option>
-										 <option value="Estado de M&eacute;xico">
+										 <option value="2">
 										Estado de M&eacute;xico
 										 </option>
-										 <option value="Jalisco">
+										 <option value="3">
 										Jalisco
 										 </option>
 										</select>
@@ -145,17 +145,21 @@
 										</label>
 										<select class="select form-control" id="selvacanteemp1" name="selvacanteemp1">
 
-										 </option>
 										</select>
 									 </div>
 									 <div class="form-group ">
-										<label class="control-label requiredField" for="txtfechaaltemp1">
-										 Fecha de alta
+										<label class="control-label requiredField" for="sellevelemp1">
+										 Nivel de usuario
 										 <span class="asteriskField">
 										*
 										 </span>
 										</label>
-										<input required class="form-control form_datetime" id="txtfechaaltemp1" name="txtfechaaltemp1" placeholder="YYYY-MM-DD" type="text" readonly />
+										<select class="select form-control" id="sellevelemp1" name="sellevelemp1">
+											<option value="1">Usuario</option>
+											<option value="2">Reclutador</option>
+											<option value="6">Nominas</option>
+											<option value="9">Administrador</option>
+										</select>
 									 </div>
 								</div>
 							</div>

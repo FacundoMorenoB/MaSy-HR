@@ -1,6 +1,6 @@
 $( document ).ready(function() {
 	// handler for .ready() called.
-	mostrardatos("");
+	mostrardatos_vac("");
 	mostrardatos_emp("");
 	mostrardatos_nue_cur("");
 	mostrardatos_cal_cur("");
@@ -8,6 +8,8 @@ $( document ).ready(function() {
 	mostrardatos_cal_cur_list("");
 	mostrardatos_asig_cur_list("");
 	mostrardatos_dir_cur("");
+	mostrardatos_dirgen("");
+	mostrardatos_puesto("");
 	mostrardatos_emp_capa_cur_list("");
 	mostrardatos_cal_asig_list("");
 	mostrardatos_perf_emp("");
@@ -87,22 +89,24 @@ $( document ).ready(function() {
 			success:function(respuesta){
 				//alert(respuesta);
 				var registros = eval(respuesta);
-				$("#txtidvac1").val(registros[0]["idperfildepuesto"]);
-				$("#txtnomperfilvac1").val(registros[0]["anombreperfilpuesto"]);
-				$("#txtnivimpactovac1").val(registros[0]["anivelimpacto"]);
-				$("#txtnivvaluacionvac1").val(registros[0]["anivelevaluacion"]);
-				$("#txtsldrangovac1").val(registros[0]["arangosueldo"]);
-				$("#txtsldofrecidovac1").val(registros[0]["nsueldo"]);
-				$("#txtaremsnpuestovac1").val(registros[0]["amision"]);
-				$("#txtedadvac1").val(registros[0]["nrangoedad"]);
-				$("#selsexovac1").val(registros[0]["agenero"]);
-				$("#textareconpuestovac1").val(registros[0]["aconocimientostec"]);
-				$("#txtidiomavac1").val(registros[0]["aidiomas"]);
-				$("#txtproginformavac1").val(registros[0]["aprogramasinfo"]);
-				$("#textarehabilivac1").val(registros[0]["ahabilidadesprf"]);
-				$("#seldireccionvac1").val(registros[0]["agerenciapert"]);
-				$("#seldirectorvac1").val(registros[0]["apuestoreporta"]);
-				$("#textarefuncionesvac1").val(registros[0]["afunespecificas"]);
+				$("#txtidvac1").val(registros[0]["idgspuestos"])
+				$("#selnomperfilvac1").val(registros[0]["idgspuestos"])
+				$("#seldireccionvac1").val(registros[0]["agerenciapert"])
+				$("#seldirectorvac1").val(registros[0]["apuestoreporta"])
+				$("#txtnivimpactovac1").val(registros[0]["anivelimpacto"])
+				$("#txtnivvaluacionvac1").val(registros[0]["anivelevaluacion"])
+				$("#txtsldrangovac1").val(registros[0]["arangosueldo"])
+				$("#txtsldofrecidovac1").val(registros[0]["nsueldo"])
+				$("#txtaremsnpuestovac1").val(registros[0]["amision"])
+				$("#txtedadvac1").val(registros[0]["nrangoedad"])
+				$("#selsexovac1").val(registros[0]["agenero"])
+				$("#txtescolaridad").val(registros[0]["aescolaridad"])
+				$("#selstescol1").val(registros[0]["aestatusescolaridad"])
+				$("#textareconpuestovac1").val(registros[0]["aconocimientostec"])
+				$("#txtidiomavac1").val(registros[0]["aidiomas"])
+				$("#txtproginformavac1").val(registros[0]["aprogramasinfo"])
+				$("#textarehabilivac1").val(registros[0]["ahabilidadesprf"])
+				$("#textarefuncionesvac1").val(registros[0]["afunespecificas"])
 			}
 		});
 
@@ -135,11 +139,12 @@ $( document ).ready(function() {
 				$("#txtfechanacemp1").val(registros[0]["afechanacimiento"]);
 				$("#selciudademp1").val(registros[0]["nciudad"]);
 				$("#selestadoemp1").val(registros[0]["aestado"]);
-				$("#selvacanteemp1").val(registros[0]["idperfildepuesto"]);
+				$("#selvacanteemp1").val(registros[0]["idgspuestos"]);
 				$("#txtfechaaltemp1").val(registros[0]["aufechamov"]);
 				$("#filecvemp1").val(registros[0]["cvvtae"]);
 				$("#filecontratoemp1").val(registros[0]["contrato"]);
 				$("#fileexamenemp1").val(registros[0]["adresultpsico"]);
+				$("#sellevelemp1").val(registros[0]["auth_level"]);
 			}
 		});
 
@@ -253,7 +258,7 @@ $( document ).ready(function() {
 
 });
 
-function mostrardatos(valor){
+function mostrardatos_vac(valor){
 	$.ajax({
 		url:"http://masyhr.hopto.org/MaSy-HR/index.php/masy_reclutador_controller/mostrar_vac",
 		type:"post",
@@ -265,11 +270,11 @@ function mostrardatos(valor){
 			html ="";
 
 			for (var i = 0; i < registros.length; i++) {
-				var num = math.floor((math.random() * (7-1))+1);
+				var num = Math.floor((Math.random() * (7-1))+1);
 				html +="<div class=\"col-md-6 col-lg-4\">";
                 html +="<div class=\"card border-0\"><a href='"+registros[i]["idperfildepuesto"]+"'><img src=\"http://masyhr.hopto.org/MaSy-HR/img/nature/image"+num+".jpg\" alt=\"card image\" class=\"card-img-top scale-on-hover\"></a>";
                 html +="<div class=\"card-body\">";
-				html +="<h6>"+registros[i]["anombreperfilpuesto"]+"</h6>";
+				html +="<h6>"+registros[i]["anombrepuesto"]+"</h6>";
 				html +="<p class=\"text-muted card-text\">"+registros[i]["afunespecificas"]+"</p>";
 				html +="<a href='"+registros[i]["idperfildepuesto"]+"' class='btn btn-warning btn-block' data-toggle='modal' data-target='#mymodal'>editar</a> <button class='btn btn-danger btn-block' type='button' value='"+registros[i]["idperfildepuesto"]+"'>eliminar</button>";
 				html +="</div></div></div>";
@@ -465,9 +470,49 @@ function mostrardatos_dir_cur(valor){
 			};
 			//alert(html);
 			$("#txtdireccioncur1").html(html);
+			$("#seldirectorvac1").html(html);
 		}
 	});
 }
+
+function mostrardatos_dirgen(valor){
+	$.ajax({
+		url:"http://masyhr.hopto.org/MaSy-HR/index.php/masy_reclutador_controller/mostrar_dirgen",
+		type:"post",
+		data:{valor},
+		success:function(respuesta){
+			//alert(respuesta);
+			var registros = eval(respuesta);
+			
+			html = "";
+			for (var i = 0; i < registros.length; i++) {
+				html += "<option value="+registros[i]["idgsdirdireccion"]+">"+registros[i]["anombredireccion"]+"</option>";
+			};
+			//alert(html);
+			$("#seldireccionvac1").html(html);
+		}
+	});
+}
+
+function mostrardatos_puesto(valor){
+	$.ajax({
+		url:"http://masyhr.hopto.org/MaSy-HR/index.php/masy_reclutador_controller/mostrar_puesto",
+		type:"post",
+		data:{valor},
+		success:function(respuesta){
+			//alert(respuesta);
+			var registros = eval(respuesta);
+			
+			html = "";
+			for (var i = 0; i < registros.length; i++) {
+				html += "<option value="+registros[i]["idgspuestos"]+">"+registros[i]["anombrepuesto"]+"</option>";
+			};
+			//alert(html);
+			$("#selnomperfilvac1").html(html);
+		}
+	});
+}
+
 
 function mostrardatos_asig_cur(valor){
 	$.ajax({
@@ -545,7 +590,7 @@ function eliminar(valor){
 		data:{txtidvac1:valor},
 		success:function(respuesta){
 			//alert(respuesta);
-			mostrardatos("");
+			mostrardatos_vac("");
 		}
 	});
 }

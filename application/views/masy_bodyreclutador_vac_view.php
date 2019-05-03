@@ -48,14 +48,16 @@
                         <div class="form-group row">
                             <div class="col">
                               <div class="form-group ">
-                              <label class="control-label requiredField" for="txtnomperfilvac1">
+                              <label class="control-label requiredField" for="selnomperfilvac1">
                                Nombre del perfil
                                <span class="asteriskField">
                                 *
                                </span>
                               </label>
                               <input class="form-control" id="txtidvac1" name="txtidvac1" type="hidden" value=""/>
-                              <input required class="form-control" id="txtnomperfilvac1" name="txtnomperfilvac1" type="text" pattern="[A-Za-z\s]+" maxlength="250"/>
+                              <select class="select form-control" id="selnomperfilvac1" name="selnomperfilvac1">
+                               
+                              </select>
                              </div>
                              <div class="form-group ">
                               <label class="control-label requiredField" for="txtnivimpactovac1">
@@ -64,7 +66,7 @@
                                 *
                                </span>
                               </label>
-                              <input required class="form-control" id="txtnivimpactovac1" name="txtnivimpactovac1" type="text" pattern="[0-9]+"/>
+                              <input required class="form-control" id="txtnivimpactovac1" name="txtnivimpactovac1" type="text" pattern="[A-Za-z\s]+"/>
                              </div>
                              <div class="form-group ">
                               <label class="control-label requiredField" for="txtnivvaluacionvac1">
@@ -91,7 +93,7 @@
                                 *
                                </span>
                               </label>
-                              <input required class="form-control" id="txtsldofrecidovac1" name="txtsldofrecidovac1" placeholder="$######.##" type="text" pattern="[0-9\.]+" maxlength="250"/>
+                              <input required class="form-control" id="txtsldofrecidovac1" name="txtsldofrecidovac1" placeholder="######.##" type="text" pattern="[0-9\.]+" maxlength="250"/>
                              </div>
                              <div class="form-group ">
                               <label class="control-label requiredField" for="txtaremsnpuestovac1">
@@ -109,7 +111,7 @@
                                 *
                                </span>
                               </label>
-                              <input required class="form-control" id="txtedadvac1" name="txtedadvac1" placeholder="## - ##" type="text" pattern="[0-9\-]+" minlength="5" maxlength="7" />
+                              <input required class="form-control" id="txtedadvac1" name="txtedadvac1" placeholder="## - ##" type="text" pattern="[0-9\-\s]+" minlength="5" maxlength="7" />
                              </div>
                              <div class="form-group ">
                               <label class="control-label requiredField" for="selsexovac1">
@@ -142,6 +144,34 @@
                             </div>
                             <div class="col-md-auto"></div>
                             <div class="col col-lg-6">
+                            <div class="form-group ">
+                              <label class="control-label requiredField" for="txtescolaridad">
+                               Escolaridad
+                               <span class="asteriskField">
+                                *
+                               </span>
+                              </label>
+                              <input required class="form-control" id="txtescolaridad" name="txtescolaridad" placeholder="Preparatoria, Licenciatura" type="text" pattern="[A-Za-z\s,]+" maxlength="250"/>
+                             </div>
+                             <div class="form-group ">
+                              <label class="control-label requiredField" for="selstescol1">
+                               Estado ecolaridad
+                               <span class="asteriskField">
+                                *
+                               </span>
+                              </label>
+                              <select class="select form-control" id="selstescol1" name="selstescol1">
+                               <option value="Concluida">
+                                Concluida
+                               </option>
+                               <option value="En curso">
+                                En curso
+                               </option>
+                               <option value="Trunca">
+                                Trunca
+                               </option>
+                              </select>
+                             </div>
                              <div class="form-group ">
                               <label class="control-label requiredField" for="txtidiomavac1">
                                Idioma(s)
@@ -171,15 +201,7 @@
                                Direcci&oacute;n que reporta
                               </label>
                               <select class="select form-control" id="seldireccionvac1" name="seldireccionvac1">
-                               <option value="Direcci&oacute;n General">
-                                Direcci&oacute;n General
-                               </option>
-                               <option value="Direcci&oacute;n de TI">
-                                Direcci&oacute;n de TI
-                               </option>
-                               <option value="Direcci&oacute;n de RH">
-                                Direcci&oacute;n de RH
-                               </option>
+                               
                               </select>
                              </div>
                              <div class="form-group ">
@@ -187,18 +209,7 @@
                                Director que reporta
                               </label>
                               <select class="select form-control" id="seldirectorvac1" name="seldirectorvac1">
-                               <option value="Director general">
-                                Director general
-                               </option>
-                               <option value="Directos de capacitaci&oacute;n">
-                                Directos de capacitaci&oacute;n
-                               </option>
-                               <option value="Director de percepciones">
-                                Director de percepciones
-                               </option>
-                               <option value="Director de sistemas holding">
-                                Director de sistemas holding
-                               </option>
+                               
                               </select>
                              </div>
                              <div class="form-group ">
