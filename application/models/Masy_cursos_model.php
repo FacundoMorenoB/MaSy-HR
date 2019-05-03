@@ -20,6 +20,7 @@ class Masy_cursos_model extends CI_Model {
 	function mostrar_cur($valor){
 		$this->db->like("mincursos.anombrecurso",$valor);
 		$this->db->from('mincursos');
+		$this->db->where("mincursos.autipomovimiento != 3");
 		$this->db->join('gsdireccionessub', 'mincursos.idgsdireccion = gsdireccionessub.idgsdireccion');
 		$consulta = $this->db->get();
 		return $consulta->result();
@@ -36,9 +37,9 @@ class Masy_cursos_model extends CI_Model {
 		}
 	}
 
-	function eliminar_cur($id){
+	function eliminar_cur($id,$data){
 		$this->db->where('idcursoind', $id);
-		$this->db->delete('mincursos'); 
+		$this->db->update('mincursos', $data);
 		if ($this->db->affected_rows() > 0) {
 			return true;
 		}
@@ -75,6 +76,7 @@ class Masy_cursos_model extends CI_Model {
 		$this->db->join('mincursos', 'micalendariocursos.idcursoind = mincursos.idcursoind');
 		$this->db->join('micapacitadores', 'micalendariocursos.idcapacitadores = micapacitadores.idcapacitadores');
 		$this->db->join('users', 'micapacitadores.user_id = users.user_id');
+		$this->db->where("micalendariocursos.autipomovimiento != 3");
 		$consulta = $this->db->get();
 		return $consulta->result();
 	}
@@ -90,9 +92,9 @@ class Masy_cursos_model extends CI_Model {
 		}
 	}
 
-	function eliminar_cur_cal($id){
+	function eliminar_cur_cal($id,$data){
 		$this->db->where('idmicalendarcurso', $id);
-		$this->db->delete('micalendariocursos'); 
+		$this->db->update('micalendariocursos', $data);
 		if ($this->db->affected_rows() > 0) {
 			return true;
 		}
@@ -128,6 +130,7 @@ class Masy_cursos_model extends CI_Model {
 		$this->db->join('users', 'incursosxempl.user_id = users.user_id');
 		$this->db->join('micalendariocursos', 'incursosxempl.idmicalendariocursos = micalendariocursos.idmicalendarcurso');
 		$this->db->join('mincursos', 'micalendariocursos.idcursoind = mincursos.idcursoind');
+		$this->db->where("incursosxempl.autipomovimiento != 3");
 		$consulta = $this->db->get();
 		return $consulta->result();
 	}
@@ -143,9 +146,9 @@ class Masy_cursos_model extends CI_Model {
 		}
 	}
 
-	function eliminar_cur_asig($id){
+	function eliminar_cur_asig($id,$data){
 		$this->db->where('idmicursosxempl', $id);
-		$this->db->delete('incursosxempl'); 
+		$this->db->update('incursosxempl', $data); 
 		if ($this->db->affected_rows() > 0) {
 			return true;
 		}

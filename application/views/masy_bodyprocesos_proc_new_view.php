@@ -96,6 +96,7 @@
     $( ".form_datetime" ).datepicker();
     $( ".form_datetime" ).datepicker(  "option", "showAnim", "slideDown");
     $( ".form_datetime" ).datepicker(  "option", "dateFormat", "yy-mm-dd");
+    $( ".form_datetime" ).datepicker(  changeMonth: true, changeYear: true);
   } );
 </script> 
 

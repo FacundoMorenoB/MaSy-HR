@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Masy_cursos_controller extends CI_Controller {
+class Masy_cursos_controller extends MY_Controller {
 
 	public function __construct()
 	{
@@ -29,6 +29,17 @@ class Masy_cursos_controller extends CI_Controller {
 			$dircurso = $this->input->post("txtdireccioncur1");
 			$contcurso = $this->input->post("txtarecontenidocur1");
 			$imagecurso = $this->input->post("fileimagencur1");
+			$aufecha = mdate('%Y-%m-%d %h:%i', time());
+			if ($id == '') {
+				$autipomovimiento = 1;
+			}
+			else{
+				$autipomovimiento = 2;
+			}
+
+			if($this->is_logged_in()) {
+                        $auidusuario = $this->auth_user_id;
+            }
 
 
 			$datos = array(
@@ -37,6 +48,9 @@ class Masy_cursos_controller extends CI_Controller {
 				"idgsdireccion" => $dircurso,
 				"acontenido" => $contcurso,
 				"aimgfolleto" => $imagecurso,
+				"aufecha" => $aufecha,
+				"autipomovimiento" => $autipomovimiento,
+				"auidusuario" => $auidusuario,
 			);
 
 			if ($id == '') {
@@ -73,7 +87,17 @@ class Masy_cursos_controller extends CI_Controller {
 	function eliminar_nue_cur(){
 		if ($this->input->is_ajax_request()) {
 			$id = $this->input->post("txtidcur1");
-			if($this->masy_cursos_model->eliminar_cur($id) == true){
+			$aufecha = mdate('%Y-%m-%d %h:%i', time());
+			$autipomovimiento = 3;
+			if($this->is_logged_in()) {
+                        $auidusuario = $this->auth_user_id;
+            }
+			$datos = array(
+				"aufecha" => $aufecha,
+				"autipomovimiento" => $autipomovimiento,
+				"auidusuario" => $auidusuario
+			);
+			if($this->masy_cursos_model->eliminar_cur($id,$datos) == true){
 				redirect("masy_login_controller/recruiter");				
 			}
 			else{
@@ -125,6 +149,17 @@ class Masy_cursos_controller extends CI_Controller {
 			$capacitador = $this->input->post("txtcapacitadorcurcal1");
 			$comentarios = $this->input->post("txtarecomentarioscurcal1");
 			$clavecurso = $this->input->post("txtclavecurcal1");
+			$aufecha = mdate('%Y-%m-%d %h:%i', time());
+			if ($id == '') {
+				$autipomovimiento = 1;
+			}
+			else{
+				$autipomovimiento = 2;
+			}
+
+			if($this->is_logged_in()) {
+                        $auidusuario = $this->auth_user_id;
+            }
 
 
 			$datos = array(
@@ -133,7 +168,10 @@ class Masy_cursos_controller extends CI_Controller {
 				"afechafin" => $fechafin,
 				"acomentarios" => $comentarios,
 				"aclavecurso" => $clavecurso,
-				"idcapacitadores" => $capacitador
+				"idcapacitadores" => $capacitador,
+				"aufecha" => $aufecha,
+				"autipomovimiento" => $autipomovimiento,
+				"auidusuario" => $auidusuario,
 			);
 
 			if ($id == '') {
@@ -170,7 +208,17 @@ class Masy_cursos_controller extends CI_Controller {
 	function eliminar_cur_cal(){
 		if ($this->input->is_ajax_request()) {
 			$id = $this->input->post("txtidcurcal1");
-			if($this->masy_cursos_model->eliminar_cur_cal($id) == true){
+			$aufecha = mdate('%Y-%m-%d %h:%i', time());
+			$autipomovimiento = 3;
+			if($this->is_logged_in()) {
+                        $auidusuario = $this->auth_user_id;
+            }
+			$datos = array(
+				"aufecha" => $aufecha,
+				"autipomovimiento" => $autipomovimiento,
+				"auidusuario" => $auidusuario
+			);
+			if($this->masy_cursos_model->eliminar_cur_cal($id,$datos) == true){
 				redirect("masy_login_controller/recruiter");				
 			}
 			else{
@@ -219,10 +267,24 @@ class Masy_cursos_controller extends CI_Controller {
 			$id = $this->input->post("txtidasigcal1");
 			$calveemp = $this->input->post("txtclaveempcurasig1");
 			$clavecur = $this->input->post("selclavecurasig1");
+			$aufecha = mdate('%Y-%m-%d %h:%i', time());
+			if ($id == '') {
+				$autipomovimiento = 1;
+			}
+			else{
+				$autipomovimiento = 2;
+			}
+
+			if($this->is_logged_in()) {
+                        $auidusuario = $this->auth_user_id;
+            }
 
 			$datos = array(
-				"idgspersonas" => $calveemp,
-				"idmicalendariocursos" => $clavecur
+				"user_id" => $calveemp,
+				"idmicalendariocursos" => $clavecur,
+				"aufecha" => $aufecha,
+				"autipomovimiento" => $autipomovimiento,
+				"auidusuario" => $auidusuario,
 			);
 
 			if ($id == '') {
@@ -259,7 +321,17 @@ class Masy_cursos_controller extends CI_Controller {
 	function eliminar_cur_asig(){
 		if ($this->input->is_ajax_request()) {
 			$id = $this->input->post("txtidasigcal1");
-			if($this->masy_cursos_model->eliminar_cur_asig($id) == true){
+			$aufecha = mdate('%Y-%m-%d %h:%i', time());
+			$autipomovimiento = 3;
+			if($this->is_logged_in()) {
+                        $auidusuario = $this->auth_user_id;
+            }
+			$datos = array(
+				"aufecha" => $aufecha,
+				"autipomovimiento" => $autipomovimiento,
+				"auidusuario" => $auidusuario
+			);
+			if($this->masy_cursos_model->eliminar_cur_asig($id,$datos) == true){
 				redirect("masy_login_controller/recruiter");				
 			}
 			else{
