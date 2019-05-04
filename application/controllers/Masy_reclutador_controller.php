@@ -268,7 +268,7 @@ class Masy_reclutador_controller extends MY_Controller {
 				if ($idemp == '') {
 					$datos['username'] = $username;
 					$datos['email'] = $email;
-					$datos['passwd']     = $this->authentication->hash_passwd($datos['passwd']);
+					$datos['passwd']     = $this->authentication->hash_passwd($passwd);
 					$datos['user_id']    = $this->examples_model->get_unused_id();
 					$datos['created_at'] = date('Y-m-d H:i:s');
 					$r = $this->masy_reclutador_model->guardar_emp($datos);

@@ -2,26 +2,15 @@
     <section class="portfolio-block block-intro">
         <div class="container">
             <ul class="nav nav-tabs">
-                <li class="nav-item dropdown"><a data-toggle="dropdown" aria-expanded="false" href="#" class="dropdown-toggle nav-link">Procesos</a>
-                  <div role="menu" class="dropdown-menu">
-                      <a role="presentation" href="#registrarproceso" id="registrarproceso-tab" class="dropdown-item" data-toggle="tab">A&ntilde;adir Proceso</a>
-                      <a role="presentation" href="#registrarprocesocat" id="registrarprocesocat-tab" class="dropdown-item" data-toggle="tab">Catalogo de Procesos</a>
-                  </div>
+                <li class="nav-item active">
+                  <a role="presentation" href="#registrarprocesocat" id="registrarprocesocat-tab" class="dropdown-item active" data-toggle="tab">Procesos e Higiene</a>
                 </li>
-                <li class="nav-item dropdown">
-                  <a aria-expanded="false" href="#catalogoart" id="catalogoart-tab" class="dropdown-item" data-toggle="tab">Artículos de Seguridad</a>
-                </li>
-                <!--
-                <li class="nav-item dropdown"><a data-toggle="dropdown" aria-expanded="false" href="#" class="dropdown-toggle nav-link">Mapas</a>
-
-                </li>
-              -->
                 <li class="nav-item dropdown"><a data-toggle="dropdown" aria-expanded="false" href="#" class="dropdown-toggle nav-link">Salud Ocupacional</a>
                     <div role="menu" class="dropdown-menu">
-                        <a role="presentation" href="#registxrarMedicos" id="registrarMedicos-tab" class="dropdown-item" data-toggle="tab">Médicos Asignados</a>
-                        <a role="presentation" href="#registrarConsultorios" id="registrarConsultorios-tab" class="dropdown-item" data-toggle="tab">Consultorios</a>
-                        <a role="presentation" href="#registrarCitas" id="registrarCitas-tab" class="dropdown-item" data-toggle="tab">Citas Médicas</a>
                         <a role="presentation" href="#registrarMedicamentos" id="registrarMedicamentos-tab" class="dropdown-item" data-toggle="tab">Medicamentos</a>
+                        <a role="presentation" href="#registrarMedicos" id="registrarMedicos-tab" class="dropdown-item" data-toggle="tab">Médicos Asignados</a>
+                        <a role="presentation" href="#registrarConsultorios" id="registrarConsultorios-tab" class="dropdown-item" data-toggle="tab">Consultorios</a>
+                        <a role="presentation" href="#registrarcitas" id="registrarcitas-tab" class="dropdown-item" data-toggle="tab">Citas Médicas</a>
                     </div>
                 </li>
             </ul>
@@ -30,7 +19,7 @@
                     <div class="row justify-content-center">
                         <div class="col-12" style="margin-top: 30px; margin-bottom: 15px;">
                           <div class="header">
-                            <h2>Catálogo de Procesos</h2>
+                            <h2>Procesos e Higiene</h2>
                           </div>
                         </div>
                     </div>
@@ -52,13 +41,17 @@
                               <label class="control-label requiredField" for="txtDireccioncurhig">
                                Dirección
                               </label>
-                              <input required class="form-control" id="txtDireccioncurhig" name="txtDireccioncurhig" type="text" pattern="[0-9]+"/>
+                              <select class="select form-control" id="txtDireccioncurhig" name="txtDireccioncurhig">
+                      
+                              </select>
                              </div>
                              <div class="form-group ">
                               <label class="control-label requiredField" for="txtAreacurhig">
                                Área
                               </label>
-                              <input required class="form-control" id="txtAreacurhig" name="txtAreacurhig" type="text" pattern="[0-9]++" maxlength="250"/>
+                              <select class="select form-control" id="txtAreacurhig" name="txtAreacurhig">
+                      
+                              </select>
                              </div>
                           </div>
                           <div class="col-md-auto"></div>
@@ -99,37 +92,16 @@
                           <div class="col-7"><input class="form-control" type="text" name="txtbuscarcurhig" id="txtbuscarcurhig" placeholder="Buscar Proceso"></div>
                           <div class="col-3"><input type="button" name="btnbuscarcurhig" id="btnbuscarcurhig" class="btn btn-info" value="Mostrar todo" data-toggle='modal' data-target='#basicModal'></div>
                         </div>
-                        <div style="margin-top: 20px">
-                          <table class="table">
-                            <thead class="thead-dark">
-                              <tr>
-                                <th scope="col">ID</th>
-                                <th scope="col">Nombre</th>
-                                <th scope="col">Dirección</th>
-                                <th scope="col">Área</th>
-                              </tr>
-                            </thead>
-                            <tbody>
-                              <tr>
-                                <th scope="row">1001</th>
-                                <td>Lavado de Máquina Engrasadora</td>
-                                <td>Mantenimiento</td>
-                                <td>Lavado y Engrasado</td>
-                              </tr>
-                              <tr>
-                                <th scope="row">1002</th>
-                                <td>Mantenimiento de Máquina Pulidora</td>
-                                <td>Mantenimiento</td>
-                                <td>Lavado y Engrasado</td>
-                              </tr>
-                              <tr>
-                                <th scope="row">1003</th>
-                                <td>Mantenimiento a Karcher</td>
-                                <td>Mantenimiento</td>
-                                <td>Lavado y Engrasado</td>
-                              </tr>
-                            </tbody>
-                          </table>
+                        <div class="row justify-content-center">
+                            <div class="col-12">
+                                <section class="portfolio-block projects-cards">
+                                    <div class="container">
+                                        <div class="row" id="blklisprco">
+                                            
+                                        </div>
+                                    </div>
+                                </section>
+                            </div>
                         </div>
                         <div class="form-group">
                          <div>
@@ -138,6 +110,11 @@
                           </button>
                          </div>
                         </div>
+                        <div class="form-group">
+                                  <div>
+                                    <a href="#formactualizarproc" name="btnlimpiarcurhig" id="btnlimpiarcurhig" class="btn btn-info btn-block">Limpiar</a>
+                                  </div>
+                                </div>
                     </form>
                 </div>
 <?php
