@@ -59,6 +59,7 @@ $( document ).ready(function() {
 
 	$("#btnlimpiarcurhig").click(btnlimpiarcurhig);
 	$("#btnlimpiarmedicamento").click(btnlimpiarmedicamento);
+	$("#btnlimpiarmedico").click(btnlimpiarmedico);
 	$("#btnlimpiaconsul").click(btnlimpiaconsul);
 	$("#btnlimpiarcita").click(btnlimpiarcita);
 
@@ -68,7 +69,7 @@ $( document ).ready(function() {
 		valor = $(this).attr("value");
 		$("#txtDireccioncurhig").val(valor);
 		$.ajax({
-			url:"http://masyhr.hopto.org/MaSy-HR/index.php/masy_seghig_controller/mostrar_dir",
+			url:"http://localhost/MaSy-HR/index.php/masy_seghig_controller/mostrar_dir",
 			type:"post",
 			data:{txtDireccioncurhig:valor},
 			success:function(respuesta){
@@ -92,7 +93,7 @@ $( document ).ready(function() {
 		valor = $(this).attr("href");
 		$("#txtidcurhig1").val(valor);
 		$.ajax({
-			url:"http://masyhr.hopto.org/MaSy-HR/index.php/masy_seghig_controller/buscar_nue_curhig",
+			url:"http://localhost/MaSy-HR/index.php/masy_seghig_controller/buscar_nue_curhig",
 			type:"post",
 			data:{txtidcurhig1:valor},
 			success:function(respuesta){
@@ -108,7 +109,7 @@ $( document ).ready(function() {
 			}
 		});
 		$.ajax({
-			url:"http://masyhr.hopto.org/MaSy-HR/index.php/masy_seghig_controller/mostrar_dir",
+			url:"http://localhost/MaSy-HR/index.php/masy_seghig_controller/mostrar_dir",
 			type:"post",
 			data:{txtDireccioncurhig:valor},
 			success:function(respuesta){
@@ -135,7 +136,7 @@ $( document ).ready(function() {
 		valor = $(this).attr("href");
 		$("#txtidmedicamento").val(valor);
 		$.ajax({
-			url:"http://masyhr.hopto.org/MaSy-HR/index.php/masy_seghig_controller/buscar_nue_med",
+			url:"http://localhost/MaSy-HR/index.php/masy_seghig_controller/buscar_nue_med",
 			type:"post",
 			data:{txtidmedicamento:valor},
 			success:function(respuesta){
@@ -159,7 +160,7 @@ $( document ).ready(function() {
 		valor = $(this).attr("href");
 		$("#txtidmedico").val(valor);
 		$.ajax({
-			url:"http://masyhr.hopto.org/MaSy-HR/index.php/masy_seghig_controller/buscar_nue_med",
+			url:"http://localhost/MaSy-HR/index.php/masy_seghig_controller/buscar_nue_medico",
 			type:"post",
 			data:{txtidmedico:valor},
 			success:function(respuesta){
@@ -182,7 +183,7 @@ $( document ).ready(function() {
 		valor = $(this).attr("href");
 		$("#txtidconsul").val(valor);
 		$.ajax({
-			url:"http://masyhr.hopto.org/MaSy-HR/index.php/masy_seghig_controller/buscar_nue_consul",
+			url:"http://localhost/MaSy-HR/index.php/masy_seghig_controller/buscar_nue_consul",
 			type:"post",
 			data:{txtidconsul:valor},
 			success:function(respuesta){
@@ -206,7 +207,7 @@ $( document ).ready(function() {
 		valor = $(this).attr("href");
 		$("#txtidcita").val(valor);
 		$.ajax({
-			url:"http://masyhr.hopto.org/MaSy-HR/index.php/masy_seghig_controller/buscar_nue_cita2",
+			url:"http://localhost/MaSy-HR/index.php/masy_seghig_controller/buscar_nue_cita2",
 			type:"post",
 			data:{txtidcita:valor},
 			success:function(respuesta){
@@ -235,7 +236,7 @@ $( document ).ready(function() {
 		valor = $(this).attr("value");
 		$("#txtconsultoriocita").val(valor);
 		$.ajax({
-			url:"http://masyhr.hopto.org/MaSy-HR/index.php/masy_seghig_controller/buscar_nue_cita",
+			url:"http://localhost/MaSy-HR/index.php/masy_seghig_controller/buscar_nue_cita",
 			type:"post",
 			data:{txtconsultoriocita:valor},
 			success:function(respuesta){
@@ -260,7 +261,7 @@ $( document ).ready(function() {
 
 function mostrardatos_dir(valor){
 	$.ajax({
-		url:"http://masyhr.hopto.org/MaSy-HR/index.php/masy_seghig_controller/mostrar_dirgen",
+		url:"http://localhost/MaSy-HR/index.php/masy_seghig_controller/mostrar_dirgen",
 		type:"post",
 		data:{valor},
 		success:function(respuesta){
@@ -279,7 +280,7 @@ function mostrardatos_dir(valor){
 
 function mostrardatos_curhig(valor){
 	$.ajax({
-		url:"http://masyhr.hopto.org/MaSy-HR/index.php/masy_seghig_controller/mostrar_nue_curhig",
+		url:"http://localhost/MaSy-HR/index.php/masy_seghig_controller/mostrar_nue_curhig",
 		type:"post",
 		data:{txtbuscarcurhig:valor},
 		success:function(respuesta){
@@ -313,7 +314,7 @@ function mostrardatos_curhig(valor){
 
 function eliminar_curhig(valor){
 	$.ajax({
-		url:"http://masyhr.hopto.org/MaSy-HR/index.php/masy_seghig_controller/eliminar_nue_curhig",
+		url:"http://localhost/MaSy-HR/index.php/masy_seghig_controller/eliminar_nue_curhig",
 		type:"post",
 		data:{txtidcurhig1:valor},
 		success:function(respuesta){
@@ -346,7 +347,7 @@ function btnlimpiarcurhig(){
 
 function mostrardatos_nue_med(valor){
 	$.ajax({
-		url:"http://masyhr.hopto.org/MaSy-HR/index.php/masy_seghig_controller/mostrar_nue_med",
+		url:"http://localhost/MaSy-HR/index.php/masy_seghig_controller/mostrar_nue_med",
 		type:"post",
 		data:{txtbuscarmedicamento:valor},
 		success:function(respuesta){
@@ -379,7 +380,7 @@ function mostrardatos_nue_med(valor){
 
 function eliminar_nue_med(valor){
 	$.ajax({
-		url:"http://masyhr.hopto.org/MaSy-HR/index.php/masy_seghig_controller/eliminar_nue_med",
+		url:"http://localhost/MaSy-HR/index.php/masy_seghig_controller/eliminar_nue_med",
 		type:"post",
 		data:{txtidmedicamento:valor},
 		success:function(respuesta){
@@ -402,14 +403,14 @@ function btnlimpiarmedicamento(){
 //***********************************************************************
 //***********************************************************************
 //***********************************************************************
-//Funciones medicamentos
+//Funciones medicos
 //***********************************************************************
 //***********************************************************************
 //***********************************************************************
 
 function mostrardatos_emp(valor){
 	$.ajax({
-		url:"http://masyhr.hopto.org/MaSy-HR/index.php/masy_seghig_controller/mostrar_emp",
+		url:"http://localhost/MaSy-HR/index.php/masy_seghig_controller/mostrar_emp",
 		type:"post",
 		data:{valor},
 		success:function(respuesta){
@@ -429,7 +430,7 @@ function mostrardatos_emp(valor){
 
 function mostrardatos_nue_medico(valor){
 	$.ajax({
-		url:"http://masyhr.hopto.org/MaSy-HR/index.php/masy_seghig_controller/mostrar_nue_medico",
+		url:"http://localhost/MaSy-HR/index.php/masy_seghig_controller/mostrar_nue_medico",
 		type:"post",
 		data:{txtbuscarmedico:valor},
 		success:function(respuesta){
@@ -461,7 +462,7 @@ function mostrardatos_nue_medico(valor){
 
 function eliminar_nue_medico(valor){
 	$.ajax({
-		url:"http://masyhr.hopto.org/MaSy-HR/index.php/masy_seghig_controller/eliminar_nue_medico",
+		url:"http://localhost/MaSy-HR/index.php/masy_seghig_controller/eliminar_nue_medico",
 		type:"post",
 		data:{txtidmedico:valor},
 		success:function(respuesta){
@@ -472,7 +473,7 @@ function eliminar_nue_medico(valor){
 }
 
 
-function btnbuscarcurmedico(){
+function btnlimpiarmedico(){
 	$("#txtidmedico").val("")
 	$("#txtnommedico").val("")
 	$("#txtespmedico").val("")
@@ -488,7 +489,7 @@ function btnbuscarcurmedico(){
 
 function mostrardatos_med(valor){
 	$.ajax({
-		url:"http://masyhr.hopto.org/MaSy-HR/index.php/masy_seghig_controller/mostrar_med",
+		url:"http://localhost/MaSy-HR/index.php/masy_seghig_controller/mostrar_med",
 		type:"post",
 		data:{valor},
 		success:function(respuesta){
@@ -507,7 +508,7 @@ function mostrardatos_med(valor){
 
 function mostrardatos_nue_consul(valor){
 	$.ajax({
-		url:"http://masyhr.hopto.org/MaSy-HR/index.php/masy_seghig_controller/mostrar_nue_consul",
+		url:"http://localhost/MaSy-HR/index.php/masy_seghig_controller/mostrar_nue_consul",
 		type:"post",
 		data:{txtbuscarmedico:valor},
 		success:function(respuesta){
@@ -539,7 +540,7 @@ function mostrardatos_nue_consul(valor){
 
 function eliminar_nue_consul(valor){
 	$.ajax({
-		url:"http://masyhr.hopto.org/MaSy-HR/index.php/masy_seghig_controller/eliminar_nue_consul",
+		url:"http://localhost/MaSy-HR/index.php/masy_seghig_controller/eliminar_nue_consul",
 		type:"post",
 		data:{txtidconsul:valor},
 		success:function(respuesta){
@@ -566,7 +567,7 @@ function btnlimpiaconsul(){
 
 function mostrardatos_nue_cita(valor){
 	$.ajax({
-		url:"http://masyhr.hopto.org/MaSy-HR/index.php/masy_seghig_controller/mostrar_nue_cita",
+		url:"http://localhost/MaSy-HR/index.php/masy_seghig_controller/mostrar_nue_cita",
 		type:"post",
 		data:{txtbuscarmedico:valor},
 		success:function(respuesta){
@@ -599,7 +600,7 @@ function mostrardatos_nue_cita(valor){
 
 function eliminar_nue_cita(valor){
 	$.ajax({
-		url:"http://masyhr.hopto.org/MaSy-HR/index.php/masy_seghig_controller/eliminar_nue_cita",
+		url:"http://localhost/MaSy-HR/index.php/masy_seghig_controller/eliminar_nue_cita",
 		type:"post",
 		data:{txtidcita:valor},
 		success:function(respuesta){
@@ -623,7 +624,7 @@ function btnlimpiarcita(){
 
 function mostrardatos_consul(valor){
 	$.ajax({
-		url:"http://masyhr.hopto.org/MaSy-HR/index.php/masy_seghig_controller/mostrar_consul",
+		url:"http://localhost/MaSy-HR/index.php/masy_seghig_controller/mostrar_consul",
 		type:"post",
 		data:{valor},
 		success:function(respuesta){

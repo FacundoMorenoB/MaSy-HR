@@ -247,6 +247,7 @@ class Masy_seghig_model extends CI_Model {
 		$this->db->select('idmedico, anombrepersona, apaterno, amaterno');
 		$this->db->from('shmedicosasignados');
 		$this->db->join('users', 'shmedicosasignados.user_id  = users.user_id');
+		$this->db->where("shmedicosasignados.autipomovimiento != 3");
 		$consulta = $this->db->get();
 		return $consulta->result();
 	}
