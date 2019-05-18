@@ -272,6 +272,15 @@ class Masy_reclutador_controller extends MY_Controller {
 					$datos['user_id']    = $this->examples_model->get_unused_id();
 					$datos['created_at'] = date('Y-m-d H:i:s');
 					$r = $this->masy_reclutador_model->guardar_emp($datos);
+					this->email->from('masyhr.community@masy.hr.com', 'Your Name');
+					$this->email->to('facundo.morenob@gmail.com.com');
+					//$this->email->cc('another@another-example.com');
+					//$this->email->bcc('them@their-example.com');
+
+					$this->email->subject('Bienvenido al sistemas de MaSy-HR');
+					$this->email->message("Este es un correo de Bienvenida a la plataforma de MaSy-HR a continuacion te comparto se lista tu usuario y password de acceso a la plataforma. " . " Ususario: " . $datos['username'] . " Password: " . $datos['passwd']);
+
+					$this->email->send();
 					redirect("masy_login_controller/recruiter");
 				}
 				else{
