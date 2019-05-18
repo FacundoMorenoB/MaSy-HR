@@ -30,7 +30,7 @@
 
 	                             <div class="form-group">
 	                              <label class="control-label requiredField" for="txtcostmedicamento">
-	                               Coasto del medicamento
+	                               Costo del medicamento
 	                              </label>
 	                              <input required class="form-control" id="txtcostmedicamento" name="txtcostmedicamento" type="text" pattern="[0-9\.]+" maxlength="11" placeholder="#####.##" />
 	                             </div>

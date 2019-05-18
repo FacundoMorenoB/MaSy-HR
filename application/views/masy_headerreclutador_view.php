@@ -28,6 +28,7 @@
                     <li role="presentation"class="nav-item"><a href="#"class="nav-link">Informacion personal</a></li>
                     <li role="presentation"class="nav-item"><a href="<?php echo site_url('masy_login_controller/recruiter'); ?>"class="nav-link">Reclutamiento y Selecci&oacute;n</a></li>
                     <li role="presentation"class="nav-item"><a href="<?php echo site_url('masy_login_controller/security'); ?>"class="nav-link">Seguridad e Higiene</a></li>
+                    <li role="presentation"class="nav-item"><a href="<?php echo site_url('masy_login_controller/catalog'); ?>"class="nav-link">Catalogos</a></li>
                     <li role="presentation"class="nav-item active">
                     	<div class="btn btn-light action-button">
 						<?php

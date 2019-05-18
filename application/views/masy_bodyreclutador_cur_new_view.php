@@ -67,7 +67,7 @@
 							</div>
 							<div class="form-group">
                               <div>
-                               <a href="<?php echo site_url('masy_cursos_controller/pdf_nue_cur');?>" class="btn btn-dark btn-block" name="pdfvac" id="pdfvac" >PDF</a>
+                               <!-- <a href="<?php echo site_url('masy_cursos_controller/pdf_nue_cur');?>" class="btn btn-dark btn-block" name="pdfvac" id="pdfvac" >PDF</a> -->
                               </div>
                              </div>
                              <div class="form-group">
