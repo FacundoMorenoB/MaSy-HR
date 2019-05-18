@@ -83,7 +83,7 @@ $( document ).ready(function() {
 		valor = $(this).attr("href");
 		$("#txtidvac1").val(valor);
 		$.ajax({
-			url:"http://localhost/MaSy-HR/index.php/masy_reclutador_controller/buscar_vac",
+			url:"http://masyhr.hopto.org/MaSy-HR/index.php/masy_reclutador_controller/buscar_vac",
 			type:"post",
 			data:{txtidvac1:valor},
 			success:function(respuesta){
@@ -122,7 +122,7 @@ $( document ).ready(function() {
 		valor = $(this).attr("href");
 		$("#txtidemp1").val(valor);
 		$.ajax({
-			url:"http://localhost/MaSy-HR/index.php/masy_reclutador_controller/buscar_emp",
+			url:"http://masyhr.hopto.org/MaSy-HR/index.php/masy_reclutador_controller/buscar_emp",
 			type:"post",
 			data:{txtidemp1:valor},
 			success:function(respuesta){
@@ -161,7 +161,7 @@ $( document ).ready(function() {
 		valor = $(this).attr("href");
 		$("#txtidcur1").val(valor);
 		$.ajax({
-			url:"http://localhost/MaSy-HR/index.php/masy_cursos_controller/buscar_nue_cur",
+			url:"http://masyhr.hopto.org/MaSy-HR/index.php/masy_cursos_controller/buscar_nue_cur",
 			type:"post",
 			data:{txtidcur1:valor},
 			success:function(respuesta){
@@ -189,7 +189,7 @@ $( document ).ready(function() {
 		$("#txtidasigfecid1").val(valor);
 		//alert(valor);
 		$.ajax({
-			url:"http://localhost/MaSy-HR/index.php/masy_cursos_controller/buscar_cur_asig_list",
+			url:"http://masyhr.hopto.org/MaSy-HR/index.php/masy_cursos_controller/buscar_cur_asig_list",
 			type:"post",
 			data:{txtidasigfecid1:valor},
 			success:function(respuesta){
@@ -208,7 +208,7 @@ $( document ).ready(function() {
 		valor = $(this).attr("href");
 		$("#txtidcurcal1").val(valor);
 		$.ajax({
-			url:"http://localhost/MaSy-HR/index.php/masy_cursos_controller/buscar_cur_cal",
+			url:"http://masyhr.hopto.org/MaSy-HR/index.php/masy_cursos_controller/buscar_cur_cal",
 			type:"post",
 			data:{txtidcurcal1:valor},
 			success:function(respuesta){
@@ -236,7 +236,7 @@ $( document ).ready(function() {
 		//alert(valor);
 		$("#txtidasigcal1").val(valor);
 		$.ajax({
-			url:"http://localhost/MaSy-HR/index.php/masy_cursos_controller/buscar_cur_asig",
+			url:"http://masyhr.hopto.org/MaSy-HR/index.php/masy_cursos_controller/buscar_cur_asig",
 			type:"post",
 			data:{txtidasigcal1:valor},
 			success:function(respuesta){
@@ -260,7 +260,7 @@ $( document ).ready(function() {
 
 function mostrardatos_vac(valor){
 	$.ajax({
-		url:"http://localhost/MaSy-HR/index.php/masy_reclutador_controller/mostrar_vac",
+		url:"http://masyhr.hopto.org/MaSy-HR/index.php/masy_reclutador_controller/mostrar_vac",
 		type:"post",
 		data:{txtbuscarvac:valor},
 		success:function(respuesta){
@@ -272,7 +272,7 @@ function mostrardatos_vac(valor){
 			for (var i = 0; i < registros.length; i++) {
 				var num = Math.floor((Math.random() * (7-1))+1);
 				html +="<div class=\"col-md-6 col-lg-4\">";
-                html +="<div class=\"card border-0\"><a href='"+registros[i]["idperfildepuesto"]+"'><img src=\"http://localhost/MaSy-HR/img/nature/image"+num+".jpg\" alt=\"card image\" class=\"card-img-top scale-on-hover\"></a>";
+                html +="<div class=\"card border-0\"><a href='"+registros[i]["idperfildepuesto"]+"'><img src=\"http://masyhr.hopto.org/MaSy-HR/img/nature/image"+num+".jpg\" alt=\"card image\" class=\"card-img-top scale-on-hover\"></a>";
                 html +="<div class=\"card-body\">";
 				html +="<h6>"+registros[i]["anombrepuesto"]+"</h6>";
 				html +="<p class=\"text-muted card-text\">"+registros[i]["afunespecificas"]+"</p>";
@@ -287,7 +287,7 @@ function mostrardatos_vac(valor){
 
 function mostrardatos_emp(valor){
 	$.ajax({
-		url:"http://localhost/MaSy-HR/index.php/masy_reclutador_controller/mostrar_emp",
+		url:"http://masyhr.hopto.org/MaSy-HR/index.php/masy_reclutador_controller/mostrar_emp",
 		type:"post",
 		data:{txtbuscaremp:valor},
 		success:function(respuesta){
@@ -299,7 +299,7 @@ function mostrardatos_emp(valor){
                 
 			for (var i = 0; i < registros.length; i++) {
 				html +="<div class=\"col-md-6 col-lg-4\">";
-				html +="<a href='"+registros[i]["user_id"]+"'><div class=\"avatar\" style=\"background-image:url(http://localhost/MaSy-HR/img/avatars/avatar.jpg);\"></div></a>"
+				html +="<a href='"+registros[i]["user_id"]+"'><div class=\"avatar\" style=\"background-image:url(http://masyhr.hopto.org/MaSy-HR/img/avatars/avatar.jpg);\"></div></a>"
                 html +="<div class=\"card-body\">";
 				html +="<p class=\"text-muted card-text\">"+registros[i]["anombrepersona"]+" "+registros[i]["apaterno"]+" "+registros[i]["amaterno"]+"</p>";
 				html +="<a href='"+registros[i]["user_id"]+"' class='btn btn-warning btn-block' data-toggle='modal' data-target='#mymodal'>editar</a> <button class='btn btn-danger btn-block' type='button' value='"+registros[i]["user_id"]+"'>eliminar</button>";
@@ -313,7 +313,7 @@ function mostrardatos_emp(valor){
 
 function mostrardatos_nue_cur(valor){
 	$.ajax({
-		url:"http://localhost/MaSy-HR/index.php/masy_cursos_controller/mostrar_nue_cur",
+		url:"http://masyhr.hopto.org/MaSy-HR/index.php/masy_cursos_controller/mostrar_nue_cur",
 		type:"post",
 		data:{txtbuscarcur:valor},
 		success:function(respuesta){
@@ -346,7 +346,7 @@ function mostrardatos_nue_cur(valor){
 
 function mostrardatos_cal_cur(valor){
 	$.ajax({
-		url:"http://localhost/MaSy-HR/index.php/masy_cursos_controller/mostrar_cur_cal",
+		url:"http://masyhr.hopto.org/MaSy-HR/index.php/masy_cursos_controller/mostrar_cur_cal",
 		type:"post",
 		data:{txtbuscarcalcur:valor},
 		success:function(respuesta){
@@ -380,7 +380,7 @@ function mostrardatos_cal_cur(valor){
 
 function mostrardatos_cal_cur_list(valor){
 	$.ajax({
-		url:"http://localhost/MaSy-HR/index.php/masy_cursos_controller/mostrar_nue_cur",
+		url:"http://masyhr.hopto.org/MaSy-HR/index.php/masy_cursos_controller/mostrar_nue_cur",
 		type:"post",
 		data:{valor},
 		success:function(respuesta){
@@ -399,7 +399,7 @@ function mostrardatos_cal_cur_list(valor){
 
 function mostrardatos_cal_asig_list(valor){
 	$.ajax({
-		url:"http://localhost/MaSy-HR/index.php/masy_cursos_controller/mostrar_cur_cal",
+		url:"http://masyhr.hopto.org/MaSy-HR/index.php/masy_cursos_controller/mostrar_cur_cal",
 		type:"post",
 		data:{valor},
 		success:function(respuesta){
@@ -418,7 +418,7 @@ function mostrardatos_cal_asig_list(valor){
 
 function mostrardatos_asig_cur_list(valor){
 	$.ajax({
-		url:"http://localhost/MaSy-HR/index.php/masy_reclutador_controller/mostrar_emp",
+		url:"http://masyhr.hopto.org/MaSy-HR/index.php/masy_reclutador_controller/mostrar_emp",
 		type:"post",
 		data:{valor},
 		success:function(respuesta){
@@ -437,7 +437,7 @@ function mostrardatos_asig_cur_list(valor){
 
 function mostrardatos_emp_capa_cur_list(valor){
 	$.ajax({
-		url:"http://localhost/MaSy-HR/index.php/masy_cursos_controller/mostrar_emp_capa",
+		url:"http://masyhr.hopto.org/MaSy-HR/index.php/masy_cursos_controller/mostrar_emp_capa",
 		type:"post",
 		data:{valor},
 		success:function(respuesta){
@@ -457,7 +457,7 @@ function mostrardatos_emp_capa_cur_list(valor){
 
 function mostrardatos_dir_cur(valor){
 	$.ajax({
-		url:"http://localhost/MaSy-HR/index.php/masy_cursos_controller/mostrar_dir_cur",
+		url:"http://masyhr.hopto.org/MaSy-HR/index.php/masy_cursos_controller/mostrar_dir_cur",
 		type:"post",
 		data:{valor},
 		success:function(respuesta){
@@ -477,7 +477,7 @@ function mostrardatos_dir_cur(valor){
 
 function mostrardatos_dirgen(valor){
 	$.ajax({
-		url:"http://localhost/MaSy-HR/index.php/masy_reclutador_controller/mostrar_dirgen",
+		url:"http://masyhr.hopto.org/MaSy-HR/index.php/masy_reclutador_controller/mostrar_dirgen",
 		type:"post",
 		data:{valor},
 		success:function(respuesta){
@@ -496,7 +496,7 @@ function mostrardatos_dirgen(valor){
 
 function mostrardatos_puesto(valor){
 	$.ajax({
-		url:"http://localhost/MaSy-HR/index.php/masy_reclutador_controller/mostrar_puesto",
+		url:"http://masyhr.hopto.org/MaSy-HR/index.php/masy_reclutador_controller/mostrar_puesto",
 		type:"post",
 		data:{valor},
 		success:function(respuesta){
@@ -516,7 +516,7 @@ function mostrardatos_puesto(valor){
 
 function mostrardatos_asig_cur(valor){
 	$.ajax({
-		url:"http://localhost/MaSy-HR/index.php/masy_cursos_controller/mostrar_cur_asig",
+		url:"http://masyhr.hopto.org/MaSy-HR/index.php/masy_cursos_controller/mostrar_cur_asig",
 		type:"post",
 		data:{txtbuscarcurasig:valor},
 		success:function(respuesta){
@@ -549,7 +549,7 @@ function mostrardatos_asig_cur(valor){
 
 function actualizar(){
 	$.ajax({
-		url:"http://localhost/MaSy-HR/index.php/masy_reclutador_controller/guardar_actualizar_vac",
+		url:"http://masyhr.hopto.org/MaSy-HR/index.php/masy_reclutador_controller/guardar_actualizar_vac",
 		type:"post",
 		data:$("#form-formactualizarvac").serialize(),
 		success:function(respuesta){
@@ -561,7 +561,7 @@ function actualizar(){
 
 function actualizar_nue_cur(){
 	$.ajax({
-		url:"http://localhost/MaSy-HR/index.php/masy_cursos_controller/guardar_actualizar_nue_cur",
+		url:"http://masyhr.hopto.org/MaSy-HR/index.php/masy_cursos_controller/guardar_actualizar_nue_cur",
 		type:"post",
 		data:$("#formactualizarnuecur").serialize(),
 		success:function(respuesta){
@@ -573,7 +573,7 @@ function actualizar_nue_cur(){
 
 function actualizar_cal_cur(){
 	$.ajax({
-		url:"http://localhost/MaSy-HR/index.php/masy_cursos_controller/guardar_actualizar_cur_cal",
+		url:"http://masyhr.hopto.org/MaSy-HR/index.php/masy_cursos_controller/guardar_actualizar_cur_cal",
 		type:"post",
 		data:$("#formactualizarcalcur").serialize(),
 		success:function(respuesta){
@@ -585,7 +585,7 @@ function actualizar_cal_cur(){
 
 function eliminar(valor){
 	$.ajax({
-		url:"http://localhost/MaSy-HR/index.php/masy_reclutador_controller/eliminar_vac",
+		url:"http://masyhr.hopto.org/MaSy-HR/index.php/masy_reclutador_controller/eliminar_vac",
 		type:"post",
 		data:{txtidvac1:valor},
 		success:function(respuesta){
@@ -597,7 +597,7 @@ function eliminar(valor){
 
 function eliminar_emp(valor){
 	$.ajax({
-		url:"http://localhost/MaSy-HR/index.php/masy_reclutador_controller/eliminar_emp",
+		url:"http://masyhr.hopto.org/MaSy-HR/index.php/masy_reclutador_controller/eliminar_emp",
 		type:"post",
 		data:{txtidemp1:valor},
 		success:function(respuesta){
@@ -609,7 +609,7 @@ function eliminar_emp(valor){
 
 function eliminar_nue_cur(valor){
 	$.ajax({
-		url:"http://localhost/MaSy-HR/index.php/masy_cursos_controller/eliminar_nue_cur",
+		url:"http://masyhr.hopto.org/MaSy-HR/index.php/masy_cursos_controller/eliminar_nue_cur",
 		type:"post",
 		data:{txtidcur1:valor},
 		success:function(respuesta){
@@ -621,7 +621,7 @@ function eliminar_nue_cur(valor){
 
 function eliminar_cur_cal(valor){
 	$.ajax({
-		url:"http://localhost/MaSy-HR/index.php/masy_cursos_controller/eliminar_cur_cal",
+		url:"http://masyhr.hopto.org/MaSy-HR/index.php/masy_cursos_controller/eliminar_cur_cal",
 		type:"post",
 		data:{txtidcurcal1:valor},
 		success:function(respuesta){
@@ -633,7 +633,7 @@ function eliminar_cur_cal(valor){
 
 function eliminar_cur_asig(valor){
 	$.ajax({
-		url:"http://localhost/MaSy-HR/index.php/masy_cursos_controller/eliminar_cur_asig",
+		url:"http://masyhr.hopto.org/MaSy-HR/index.php/masy_cursos_controller/eliminar_cur_asig",
 		type:"post",
 		data:{txtidasigcal1:valor},
 		success:function(respuesta){
@@ -715,7 +715,7 @@ function btnlimpiaremp(){
 
 function mostrardatos_perf_emp(valor){
 	$.ajax({
-		url:"http://localhost/MaSy-HR/index.php/masy_reclutador_controller/mostrar_perf_emp",
+		url:"http://masyhr.hopto.org/MaSy-HR/index.php/masy_reclutador_controller/mostrar_perf_emp",
 		type:"post",
 		data:{valor},
 		success:function(respuesta){
