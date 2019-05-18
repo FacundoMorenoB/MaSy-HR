@@ -20,8 +20,8 @@ class Masy_cursos_model extends CI_Model {
 	function mostrar_cur($valor){
 		$this->db->like("mincursos.anombrecurso",$valor);
 		$this->db->from('mincursos');
-		$this->db->where("mincursos.autipomovimiento != 3");
 		$this->db->join('gsdireccionessub', 'mincursos.idgsdireccion = gsdireccionessub.idgsdireccion');
+		$this->db->where("mincursos.autipomovimiento != 3 and gsdireccionessub.autipomovimiento != 3");
 		$consulta = $this->db->get();
 		return $consulta->result();
 	}
@@ -76,7 +76,7 @@ class Masy_cursos_model extends CI_Model {
 		$this->db->join('mincursos', 'micalendariocursos.idcursoind = mincursos.idcursoind');
 		$this->db->join('micapacitadores', 'micalendariocursos.idcapacitadores = micapacitadores.idcapacitadores');
 		$this->db->join('users', 'micapacitadores.user_id = users.user_id');
-		$this->db->where("micalendariocursos.autipomovimiento != 3");
+		$this->db->where("micalendariocursos.autipomovimiento != 3 and mincursos.autipomovimiento != 3 and micapacitadores.autipomovimiento != 3 and users.autipomovimiento != 3");
 		$consulta = $this->db->get();
 		return $consulta->result();
 	}
@@ -130,7 +130,7 @@ class Masy_cursos_model extends CI_Model {
 		$this->db->join('users', 'incursosxempl.user_id = users.user_id');
 		$this->db->join('micalendariocursos', 'incursosxempl.idmicalendariocursos = micalendariocursos.idmicalendarcurso');
 		$this->db->join('mincursos', 'micalendariocursos.idcursoind = mincursos.idcursoind');
-		$this->db->where("incursosxempl.autipomovimiento != 3");
+		$this->db->where("incursosxempl.autipomovimiento != 3 and users.autipomovimiento != 3 and micalendariocursos.autipomovimiento != 3 and mincursos.autipomovimiento != 3");
 		$consulta = $this->db->get();
 		return $consulta->result();
 	}
@@ -174,6 +174,7 @@ class Masy_cursos_model extends CI_Model {
 
 	function mostrar_dir_cur($valor){
 		$this->db->like("idgsdireccion",$valor);
+		$this->db->where("gsdireccionessub.autipomovimiento != 3");
 		$consulta = $this->db->get("gsdireccionessub");
 		return $consulta->result();
 	}
@@ -182,6 +183,7 @@ class Masy_cursos_model extends CI_Model {
 		$this->db->select('*');
 		$this->db->from('micapacitadores');
 		$this->db->join('users', 'micapacitadores.user_id = users.user_id');
+		$this->db->where("users.autipomovimiento != 3 and micapacitadores.autipomovimiento != 3");
 		$consulta = $this->db->get();
 		return $consulta->result();
 	}

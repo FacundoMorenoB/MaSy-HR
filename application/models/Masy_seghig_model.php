@@ -23,7 +23,7 @@ class Masy_seghig_model extends CI_Model {
 		$this->db->from('shprocesos');
 		$this->db->join('gsdirdireccionesgen', 'shprocesos.iddireccionemp  = gsdirdireccionesgen.idgsdirdireccion');
 		$this->db->join('gsdireccionessub', 'shprocesos.idgsareasdireccion  = gsdireccionessub.idgsdireccion');
-		$this->db->where("shprocesos.autipomovimiento != 3");
+		$this->db->where("shprocesos.autipomovimiento != 3 and gsdirdireccionesgen.autipomovimiento != 3 and gsdireccionessub.autipomovimiento != 3");
 		$consulta = $this->db->get();
 		return $consulta->result();
 	}
@@ -31,6 +31,7 @@ class Masy_seghig_model extends CI_Model {
 	function mostrar_dirgen(){
 		$this->db->select('gsdirdireccionesgen.idgsdirdireccion, gsdirdireccionesgen.anombredireccion anombredirdireccion');
 		$this->db->from('gsdirdireccionesgen');
+		$this->db->where("gsdirdireccionesgen.autipomovimiento != 3");
 		$consulta = $this->db->get();
 		return $consulta->result();
 	}
@@ -40,6 +41,7 @@ class Masy_seghig_model extends CI_Model {
 		$this->db->from('gsdirdireccionesgen');
 		$this->db->join('gsdireccionessub', 'gsdirdireccionesgen.idgsdirdireccion = gsdireccionessub. 	idgsdirdireccion');
 		$this->db->where('gsdirdireccionesgen.idgsdirdireccion',$id);
+		$this->db->where("gsdirdireccionesgen.autipomovimiento != 3 and gsdireccionessub.autipomovimiento != 3");
 		$consulta = $this->db->get();
 		return $consulta->result();
 	}
@@ -147,7 +149,7 @@ class Masy_seghig_model extends CI_Model {
 		$this->db->like("anombrepersona",$valor);
 		$this->db->from('shmedicosasignados');
 		$this->db->join('users', 'shmedicosasignados.user_id  = users.user_id');
-		$this->db->where("shmedicosasignados.autipomovimiento != 3");
+		$this->db->where("shmedicosasignados.autipomovimiento != 3 and users.autipomovimiento != 3");
 		$consulta = $this->db->get();
 		return $consulta->result();
 	}
@@ -183,7 +185,7 @@ class Masy_seghig_model extends CI_Model {
 	function mostrar_emp(){
 		$this->db->select('user_id, anombrepersona, apaterno, amaterno');
 		$this->db->from('users');
-		$this->db->where("users.user_id != 1637400287");
+		$this->db->where("users.user_id != 1637400287 and users.autipomovimiento != 3");
 		$consulta = $this->db->get();
 		return $consulta->result();
 	}
@@ -210,7 +212,7 @@ class Masy_seghig_model extends CI_Model {
 		$this->db->from('shconsultorios');
 		$this->db->join('shmedicosasignados', 'shconsultorios.idmedico  = shmedicosasignados.idmedico');
 		$this->db->join('users', 'shmedicosasignados.user_id  = users.user_id');
-		$this->db->where("shconsultorios.autipomovimiento != 3");
+		$this->db->where("shconsultorios.autipomovimiento != 3 and shmedicosasignados.autipomovimiento != 3 and users.autipomovimiento != 3");
 		$consulta = $this->db->get();
 		return $consulta->result();
 	}
@@ -247,7 +249,7 @@ class Masy_seghig_model extends CI_Model {
 		$this->db->select('idmedico, anombrepersona, apaterno, amaterno');
 		$this->db->from('shmedicosasignados');
 		$this->db->join('users', 'shmedicosasignados.user_id  = users.user_id');
-		$this->db->where("shmedicosasignados.autipomovimiento != 3");
+		$this->db->where("shmedicosasignados.autipomovimiento != 3 and users.autipomovimiento != 3");
 		$consulta = $this->db->get();
 		return $consulta->result();
 	}
@@ -275,7 +277,7 @@ class Masy_seghig_model extends CI_Model {
 		$this->db->join('users', 'shcitasmedicas.user_id  = users.user_id');
 		$this->db->join('shconsultorios', 'shcitasmedicas.idshconsultorios  = shconsultorios.idshconsultorios');
 		$this->db->join('shmedicosasignados', 'shconsultorios.idmedico  = shmedicosasignados.idmedico');
-		$this->db->where("shcitasmedicas.autipomovimiento != 3");
+		$this->db->where("shcitasmedicas.autipomovimiento != 3 and users.autipomovimiento != 3 and shconsultorios.autipomovimiento != 3 and shmedicosasignados.autipomovimiento != 3");
 		$consulta = $this->db->get();
 		return $consulta->result();
 	}
@@ -326,6 +328,7 @@ class Masy_seghig_model extends CI_Model {
 	function mostrar_consul(){
 		$this->db->select('idshconsultorios, aoficinaconsultorio');
 		$this->db->from('shconsultorios');
+		$this->db->where("shconsultorios.autipomovimiento != 3");
 		$consulta = $this->db->get();
 		return $consulta->result();
 	}

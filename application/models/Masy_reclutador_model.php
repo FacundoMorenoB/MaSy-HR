@@ -24,7 +24,7 @@ class Masy_reclutador_model extends CI_Model {
 		$this->db->like("gspuestos.anombrepuesto",$valor);
 		$this->db->from('gspuestos');
 		$this->db->join('gsperfilespuestos', 'gspuestos.idgspuestos = gsperfilespuestos.idgspuestos');
-		$this->db->where("gsperfilespuestos.autipomovimiento != 3");
+		$this->db->where("gspuestos.autipomovimiento != 3 and gsperfilespuestos.autipomovimiento != 3");
 		$consulta = $this->db->get();
 		return $consulta->result();
 	}
@@ -59,6 +59,7 @@ class Masy_reclutador_model extends CI_Model {
 
 	function mostrar_dirgen($valor){
 		$this->db->like("idgsdirdireccion",$valor);
+		$this->db->where("gsdirdireccionesgen.autipomovimiento != 3");
 		$consulta = $this->db->get("gsdirdireccionesgen");
 		return $consulta->result();
 	}
@@ -125,6 +126,7 @@ class Masy_reclutador_model extends CI_Model {
 
 	function mostrar_perf_emp($valor){
 		$this->db->like("anombrepuesto",$valor);
+		$this->db->where("gspuestos.autipomovimiento != 3");
 		$consulta = $this->db->get("gspuestos");
 		return $consulta->result();
 	}
